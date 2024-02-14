@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZTRtool", "ZTRtool.csproj", "{5543911D-69EB-431C-939E-4D8C9F4E1BD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug (Convert)|Any CPU = Debug (Convert)|Any CPU
+		Debug (Convert_TestArea)|Any CPU = Debug (Convert_TestArea)|Any CPU
+		Debug (Extract)|Any CPU = Debug (Extract)|Any CPU
+		Debug (Extract_TestArea)|Any CPU = Debug (Extract_TestArea)|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Convert)|Any CPU.ActiveCfg = Debug (Convert)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Convert)|Any CPU.Build.0 = Debug (Convert)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Convert_TestArea)|Any CPU.ActiveCfg = Debug (Convert_TestArea)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Convert_TestArea)|Any CPU.Build.0 = Debug (Convert_TestArea)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract)|Any CPU.ActiveCfg = Debug (Extract)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract)|Any CPU.Build.0 = Debug (Extract)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract_TestArea)|Any CPU.ActiveCfg = Debug (Extract_TestArea)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract_TestArea)|Any CPU.Build.0 = Debug (Extract_TestArea)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCA1AF7A-14CF-499D-8914-ABB76030174E}
+	EndGlobalSection
+EndGlobal
