@@ -30,31 +30,31 @@ namespace ZTRtool
 
             // Determine the encoding
             // to use
-            var encodingToUse = Encoding.GetEncoding(1252);
+            LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inTxtFile).EndsWith("_ch.txt") || Path.GetFileName(inTxtFile).EndsWith("_c.ztr"))
-                        encodingToUse = Encoding.GetEncoding(950);
+                        LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(950);
 
                     if (Path.GetFileName(inTxtFile).EndsWith("_jp.txt") || Path.GetFileName(inTxtFile).EndsWith("_j.ztr"))
-                        encodingToUse = Encoding.GetEncoding(932);
+                        LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(932);
 
                     if (Path.GetFileName(inTxtFile).EndsWith("_kr.txt") || Path.GetFileName(inTxtFile).EndsWith("_k.ztr"))
-                        encodingToUse = Encoding.GetEncoding(51949);
+                        LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
 
                 case EncodingSwitches.ch:
-                    encodingToUse = Encoding.GetEncoding(950);
+                    LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    encodingToUse = Encoding.GetEncoding(932);
+                    LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    encodingToUse = Encoding.GetEncoding(51949);
+                    LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
             }
 
@@ -142,7 +142,7 @@ namespace ZTRtool
                 // Convert all symbols from the 
                 // linesStream into valid two
                 // byte values
-                var processedLinesArray = LineSymbolsEncoder.ConvertLines(unprocessedLinesArray, encodingToUse);
+                var processedLinesArray = LineSymbolsEncoder.ConvertLines(unprocessedLinesArray);
 
                 // Test dump the lines data from
                 // the array

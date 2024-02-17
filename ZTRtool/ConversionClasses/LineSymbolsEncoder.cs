@@ -7,42 +7,45 @@ namespace ZTRtool.SupportClasses
 {
     internal class LineSymbolsEncoder
     {
-        static byte CurrentLineByte { get; set; }
-        static long LastReadPos { get; set; }
-        static string CurrentSymbol { get; set; }
-        static bool IsSymbolConverted { get; set; }
-        static byte OneByteKey { get; set; }
-        static (byte, byte) TwoBytesKey { get; set; }
+        public static Encoding EncodingToUse { get; set; }
 
-        static bool SymbolCondition1 { get; set; }
-        static bool SymbolCondition2 { get; set; }
-        static bool SymbolCondition3 { get; set; }
-        static bool SymbolCondition4 { get; set; }
-        static bool SymbolCondition5 { get; set; }
-        static bool SymbolCondition6 { get; set; }
-        static bool SymbolCondition7 { get; set; }
-        static bool SymbolCondition8 { get; set; }
-        static bool SymbolCondition9 { get; set; }
-        static bool SymbolCondition10 { get; set; }
-
-
-
-        public static byte[] ConvertLines(byte[] unprocessedLinesArray, Encoding encodingToUse)
+        public static byte[] ConvertLines(byte[] unprocessedLinesArray)
         {
+            // Declare all commonly used
+            // variables
+            byte CurrentLineByte;
+            long LastReadPos;
+            string CurrentSymbol;
+            bool IsSymbolConverted = new bool();
+            byte OneByteKey;
+            (byte, byte) TwoBytesKey;
+
+            bool SymbolCondition1;
+            bool SymbolCondition2;
+            bool SymbolCondition3;
+            bool SymbolCondition4;
+            bool SymbolCondition5;
+            bool SymbolCondition6;
+            bool SymbolCondition7;
+            bool SymbolCondition8;
+            bool SymbolCondition9;
+            bool SymbolCondition10;
+
+            // Determine the encodePath
             var encodeCodePath = 0;
 
             // ch
-            if (encodingToUse.CodePage == 950)
+            if (EncodingToUse.CodePage == 950)
             {
                 encodeCodePath = 1;
             }
             // jp
-            if (encodingToUse.CodePage == 932)
+            if (EncodingToUse.CodePage == 932)
             {
                 encodeCodePath = 2;
             }
             // kr
-            if (encodingToUse.CodePage == 51949)
+            if (EncodingToUse.CodePage == 51949)
             {
                 encodeCodePath = 3;
             }

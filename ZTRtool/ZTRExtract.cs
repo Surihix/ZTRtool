@@ -11,6 +11,7 @@ namespace ZTRtool
 {
     internal class ZTRExtract
     {
+        // Debug stuff
         public static string OutTxtFile { get; set; }
         public static string OutTxtFileDir { get; set; }
         public static string DebugDir { get; set; }
@@ -24,38 +25,35 @@ namespace ZTRtool
             }
             Directory.CreateDirectory(DebugDir);
 
-            var encodingToUse = Encoding.GetEncoding(1252);
+            LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inFile).EndsWith("_ch.ztr") || Path.GetFileName(inFile).EndsWith("_c.ztr"))
                     {
-                        encodingToUse = Encoding.GetEncoding(950);
+                        LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(950);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_jp.ztr") || Path.GetFileName(inFile).EndsWith("_j.ztr"))
                     {
-                        encodingToUse = Encoding.GetEncoding(932);
+                        LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(932);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_kr.ztr") || Path.GetFileName(inFile).EndsWith("_k.ztr"))
                     {
-                        encodingToUse = Encoding.GetEncoding(51949);
+                        LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(51949);
                     }
                     break;
 
                 case EncodingSwitches.ch:
-                    encodingToUse = Encoding.GetEncoding(950);
+                    LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    encodingToUse = Encoding.GetEncoding(932);
+                    LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    encodingToUse = Encoding.GetEncoding(51949);
-                    break;
-
-                case EncodingSwitches.us:
+                    LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
             }
 
@@ -74,7 +72,7 @@ namespace ZTRtool
                 fileHeader.DictChunkOffsetsCount = ztrReader.ReadBytesUInt32(true);
 
                 var dictChunkOffsetsStart = ztrReader.BaseStream.Position;
-                var lineInfoTableStartPos = dictChunkOffsetsStart + (fileHeader.DictChunkOffsetsCount * 4);
+                LinesExtractor.LineInfoTableStartPos = dictChunkOffsetsStart + (fileHeader.DictChunkOffsetsCount * 4);
 
 
                 // Get id dictionary chunks
@@ -151,7 +149,9 @@ namespace ZTRtool
                                 }
                             }
 
-                            //File.WriteAllBytes("test_IDs-dump", idsStream.ToArray());
+                            // Test dump the lines data from
+                            // the array
+                            File.WriteAllBytes(Path.Combine(DebugDir, "test_IDs-dump"), idsStream.ToArray());
 
                             // Extract lines
                             using (var lineDictChunks_Stream = new MemoryStream())
@@ -159,8 +159,7 @@ namespace ZTRtool
                                 using (var lineDictChunksReader = new BinaryReader(lineDictChunks_Stream))
                                 {
                                     ztrReader.BaseStream.CopyTo(lineDictChunks_Stream);
-                                    LinesExtractor.ExtractLines(ztrReader, fileHeader, idsReader, lineInfoTableStartPos,
-                                        dictChunkOffsets, lineDictChunksReader, encodingToUse);
+                                    LinesExtractor.ExtractLines(ztrReader, fileHeader, idsReader, dictChunkOffsets, lineDictChunksReader);
                                 }
                             }
                         }

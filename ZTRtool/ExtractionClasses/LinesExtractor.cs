@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
 
 namespace ZTRtool.SupportClasses
 {
     internal class LinesExtractor
     {
-        public static void ExtractLines(BinaryReader ztrReader, FileHeader fileHeader, BinaryReader idsReader,
-            long lineInfoTableStartPos, List<uint> dictChunkOffsets, BinaryReader lineDictChunkReader,
-            Encoding encodingToUse)
+        public static long LineInfoTableStartPos {  get; set; }
+
+        public static void ExtractLines(BinaryReader ztrReader, FileHeader fileHeader, BinaryReader idsReader, List<uint> dictChunkOffsets, BinaryReader lineDictChunkReader)
         {
             // Extract all lines into
             // a memorystream
@@ -43,7 +42,7 @@ namespace ZTRtool.SupportClasses
                     {
                         var lineEnded = false;
 
-                        ztrReader.BaseStream.Position = lineInfoTableStartPos;
+                        ztrReader.BaseStream.Position = LineInfoTableStartPos;
                         lineInfo.DictChunkID = ztrReader.ReadByte();
                         lineInfo.CharaStartInDictPage = ztrReader.ReadByte();
                         lineInfo.LineStartPosInChunk = ztrReader.ReadBytesUInt16(true);
@@ -149,7 +148,7 @@ namespace ZTRtool.SupportClasses
                         currentLineByte = 255;
                         prevLineByte = 255;
 
-                        lineInfoTableStartPos += 4;
+                        LineInfoTableStartPos += 4;
                         linesWriter.Write((byte)13);
                         linesWriter.Write((byte)10);
                     }
@@ -164,7 +163,7 @@ namespace ZTRtool.SupportClasses
                     }
 
                     File.WriteAllBytes(rawBinFile, linesStream.ToArray());
-                    LineSymbolsParser.ParsingProcess(linesStream, encodingToUse);
+                    LineSymbolsParser.ParsingProcess(linesStream);
                 }
             }
         }
