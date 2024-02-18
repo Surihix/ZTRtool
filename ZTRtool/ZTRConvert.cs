@@ -30,31 +30,31 @@ namespace ZTRtool
 
             // Determine the encoding
             // to use
-            LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(1252);
+            LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inTxtFile).EndsWith("_ch.txt") || Path.GetFileName(inTxtFile).EndsWith("_c.ztr"))
-                        LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(950);
+                        LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(950);
 
                     if (Path.GetFileName(inTxtFile).EndsWith("_jp.txt") || Path.GetFileName(inTxtFile).EndsWith("_j.ztr"))
-                        LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(932);
+                        LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(932);
 
                     if (Path.GetFileName(inTxtFile).EndsWith("_kr.txt") || Path.GetFileName(inTxtFile).EndsWith("_k.ztr"))
-                        LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(51949);
+                        LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
 
                 case EncodingSwitches.ch:
-                    LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(950);
+                    LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(932);
+                    LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    LineSymbolsEncoder.EncodingToUse = Encoding.GetEncoding(51949);
+                    LineEncKeysBuilder.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
             }
 
@@ -142,7 +142,7 @@ namespace ZTRtool
                 // Convert all symbols from the 
                 // linesStream into valid two
                 // byte values
-                var processedLinesArray = LineSymbolsEncoder.ConvertLines(unprocessedLinesArray);
+                var processedLinesArray = LineEncKeysBuilder.ConvertLines(unprocessedLinesArray);
 
                 // Test dump the lines data from
                 // the array
@@ -150,7 +150,7 @@ namespace ZTRtool
 
                 // Build the ztr file
                 OutFile = Path.Combine(Path.GetDirectoryName(inTxtFile), Path.GetFileNameWithoutExtension(inTxtFile) + ".ztr");
-                UncmpZTRbuilder.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
+                ZTRbuilderUncmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
             }
 
             Console.WriteLine("");

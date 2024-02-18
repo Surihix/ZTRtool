@@ -2,7 +2,7 @@
 
 namespace ZTRtool.SupportClasses
 {
-    internal class SymbolsDicts
+    internal class EncodingKeysDicts
     {
         public static Dictionary<byte, string> SingleCodes = new Dictionary<byte, string>()
         {

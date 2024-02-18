@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.SymbolsDicts;
+using static ZTRtool.SupportClasses.EncodingKeysDicts;
 
 namespace ZTRtool.SupportClasses
 {
-    internal class LineSymbolsParser
+    internal class LineEncKeysParser
     {
         public static Encoding EncodingToUse { get; set; }
 
@@ -13,11 +13,13 @@ namespace ZTRtool.SupportClasses
         {
             // Declare all commonly used
             // variables
+            var prevByte = byte.MaxValue;
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
 
             bool Condition1;
             bool Condition2;
+            bool hasWritten = false;
 
             // Encode all lines
             Console.WriteLine("Parsing Symbols in lines....");
@@ -60,7 +62,6 @@ namespace ZTRtool.SupportClasses
                         using (var linesWriter = new StreamWriter(ZTRExtract.OutTxtFile, true, Encoding.UTF8))
                         {
                             byte[] writeArray;
-                            bool hasWritten = false;
 
                             for (int li = 0; li < linesStreamLength; li++)
                             {
@@ -190,23 +191,132 @@ namespace ZTRtool.SupportClasses
                         {
                             File.Delete(ZTRExtract.OutTxtFile);
                         }
-
                         break;
 
                     // jp
                     case 2:
-
                         using (var linesOutMem = new MemoryStream())
                         {
                             using (var linesWriterBinary = new BinaryWriter(linesOutMem, EncodingToUse))
                             {
+                                bool checkIfShiftJis;
+                                for (int li = 0; li < linesStreamLength; li++)
+                                {
+                                    currentByte = linesReader.ReadByte();
 
+                                    // Not implemented
+                                    checkIfShiftJis = CheckIfShiftJISChara(prevByte, currentByte);
+                                    if (checkIfShiftJis)
+                                    {
+                                        linesWriterBinary.Write(currentByte);
+                                        hasWritten = true;
+                                    }
 
+                                    Condition1 = !hasWritten && SingleCodes.ContainsKey(currentByte);
+                                    if (Condition1)
+                                    {
+                                        // End the line if next
+                                        // byte is 0
+                                        if (currentByte == 0 && linesReader.BaseStream.Position < linesStreamLength)
+                                        {
+                                            nextByte = linesReader.ReadByte();
+                                            linesReader.BaseStream.Position -= 1;
+
+                                            if (nextByte == 0)
+                                            {
+                                                hasWritten = true;
+                                                linesReader.BaseStream.Position += 1;
+                                                li++;
+                                            }
+                                        }
+
+                                        if (!hasWritten)
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(SingleCodes[currentByte]));
+                                            hasWritten = true;
+                                        }
+                                    }
+
+                                    Condition2 = !hasWritten && linesReader.BaseStream.Position < linesStreamLength;
+                                    if (Condition2)
+                                    {
+                                        nextByte = linesReader.ReadByte();
+                                        linesReader.BaseStream.Position -= 1;
+
+                                        if (!hasWritten && ColorCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(ColorCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+
+                                        if (!hasWritten && IconCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(IconCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+
+                                        if (!hasWritten && CharaCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(CharaCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+
+                                        if (!hasWritten && KeysCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(KeysCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+
+                                        if (!hasWritten && UnkVarCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(UnkVarCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+
+                                        if (!hasWritten && UniCodeCharaCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(UniCodeCharaCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+
+                                        if (!hasWritten && Big5LetterCodes.ContainsKey((currentByte, nextByte)))
+                                        {
+                                            linesWriterBinary.Write(EncodingToUse.GetBytes(Big5LetterCodes[(currentByte, nextByte)]));
+                                            hasWritten = true;
+                                            linesReader.BaseStream.Position += 1;
+                                            li++;
+                                        }
+                                    }
+
+                                    if (!hasWritten)
+                                    {
+                                        linesWriterBinary.Write(currentByte);
+                                        hasWritten = true;
+                                    }
+
+                                    prevByte = currentByte;
+
+                                    hasWritten = false;
+                                }
 
                                 if (File.Exists(ZTRExtract.OutTxtFile))
                                 {
                                     File.Delete(ZTRExtract.OutTxtFile);
                                 }
+
+                                File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(EncodingToUse, Encoding.UTF8, linesOutMem.ToArray()));
                             }
                         }
 
@@ -327,6 +437,13 @@ namespace ZTRtool.SupportClasses
                         break;
                 }
             }
+        }
+
+
+        static bool CheckIfShiftJISChara(byte b1, byte b2)
+        {
+
+            return false;
         }
     }
 }

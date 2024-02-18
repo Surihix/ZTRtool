@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.SymbolsDicts;
+using static ZTRtool.SupportClasses.EncodingKeysDicts;
 
 namespace ZTRtool.SupportClasses
 {
-    internal class LineSymbolsEncoder
+    internal class LineEncKeysBuilder
     {
         public static Encoding EncodingToUse { get; set; }
 

@@ -163,7 +163,7 @@ namespace ZTRtool.SupportClasses
                     }
 
                     File.WriteAllBytes(rawBinFile, linesStream.ToArray());
-                    LineSymbolsParser.ParsingProcess(linesStream);
+                    LineEncKeysParser.ParsingProcess(linesStream);
                 }
             }
         }

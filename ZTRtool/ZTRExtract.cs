@@ -25,35 +25,35 @@ namespace ZTRtool
             }
             Directory.CreateDirectory(DebugDir);
 
-            LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(1252);
+            LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inFile).EndsWith("_ch.ztr") || Path.GetFileName(inFile).EndsWith("_c.ztr"))
                     {
-                        LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(950);
+                        LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(950);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_jp.ztr") || Path.GetFileName(inFile).EndsWith("_j.ztr"))
                     {
-                        LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(932);
+                        LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(932);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_kr.ztr") || Path.GetFileName(inFile).EndsWith("_k.ztr"))
                     {
-                        LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(51949);
+                        LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(51949);
                     }
                     break;
 
                 case EncodingSwitches.ch:
-                    LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(950);
+                    LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(932);
+                    LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    LineSymbolsParser.EncodingToUse = Encoding.GetEncoding(51949);
+                    LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
             }
 

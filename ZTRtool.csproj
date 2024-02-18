@@ -83,10 +83,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ZTRtool\ConversionClasses\UncmpZTRbuilder.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\LineSymbolsParser.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\LineSymbolsEncoder.cs" />
-    <Compile Include="ZTRtool\SupportClasses\SymbolsDicts.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\ZTRbuilderUncmp.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\LineEncKeysParser.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\LineEncKeysBuilder.cs" />
+    <Compile Include="ZTRtool\SupportClasses\EncodingKeysDicts.cs" />
     <Compile Include="ZTRtool\SupportClasses\ZTREnums.cs" />
     <Compile Include="ZTRtool\ZTRConvert.cs" />
     <Compile Include="ZTRtool\SupportClasses\DictionaryHelpers.cs" />

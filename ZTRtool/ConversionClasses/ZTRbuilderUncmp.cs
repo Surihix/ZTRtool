@@ -4,7 +4,7 @@ using static ZTRtool.SupportClasses.ZTRFileVariables;
 
 namespace ZTRtool.SupportClasses
 {
-    internal class UncmpZTRbuilder
+    internal class ZTRbuilderUncmp
     {
         public static void BuildZTR(FileHeader fileHeader, byte[] processedIDsArray, byte[] processedLinesArray)
         {
