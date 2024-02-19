@@ -6,6 +6,9 @@ namespace ZTRtool
 {
     internal class Core
     {
+        public static bool IsDebug { get; set; }
+        public static string DebugDir { get; set; }
+
         static void Main(string[] args)
         {
             if (args.Length < 3)
@@ -42,6 +45,24 @@ namespace ZTRtool
                 Console.WriteLine("Error: Specified encoding was invalid.");
                 Console.ReadLine();
                 Environment.Exit(0);
+            }
+
+            if (args.Length > 3)
+            {
+                if (args[3] == "-debug")
+                {
+                    IsDebug = true;
+                }
+            }
+
+            if (IsDebug)
+            {
+                DebugDir = Path.Combine(Path.GetDirectoryName(inFile), "_debug");
+                if (Directory.Exists(DebugDir))
+                {
+                    Directory.Delete(DebugDir, true);
+                }
+                Directory.CreateDirectory(DebugDir);
             }
 
             if (!File.Exists(inFile))

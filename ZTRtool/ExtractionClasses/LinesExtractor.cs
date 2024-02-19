@@ -155,14 +155,18 @@ namespace ZTRtool.SupportClasses
 
                     linesStream.Seek(0, SeekOrigin.Begin);
 
-                    var rawBinFile = Path.Combine(ZTRExtract.DebugDir, Path.GetFileNameWithoutExtension(ZTRExtract.OutTxtFile) + "_raw.txt");
-
-                    if (File.Exists(rawBinFile))
+                    if (Core.IsDebug)
                     {
-                        File.Delete(rawBinFile);
+                        var rawBinFile = Path.Combine(Core.DebugDir, Path.GetFileNameWithoutExtension(ZTRExtract.OutTxtFile) + "_raw.txt");
+
+                        if (File.Exists(rawBinFile))
+                        {
+                            File.Delete(rawBinFile);
+                        }
+
+                        File.WriteAllBytes(rawBinFile, linesStream.ToArray());
                     }
 
-                    File.WriteAllBytes(rawBinFile, linesStream.ToArray());
                     LineEncKeysParser.ParsingProcess(linesStream);
                 }
             }

@@ -139,9 +139,12 @@ namespace ZTRtool.SupportClasses
                                                 lineDataStream.CopyTo(outZTRstream);
                                             }
 
-                                            File.WriteAllBytes(Path.Combine(ZTRConvert.DebugDir, "test_chunkOffsets"), chunkOffsetsStream.ToArray());
-                                            File.WriteAllBytes(Path.Combine(ZTRConvert.DebugDir, "test_infoOffsets"), lineInfoStream.ToArray());
-                                            File.WriteAllBytes(Path.Combine(ZTRConvert.DebugDir, "test_LinesData"), lineDataStream.ToArray());
+                                            if (Core.IsDebug)
+                                            {
+                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_chunkOffsets"), chunkOffsetsStream.ToArray());
+                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_infoOffsets"), lineInfoStream.ToArray());
+                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_LinesData"), lineDataStream.ToArray());
+                                            }
                                         }
                                     }
                                 }

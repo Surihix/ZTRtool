@@ -14,17 +14,9 @@ namespace ZTRtool
         // Debug stuff
         public static string OutTxtFile { get; set; }
         public static string OutTxtFileDir { get; set; }
-        public static string DebugDir { get; set; }
 
         public static void ExtractProcess(string inFile, EncodingSwitches encodingSwitch)
         {
-            DebugDir = Path.Combine(Path.GetDirectoryName(inFile), "_debug");
-            if (Directory.Exists(DebugDir))
-            {
-                Directory.Delete(DebugDir, true);
-            }
-            Directory.CreateDirectory(DebugDir);
-
             LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
@@ -149,9 +141,13 @@ namespace ZTRtool
                                 }
                             }
 
-                            // Test dump the lines data from
-                            // the array
-                            File.WriteAllBytes(Path.Combine(DebugDir, "test_IDs-dump"), idsStream.ToArray());
+                            // Dump the ids data from
+                            // the array if in debug
+                            // mode
+                            if (Core.IsDebug)
+                            {
+                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_IDs-dump"), idsStream.ToArray());
+                            }
 
                             // Extract lines
                             using (var lineDictChunks_Stream = new MemoryStream())

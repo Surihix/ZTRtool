@@ -11,17 +11,9 @@ namespace ZTRtool
     internal class ZTRConvert
     {
         public static string OutFile { get; set; }
-        public static string DebugDir { get; set; }
 
         public static void ConvertProcess(string inTxtFile, EncodingSwitches encodingSwitch)
         {
-            DebugDir = Path.Combine(Path.GetDirectoryName(inTxtFile), "_debug");
-            if (Directory.Exists(DebugDir))
-            {
-                Directory.Delete(DebugDir, true);
-            }
-            Directory.CreateDirectory(DebugDir);
-
             var fileHeader = new FileHeader();
             fileHeader.Magic = 1;
             fileHeader.LineCount = (uint)File.ReadAllLines(inTxtFile).Length;
@@ -131,12 +123,15 @@ namespace ZTRtool
                     }
                 }
 
-
-                // Test dump the processed IDs data
+                // Dump the processed IDs data
                 // and the unprocessed lines data
-                // from the streams
-                File.WriteAllBytes(Path.Combine(DebugDir, "test_IDsData"), processedIDsArray);
-                File.WriteAllBytes(Path.Combine(DebugDir, "test_unp-lines"), unprocessedLinesArray);
+                // from the streams if in debug
+                // mode
+                if (Core.IsDebug)
+                {
+                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_IDsData"), processedIDsArray);
+                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_unp-lines"), unprocessedLinesArray);
+                }
 
 
                 // Convert all symbols from the 
@@ -144,9 +139,13 @@ namespace ZTRtool
                 // byte values
                 var processedLinesArray = LineEncKeysBuilder.ConvertLines(unprocessedLinesArray);
 
-                // Test dump the lines data from
-                // the array
-                File.WriteAllBytes(Path.Combine(DebugDir, "test_proc-lines"), processedLinesArray);
+                // Dump the lines data from
+                // the array if in debug 
+                // mode
+                if (Core.IsDebug)
+                {
+                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_proc-lines"), processedLinesArray);
+                }
 
                 // Build the ztr file
                 OutFile = Path.Combine(Path.GetDirectoryName(inTxtFile), Path.GetFileNameWithoutExtension(inTxtFile) + ".ztr");

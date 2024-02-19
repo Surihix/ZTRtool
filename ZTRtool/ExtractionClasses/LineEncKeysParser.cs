@@ -199,14 +199,14 @@ namespace ZTRtool.SupportClasses
                         {
                             using (var linesWriterBinary = new BinaryWriter(linesOutMem, EncodingToUse))
                             {
-                                bool checkIfShiftJis;
+                                bool ifShiftJisChara;
                                 for (int li = 0; li < linesStreamLength; li++)
                                 {
                                     currentByte = linesReader.ReadByte();
 
-                                    // Not implemented
-                                    checkIfShiftJis = CheckIfShiftJISChara(prevByte, currentByte);
-                                    if (checkIfShiftJis)
+                                    ifShiftJisChara = ShiftJISCharaCheck(prevByte, currentByte);
+
+                                    if (ifShiftJisChara)
                                     {
                                         linesWriterBinary.Write(currentByte);
                                         hasWritten = true;
@@ -440,7 +440,71 @@ namespace ZTRtool.SupportClasses
         }
 
 
-        static bool CheckIfShiftJISChara(byte b1, byte b2)
+        static bool ShiftJISCharaCheck(byte b1, byte b2)
+        {
+            var isChara = new bool();
+            var isChecked = new bool();
+
+            // Main range 1
+            if (b1 >= 0x81 && b1 <= 0x84 && !isChecked)
+            {
+                if (b2 >= 0x3F && b2 <= 0xFF)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+            }
+
+            // Main range 2
+            if (b1 >= 0x87 && b1 <= 0x9F && !isChecked)
+            {
+                if (b2 >= 0x3F && b2 <= 0xFF)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+            }
+
+            // Main range 3
+            if (b1 >= 0xE0 && b1 <= 0xEA && !isChecked)
+            {
+                if (b2 >= 0x3F && b2 <= 0xFF)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+            }
+
+            // Main range 4
+            if (b1 >= 0xED && b1 <= 0xEE && !isChecked)
+            {
+                if (b2 >= 0x3F && b2 <= 0xFF)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+            }
+
+            // Main range 5 
+            if (b1 >= 0xF0 && b1 <= 0xFC && !isChecked)
+            {
+                if (b2 >= 0x3F && b2 <= 0xFF)
+                {
+                    isChara = true;
+                }
+            }
+       
+            return isChara;
+        }
+
+        static bool Big5CharaCheck(byte b1, byte b2)
+        {
+
+
+            return false;
+        }
+
+        static bool EucKrCharaCheck(byte b1, byte b2)
         {
 
             return false;
