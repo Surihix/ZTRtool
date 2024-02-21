@@ -84,6 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ZTRtool\ConversionClasses\ZTRbuilderUncmp.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\ChKeysParser.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\LatinKeysParser.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\KrKeysParser.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\JpKeysParser.cs" />
     <Compile Include="ZTRtool\ExtractionClasses\LineEncKeysParser.cs" />
     <Compile Include="ZTRtool\ConversionClasses\LineEncKeysBuilder.cs" />
     <Compile Include="ZTRtool\SupportClasses\EncodingKeysDicts.cs" />

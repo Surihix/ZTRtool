@@ -110,6 +110,14 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        public static Dictionary<(byte b1, byte b2), string> TxtCodes = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x40, 0x70), "{Text NewPage}" },
+            { (0x40, 0x72), "{Text NewLine}" },
+            { (0x85, 0x60), "{Text Tab}" }
+        };
+
+
         public static Dictionary<(byte b1, byte b2), string> CharaCodes = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x40, 0x70), "{Text NewPage}" },
@@ -281,6 +289,7 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xA0), "{Var85 A0}" }, // Á
             { (0x85, 0xA1), "{Var85 A1}" }, // Â
             { (0x85, 0xA3), "{Var85 A3}" },
+            { (0x85, 0xA5), "{Var85 A5}" },
             { (0x85, 0xA6), "{Var85 A6}" },
             { (0x85, 0xA7), "{Var85 A7}" },
             { (0x85, 0xA8), "{Var85 A8}" },
