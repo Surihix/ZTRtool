@@ -3,9 +3,9 @@ using System.IO;
 using System.Text;
 using static ZTRtool.SupportClasses.EncodingKeysDicts;
 
-namespace ZTRtool.SupportClasses
+namespace ZTRtool.ConversionClasses.KeysBuilderClasses
 {
-    internal class LineEncKeysBuilder
+    internal class KeysBuilder
     {
         public static Encoding EncodingToUse { get; set; }
 

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using ZTRtool.ExtractionClasses;
+using ZTRtool.ExtractionClasses.KeysParserClasses;
 using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTREnums;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
@@ -17,35 +19,35 @@ namespace ZTRtool
 
         public static void ExtractProcess(string inFile, EncodingSwitches encodingSwitch)
         {
-            LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(1252);
+            KeysParser.EncodingToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inFile).EndsWith("_ch.ztr") || Path.GetFileName(inFile).EndsWith("_c.ztr"))
                     {
-                        LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(950);
+                        KeysParser.EncodingToUse = Encoding.GetEncoding(950);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_jp.ztr") || Path.GetFileName(inFile).EndsWith("_j.ztr"))
                     {
-                        LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(932);
+                        KeysParser.EncodingToUse = Encoding.GetEncoding(932);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_kr.ztr") || Path.GetFileName(inFile).EndsWith("_k.ztr"))
                     {
-                        LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(51949);
+                        KeysParser.EncodingToUse = Encoding.GetEncoding(51949);
                     }
                     break;
 
                 case EncodingSwitches.ch:
-                    LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(950);
+                    KeysParser.EncodingToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(932);
+                    KeysParser.EncodingToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    LineEncKeysParser.EncodingToUse = Encoding.GetEncoding(51949);
+                    KeysParser.EncodingToUse = Encoding.GetEncoding(51949);
                     break;
             }
 

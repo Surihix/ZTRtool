@@ -2,6 +2,14 @@
 {
     internal class ZTREnums
     {
+        public enum ActionSwitches
+        {
+            x,
+            c,
+            c2,
+            none
+        }
+
         public enum EncodingSwitches
         {
             auto,

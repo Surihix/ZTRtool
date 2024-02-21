@@ -2,13 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using ZTRtool.ExtractionClasses.KeysParserClasses;
+using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
 
-namespace ZTRtool.SupportClasses
+namespace ZTRtool.ExtractionClasses
 {
     internal class LinesExtractor
     {
-        public static long LineInfoTableStartPos {  get; set; }
+        public static long LineInfoTableStartPos { get; set; }
 
         public static void ExtractLines(BinaryReader ztrReader, FileHeader fileHeader, BinaryReader idsReader, List<uint> dictChunkOffsets, BinaryReader lineDictChunkReader)
         {
@@ -167,7 +169,7 @@ namespace ZTRtool.SupportClasses
                         File.WriteAllBytes(rawBinFile, linesStream.ToArray());
                     }
 
-                    LineEncKeysParser.ParsingProcess(linesStream);
+                    KeysParser.ParsingProcess(linesStream);
                 }
             }
         }

@@ -81,7 +81,7 @@ namespace ZTRtool
                     break;
 
                 case ActionSwitches.c:
-                    ZTRConvert.ConvertProcess(inFile, encodingSwitch);
+                    ZTRConvert.ConvertProcess(inFile, encodingSwitch, actionSwitch);
                     Environment.Exit(0);
                     break;
 
@@ -90,15 +90,6 @@ namespace ZTRtool
                     Console.ReadLine();
                     break;
             }
-        }
-
-
-        enum ActionSwitches
-        {
-            x,
-            c,
-            c2,
-            none
         }
     }
 }

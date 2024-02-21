@@ -2,9 +2,9 @@
 using System.IO;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
 
-namespace ZTRtool.SupportClasses
+namespace ZTRtool.ConversionClasses
 {
-    internal class ZTRbuilderUncmp
+    internal class ZTRUncmp
     {
         public static void BuildZTR(FileHeader fileHeader, byte[] processedIDsArray, byte[] processedLinesArray)
         {
