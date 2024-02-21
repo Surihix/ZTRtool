@@ -19,6 +19,8 @@ namespace ZTRtool
             var fileHeader = new FileHeader();
             fileHeader.Magic = 1;
             fileHeader.LineCount = (uint)File.ReadAllLines(inTxtFile).Length;
+            Console.WriteLine($"Line Count: {fileHeader.LineCount}");
+
 
             var splitChara = new string[] { " |:| " };
 
@@ -59,6 +61,9 @@ namespace ZTRtool
 
                 // Collect all of the IDs
                 // into a stream
+                Console.WriteLine("Processing line IDs....");
+                Console.WriteLine("");
+
                 using (var idsStream = new MemoryStream())
                 {
                     using (var idsWriter = new BinaryWriter(idsStream))
@@ -73,6 +78,7 @@ namespace ZTRtool
 
                         fileHeader.DcmpIDsSize = (uint)idsStream.Length;
 
+
                         // Copy data from the id stream into
                         // a large stream and split the data
                         // into multiple chunks 
@@ -82,6 +88,9 @@ namespace ZTRtool
                                 var idDictChunkStrDataSizes = new List<uint>();
                                 int idsDictChunkCount = new int();
                                 DictionaryHelpers.GetItemsGroupCount(fileHeader.DcmpIDsSize, 4096, ref idsDictChunkCount, ref idDictChunkStrDataSizes);
+
+                                Console.WriteLine("Building uncompressed line IDs....");
+                                Console.WriteLine("");
 
                                 using (var idsReader = new BinaryReader(idsStream))
                                 {
@@ -117,6 +126,9 @@ namespace ZTRtool
                     {
                         using (var linesWriter = new BinaryWriter(linesStream))
                         {
+                            Console.WriteLine("Preparing all lines to process....");
+                            Console.WriteLine("");
+
                             ztrTxtReader.BaseStream.Position = 0;
 
                             byte[] currentLineArray;
@@ -143,9 +155,12 @@ namespace ZTRtool
                 }
 
 
-                // Convert all symbols from the 
+                // Convert all expanded keys from the 
                 // linesStream into valid two
                 // byte values
+                Console.WriteLine("Converting keys in lines....");
+                Console.WriteLine("");
+
                 var processedLinesArray = KeysBuilder.ConvertLines(unprocessedLinesArray);
 
                 // Dump the lines data from
@@ -162,10 +177,16 @@ namespace ZTRtool
                 switch (actionSwitch)
                 {
                     case ActionSwitches.c:
+                        Console.WriteLine("Building uncompressed ztr....");
+                        Console.WriteLine("");
+
                         ZTRUncmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
                         break;
 
                     case ActionSwitches.c2:
+                        Console.WriteLine("Building compressed ztr....");
+                        Console.WriteLine("");
+
                         break;
                 }
             }
