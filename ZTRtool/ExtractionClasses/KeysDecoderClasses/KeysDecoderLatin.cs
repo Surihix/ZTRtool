@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.EncodingKeysDicts;
+using static ZTRtool.SupportClasses.KeysDicts;
 
-namespace ZTRtool.ExtractionClasses.KeysParserClasses
+namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 {
-    internal class LatinKeysParser
+    internal class KeysDecoderLatin
     {
-        public static void LatinEncode(BinaryReader linesReader, long linesStreamLength)
+        public static void DecodeLatin(long linesStreamLength, BinaryReader linesReader)
         {
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;

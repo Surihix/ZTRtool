@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ZTRtool.ExtractionClasses;
-using ZTRtool.ExtractionClasses.KeysParserClasses;
+using ZTRtool.ExtractionClasses.KeysDecoderClasses;
 using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTREnums;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
@@ -19,35 +19,35 @@ namespace ZTRtool
 
         public static void ExtractProcess(string inFile, EncodingSwitches encodingSwitch)
         {
-            KeysParser.EncodingToUse = Encoding.GetEncoding(1252);
+            ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inFile).EndsWith("_ch.ztr") || Path.GetFileName(inFile).EndsWith("_c.ztr"))
                     {
-                        KeysParser.EncodingToUse = Encoding.GetEncoding(950);
+                        ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(950);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_jp.ztr") || Path.GetFileName(inFile).EndsWith("_j.ztr"))
                     {
-                        KeysParser.EncodingToUse = Encoding.GetEncoding(932);
+                        ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(932);
                     }
                     if (Path.GetFileName(inFile).EndsWith("_kr.ztr") || Path.GetFileName(inFile).EndsWith("_k.ztr"))
                     {
-                        KeysParser.EncodingToUse = Encoding.GetEncoding(51949);
+                        ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
                     }
                     break;
 
                 case EncodingSwitches.ch:
-                    KeysParser.EncodingToUse = Encoding.GetEncoding(950);
+                    ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    KeysParser.EncodingToUse = Encoding.GetEncoding(932);
+                    ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    KeysParser.EncodingToUse = Encoding.GetEncoding(51949);
+                    ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
                     break;
             }
 

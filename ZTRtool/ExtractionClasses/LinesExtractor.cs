@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using ZTRtool.ExtractionClasses.KeysParserClasses;
+using ZTRtool.ExtractionClasses.KeysDecoderClasses;
 using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
 
@@ -169,7 +169,7 @@ namespace ZTRtool.ExtractionClasses
                         File.WriteAllBytes(rawBinFile, linesStream.ToArray());
                     }
 
-                    KeysParser.ParsingProcess(linesStream);
+                    DecoderHelper.DecodingProcess(linesStream);
                 }
             }
         }

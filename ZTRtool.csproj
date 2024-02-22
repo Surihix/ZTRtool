@@ -83,15 +83,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ZTRtool\ConversionClasses\ZTRCmp.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\ZTRUncmp.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\ChKeysParser.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\LatinKeysParser.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\KrKeysParser.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\JpKeysParser.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysParserClasses\KeysParser.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\KeysBuilderClasses\KeysBuilder.cs" />
-    <Compile Include="ZTRtool\SupportClasses\EncodingKeysDicts.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderCh.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderJp.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderKr.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderLatin.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\PackCmp.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\PackUncmp.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderCh.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderLatin.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderKr.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderJp.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\DecoderHelper.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\EncoderHelper.cs" />
+    <Compile Include="ZTRtool\SupportClasses\KeysDicts.cs" />
     <Compile Include="ZTRtool\SupportClasses\ZTREnums.cs" />
     <Compile Include="ZTRtool\ZTRConvert.cs" />
     <Compile Include="ZTRtool\SupportClasses\DictionaryHelpers.cs" />

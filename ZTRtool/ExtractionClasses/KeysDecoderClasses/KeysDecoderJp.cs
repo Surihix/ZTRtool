@@ -1,12 +1,12 @@
 ﻿using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.EncodingKeysDicts;
+using static ZTRtool.SupportClasses.KeysDicts;
 
-namespace ZTRtool.ExtractionClasses.KeysParserClasses
+namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 {
-    internal class JpKeysParser
+    internal class KeysDecoderJp
     {
-        public static void ShiftJISEncode(Encoding encodingToUse, long linesStreamLength, BinaryReader linesReader)
+        public static void DecodeJp(long linesStreamLength, BinaryReader linesReader)
         {
             var prevByte = byte.MaxValue;
             var currentByte = byte.MaxValue;
@@ -18,7 +18,7 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
             using (var linesOutMem = new MemoryStream())
             {
-                using (var linesWriterBinary = new BinaryWriter(linesOutMem, encodingToUse))
+                using (var linesWriterBinary = new BinaryWriter(linesOutMem, DecoderHelper.CodepageToUse))
                 {
                     bool ifShiftJisChara;
                     for (int li = 0; li < linesStreamLength; li++)
@@ -54,7 +54,7 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
                             if (!hasWritten)
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(SingleCodes[currentByte]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SingleCodes[currentByte]));
                                 hasWritten = true;
                                 currentByte = 0;
                             }
@@ -68,7 +68,7 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
                             if (!hasWritten && ColorCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(ColorCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ColorCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -77,16 +77,16 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
                             if (!hasWritten && IconCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(IconCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(IconCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && CharaCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && OtherEnCharaCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(CharaCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(OtherEnCharaCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -95,7 +95,7 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
                             if (!hasWritten && KeysCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(KeysCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KeysCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -104,16 +104,16 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
                             if (!hasWritten && UnkVarCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(UnkVarCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UnkVarCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && UniCodeCharaCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && OtherEnUniCodeCharaCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(UniCodeCharaCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(OtherEnUniCodeCharaCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -122,7 +122,7 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
 
                             if (!hasWritten && Big5LetterCodes.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(encodingToUse.GetBytes(Big5LetterCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Big5LetterCodes[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -146,7 +146,7 @@ namespace ZTRtool.ExtractionClasses.KeysParserClasses
                         File.Delete(ZTRExtract.OutTxtFile);
                     }
 
-                    File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(encodingToUse, Encoding.UTF8, linesOutMem.ToArray()));
+                    File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray()));
                 }
             }
 

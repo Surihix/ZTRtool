@@ -19,6 +19,7 @@ namespace BinaryReaderEx
             return byteList;
         }
 
+
         public static short ReadBytesInt16(this BinaryReader reader, bool isBigEndian)
         {
             var readValueBuffer = reader.ReadBytes(2);
@@ -80,6 +81,25 @@ namespace BinaryReaderEx
             var length = reader.BaseStream.Length;
 
             while ((chars = reader.ReadChar()) != default)
+            {
+                sb.Append(chars);
+
+                if (reader.BaseStream.Position == length)
+                {
+                    break;
+                }
+            }
+            return sb.ToString();
+        }
+
+
+        public static string ReadStringTillSpecific(BinaryReader reader, char specificChara)
+        {
+            var sb = new StringBuilder();
+            char chars;
+            var length = 32;
+
+            while ((chars = reader.ReadChar()) != specificChara)
             {
                 sb.Append(chars);
 

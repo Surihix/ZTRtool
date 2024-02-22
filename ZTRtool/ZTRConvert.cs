@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ZTRtool.ConversionClasses;
-using ZTRtool.ConversionClasses.KeysBuilderClasses;
+using ZTRtool.ConversionClasses.KeysEncoderClasses;
 using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTREnums;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
@@ -26,31 +26,31 @@ namespace ZTRtool
 
             // Determine the encoding
             // to use
-            KeysBuilder.EncodingToUse = Encoding.GetEncoding(1252);
+            EncoderHelper.CodepageToUse = Encoding.GetEncoding(1252);
 
             switch (encodingSwitch)
             {
                 case EncodingSwitches.auto:
                     if (Path.GetFileName(inTxtFile).EndsWith("_ch.txt") || Path.GetFileName(inTxtFile).EndsWith("_c.ztr"))
-                        KeysBuilder.EncodingToUse = Encoding.GetEncoding(950);
+                        EncoderHelper.CodepageToUse = Encoding.GetEncoding(950);
 
                     if (Path.GetFileName(inTxtFile).EndsWith("_jp.txt") || Path.GetFileName(inTxtFile).EndsWith("_j.ztr"))
-                        KeysBuilder.EncodingToUse = Encoding.GetEncoding(932);
+                        EncoderHelper.CodepageToUse = Encoding.GetEncoding(932);
 
                     if (Path.GetFileName(inTxtFile).EndsWith("_kr.txt") || Path.GetFileName(inTxtFile).EndsWith("_k.ztr"))
-                        KeysBuilder.EncodingToUse = Encoding.GetEncoding(51949);
+                        EncoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
                     break;
 
                 case EncodingSwitches.ch:
-                    KeysBuilder.EncodingToUse = Encoding.GetEncoding(950);
+                    EncoderHelper.CodepageToUse = Encoding.GetEncoding(950);
                     break;
 
                 case EncodingSwitches.jp:
-                    KeysBuilder.EncodingToUse = Encoding.GetEncoding(932);
+                    EncoderHelper.CodepageToUse = Encoding.GetEncoding(932);
                     break;
 
                 case EncodingSwitches.kr:
-                    KeysBuilder.EncodingToUse = Encoding.GetEncoding(51949);
+                    EncoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
                     break;
             }
 
@@ -161,7 +161,7 @@ namespace ZTRtool
                 Console.WriteLine("Converting keys in lines....");
                 Console.WriteLine("");
 
-                var processedLinesArray = KeysBuilder.ConvertLines(unprocessedLinesArray);
+                var processedLinesArray = EncoderHelper.ConvertLines(unprocessedLinesArray);
 
                 // Dump the lines data from
                 // the array if in debug 
@@ -180,7 +180,7 @@ namespace ZTRtool
                         Console.WriteLine("Building uncompressed ztr....");
                         Console.WriteLine("");
 
-                        ZTRUncmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
+                        PackUncmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
                         break;
 
                     case ActionSwitches.c2:

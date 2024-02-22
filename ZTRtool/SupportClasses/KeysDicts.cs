@@ -2,7 +2,7 @@
 
 namespace ZTRtool.SupportClasses
 {
-    internal class EncodingKeysDicts
+    internal class KeysDicts
     {
         public static Dictionary<byte, string> SingleCodes = new Dictionary<byte, string>()
         {
@@ -107,14 +107,6 @@ namespace ZTRtool.SupportClasses
             { (0xF0, 0x72), "{Icon Ribbon}" },
             { (0xF0, 0x73), "{Icon Sphere}" },
             { (0xF0, 0x74), "{Icon Neck}" }
-        };
-
-
-        public static Dictionary<(byte b1, byte b2), string> TxtCodes = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0x40, 0x70), "{Text NewPage}" },
-            { (0x40, 0x72), "{Text NewLine}" },
-            { (0x85, 0x60), "{Text Tab}" }
         };
 
 
@@ -241,6 +233,157 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xDC), "{ý}" },
             { (0x85, 0xDD), "{þ}" },
             { (0x85, 0xDE), "{ÿ}" }
+        };
+
+
+        // Use only when using non latin codepages
+        public static Dictionary<(byte b1, byte b2), string> OtherEnCharaCodes = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x40, 0x70), "{Text NewPage}" },
+            { (0x40, 0x72), "{Text NewLine}" },
+            { (0x85, 0x40), "{Char85 40}" },
+            { (0x85, 0x42), "{Char85 42}" },
+            { (0x85, 0x44), "{Char85 44}" },
+            { (0x85, 0x45), "{Char85 45}" },
+            { (0x85, 0x46), "{Char85 46}" },
+            { (0x85, 0x47), "{Char85 47}" },
+            { (0x85, 0x49), "{Char85 49}" },
+            { (0x85, 0x4A), "{Char85 4A}" },
+            { (0x85, 0x4B), "{Char85 4B}" },
+            { (0x85, 0x4C), "{Char85 4C}" },
+            { (0x85, 0x4E), "{Char85 4E}" },
+            { (0x85, 0x51), "{Char85 51}" },
+            { (0x85, 0x52), "{Char85 52}" },
+            { (0x85, 0x53), "{Char85 53}" },
+            { (0x85, 0x54), "{Char85 54}" },
+            { (0x85, 0x55), "{Char85 55}" },
+            { (0x85, 0x56), "{Char85 56}" },
+            { (0x85, 0x57), "{Char85 57}" },
+            { (0x85, 0x59), "{Char85 59}" },
+            { (0x85, 0x60), "{Text Tab}" },
+            { (0x85, 0x5A), "{Char85 5A}" },
+            { (0x85, 0x5B), "{Char85 5B}" },
+            { (0x85, 0x5C), "{Char85 5C}" },
+            { (0x85, 0x5E), "{Char85 5E}" },
+            { (0x85, 0x5F), "{Char85 5F}" },
+            { (0x85, 0x61), "{Char85 61}" },
+            { (0x85, 0x62), "{Char85 62}" },
+            { (0x85, 0x63), "{Char85 63}" },
+            { (0x85, 0x64), "{Char85 64}" },
+            { (0x85, 0x65), "{Char85 65}" },
+            { (0x85, 0x66), "{Char85 66}" },
+            { (0x85, 0x67), "{Char85 67}" },
+            { (0x85, 0x68), "{Char85 68}" },
+            { (0x85, 0x69), "{Char85 69}" },
+            { (0x85, 0x6A), "{Char85 6A}" },
+            { (0x85, 0x6B), "{Char85 6B}" },
+            { (0x85, 0x6C), "{Char85 6C}" },
+            { (0x85, 0x6E), "{Char85 6E}" },
+            { (0x85, 0x6F), "{Char85 6F}" },
+            { (0x85, 0x70), "{Char85 70}" },
+            { (0x85, 0x71), "{Char85 71}" },
+            { (0x85, 0x72), "{Char85 72}" },
+            { (0x85, 0x73), "{Char85 73}" },
+            { (0x85, 0x74), "{Char85 74}" },
+            { (0x85, 0x75), "{Char85 75}" },
+            { (0x85, 0x76), "{Char85 76}" },
+            { (0x85, 0x77), "{Char85 77}" },
+            { (0x85, 0x78), "{Char85 78}" },
+            { (0x85, 0x79), "{Char85 79}" },
+            { (0x85, 0x7A), "{Char85 7A}" },
+            { (0x85, 0x7B), "{Char85 7B}" },
+            { (0x85, 0x7C), "{Char85 7C}" },
+            { (0x85, 0x7D), "{Char85 7D}" },
+            { (0x85, 0x7E), "{Char85 7E}" },
+            { (0x85, 0x7F), "{Char85 7F}" },
+            { (0x85, 0x9F), "{Char85 9F}" },
+            { (0x85, 0x81), "{Char85 81}" },
+            { (0x85, 0x82), "{Char85 82}" },
+            { (0x85, 0x83), "{Char85 83}" },
+            { (0x85, 0x84), "{Char85 84}" },
+            { (0x85, 0x85), "{Char85 85}" },
+            { (0x85, 0x86), "{Char85 86}" },
+            { (0x85, 0x87), "{Char85 87}" },
+            { (0x85, 0x88), "{Char85 88}" },
+            { (0x85, 0x89), "{Char85 89}" },
+            { (0x85, 0x8A), "{Char85 8A}" },
+            { (0x85, 0x8B), "{Char85 8B}" },
+            { (0x85, 0x8C), "{Char85 8C}" },
+            { (0x85, 0x8D), "{Char85 8D}" },
+            { (0x85, 0x8E), "{Char85 8E}" },
+            { (0x85, 0x8F), "{Char85 8F}" },
+            { (0x85, 0x90), "{Char85 90}" },
+            { (0x85, 0x91), "{Char85 91}" },
+            { (0x85, 0x92), "{Char85 92}" },
+            { (0x85, 0x93), "{Char85 93}" },
+            { (0x85, 0x94), "{Char85 94}" },
+            { (0x85, 0x95), "{Char85 95}" },
+            { (0x85, 0x96), "{Char85 96}" },
+            { (0x85, 0xB6), "{Char85 B6}" },
+            { (0x85, 0x98), "{Char85 98}" },
+            { (0x85, 0x99), "{Char85 99}" },
+            { (0x85, 0x9A), "{Char85 9A}" },
+            { (0x85, 0x9B), "{Char85 9B}" },
+            { (0x85, 0x9C), "{Char85 9C}" },
+            { (0x85, 0x9D), "{Char85 9D}" },
+            { (0x85, 0xBD), "{Char85 BD}" },
+            { (0x85, 0xBE), "{Char85 BE}" },
+            { (0x85, 0xBF), "{Char85 BF}" },
+            { (0x85, 0xC0), "{Char85 C0}" },
+            { (0x85, 0xC1), "{Char85 C1}" },
+            { (0x85, 0xC2), "{Char85 C2}" },
+            { (0x85, 0xC3), "{Char85 C3}" },
+            { (0x85, 0xC4), "{Char85 C4}" },
+            { (0x85, 0xC5), "{Char85 C5}" },
+            { (0x85, 0xC6), "{Char85 C6}" },
+            { (0x85, 0xC7), "{Char85 C7}" },
+            { (0x85, 0xC8), "{Char85 C8}" },
+            { (0x85, 0xC9), "{Char85 C9}" },
+            { (0x85, 0xCA), "{Char85 CA}" },
+            { (0x85, 0xCB), "{Char85 CB}" },
+            { (0x85, 0xCC), "{Char85 CC}" },
+            { (0x85, 0xCD), "{Char85 CD}" },
+            { (0x85, 0xCE), "{Char85 CE}" },
+            { (0x85, 0xCF), "{Char85 CF}" },
+            { (0x85, 0xD0), "{Char85 D0}" },
+            { (0x85, 0xD1), "{Char85 D1}" },
+            { (0x85, 0xD2), "{Char85 D2}" },
+            { (0x85, 0xD3), "{Char85 D3}" },
+            { (0x85, 0xD4), "{Char85 D4}" },
+            { (0x85, 0xD5), "{Char85 D5}" },
+            { (0x85, 0xD6), "{Char85 D6}" },
+            { (0x85, 0xD7), "{Char85 D7}" },
+            { (0x85, 0xD8), "{Char85 D8}" },
+            { (0x85, 0xD9), "{Char85 D9}" },
+            { (0x85, 0xDA), "{Char85 DA}" },
+            { (0x85, 0xDB), "{Char85 DB}" },
+            { (0x85, 0xDC), "{Char85 DC}" },
+            { (0x85, 0xDD), "{Char85 DD}" },
+            { (0x85, 0xDE), "{Char85 DE}" }
+        };
+
+
+        // Use only when using non latin codepages
+        public static Dictionary<(byte b1, byte b2), string> OtherEnUniCodeCharaCodes = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x87, 0x40), "{Uni87 40}" },
+            { (0x87, 0x41), "{Uni87 41}" },
+            { (0x87, 0x42), "{Uni87 42}" },
+            { (0x87, 0x43), "{Uni87 43}" },
+            { (0x87, 0x44), "{Uni87 44}" },
+            { (0x87, 0x45), "{Uni87 45}" },
+            { (0x87, 0x46), "{Uni87 46}" },
+            { (0x87, 0x47), "{Uni87 47}" },
+            { (0x87, 0x48), "{Uni87 48}" },
+            { (0x87, 0x54), "{Uni87 54}" },
+            { (0x87, 0x55), "{Uni87 55}" },
+            { (0x87, 0x56), "{Uni87 56}" },
+            { (0x87, 0x57), "{Uni87 57}" },
+            { (0x87, 0x58), "{Uni87 58}" },
+            { (0x87, 0x59), "{Uni87 59}" },
+            { (0x87, 0x5A), "{Uni87 5A}" },
+            { (0x87, 0x5B), "{Uni87 5B}" },
+            { (0x87, 0x5C), "{Uni87 5C}" }
         };
 
 

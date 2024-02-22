@@ -87,5 +87,21 @@ namespace ZTRtool.SupportClasses
 
             return arrangedDictChunkFinal;
         }
+
+
+        public static bytekey GetDictByteKey<bytekey, value>(Dictionary<bytekey, value> dictVar, value valueVar)
+        {
+            bytekey keyToReturn = default;
+
+            foreach (KeyValuePair<bytekey, value> pairs in dictVar)
+            {
+                if (pairs.Value.Equals(valueVar))
+                {
+                    keyToReturn = pairs.Key;
+                    break;
+                }
+            }
+            return keyToReturn;
+        }
     }
 }

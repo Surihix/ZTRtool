@@ -1,6 +1,6 @@
 ﻿namespace ZTRtool.ConversionClasses
 {
-    internal class ZTRCmp
+    internal class PackCmp
     {
 
     }
