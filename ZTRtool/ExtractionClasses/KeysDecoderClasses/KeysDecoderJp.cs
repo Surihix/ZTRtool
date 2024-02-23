@@ -12,8 +12,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
 
-            bool Condition1;
-            bool Condition2;
+            bool condition1;
+            bool condition2;
             bool hasWritten = false;
 
             using (var linesOutMem = new MemoryStream())
@@ -34,8 +34,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             currentByte = 0;
                         }
 
-                        Condition1 = !hasWritten && SingleCodes.ContainsKey(currentByte);
-                        if (Condition1)
+                        condition1 = !hasWritten && SingleKeys.ContainsKey(currentByte);
+                        if (condition1)
                         {
                             // End the line if next
                             // byte is 0
@@ -54,75 +54,75 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten)
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SingleCodes[currentByte]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SingleKeys[currentByte]));
                                 hasWritten = true;
                                 currentByte = 0;
                             }
                         }
 
-                        Condition2 = !hasWritten && linesReader.BaseStream.Position < linesStreamLength;
-                        if (Condition2)
+                        condition2 = !hasWritten && linesReader.BaseStream.Position < linesStreamLength;
+                        if (condition2)
                         {
                             nextByte = linesReader.ReadByte();
                             linesReader.BaseStream.Position -= 1;
 
-                            if (!hasWritten && ColorCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && ColorKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ColorCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ColorKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && IconCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && IconKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(IconCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(IconKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && OtherEnCharaCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && CharaKeysGroupB.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(OtherEnCharaCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(CharaKeysGroupB[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && KeysCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KeysCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BtnKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && UnkVarCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UnkVarCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(VarKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && OtherEnUniCodeCharaCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && UniCodeKeysGroupB.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(OtherEnUniCodeCharaCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UniCodeKeysGroupB[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && Big5LetterCodes.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && Big5LetterKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Big5LetterCodes[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Big5LetterKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -149,121 +149,6 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray()));
                 }
             }
-
-            //using (var linesOutMem = new MemoryStream())
-            //{
-            //    using (var linesWriterBinary = new BinaryWriter(linesOutMem, encodingToUse))
-            //    {
-            //        byte currentByte = byte.MaxValue;
-            //        byte nextByte = byte.MaxValue;
-            //        bool hasWritten = false;
-
-            //        for (int li = 0; li < linesStreamLength; li++)
-            //        {
-            //            currentByte = linesReader.ReadByte();
-
-            //            Condition1 = !hasWritten && SingleCodes.ContainsKey(currentByte);
-            //            if (Condition1)
-            //            {
-            //                // End the line if next
-            //                // byte is 0
-            //                if (currentByte == 0 && linesReader.BaseStream.Position < linesStreamLength)
-            //                {
-            //                    nextByte = linesReader.ReadByte();
-            //                    linesReader.BaseStream.Position -= 1;
-
-            //                    if (nextByte == 0)
-            //                    {
-            //                        hasWritten = true;
-            //                        linesReader.BaseStream.Position += 1;
-            //                        li++;
-            //                    }
-            //                }
-
-            //                if (!hasWritten)
-            //                {
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    linesWriterBinary.Write(encodingToUse.GetBytes(SingleCodes[currentByte]));
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    hasWritten = true;
-            //                }
-            //            }
-
-            //            Condition2 = !hasWritten && linesReader.BaseStream.Position < linesStreamLength;
-            //            if (Condition2)
-            //            {
-            //                nextByte = linesReader.ReadByte();
-            //                linesReader.BaseStream.Position -= 1;
-
-            //                if (!hasWritten && ColorCodes.ContainsKey((currentByte, nextByte)))
-            //                {
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    linesWriterBinary.Write(encodingToUse.GetBytes(ColorCodes[(currentByte, nextByte)]));
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    hasWritten = true;
-            //                    linesReader.BaseStream.Position += 1;
-            //                    li++;
-            //                }
-
-            //                if (!hasWritten && IconCodes.ContainsKey((currentByte, nextByte)))
-            //                {
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    linesWriterBinary.Write(encodingToUse.GetBytes(IconCodes[(currentByte, nextByte)]));
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    hasWritten = true;
-            //                    linesReader.BaseStream.Position += 1;
-            //                    li++;
-            //                }
-
-            //                if (!hasWritten && CharaCodes.ContainsKey((currentByte, nextByte)))
-            //                {
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    linesWriterBinary.Write(encodingToUse.GetBytes(CharaCodes[(currentByte, nextByte)]));
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    hasWritten = true;
-            //                    linesReader.BaseStream.Position += 1;
-            //                    li++;
-            //                }
-
-            //                if (!hasWritten && KeysCodes.ContainsKey((currentByte, nextByte)))
-            //                {
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    linesWriterBinary.Write(encodingToUse.GetBytes(KeysCodes[(currentByte, nextByte)]));
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    hasWritten = true;
-            //                    linesReader.BaseStream.Position += 1;
-            //                    li++;
-            //                }
-
-            //                if (!hasWritten && UnkVarCodes.ContainsKey((currentByte, nextByte)))
-            //                {
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    linesWriterBinary.Write(encodingToUse.GetBytes(UnkVarCodes[(currentByte, nextByte)]));
-            //                    linesWriterBinary.Write((byte)0x20);
-            //                    hasWritten = true;
-            //                    linesReader.BaseStream.Position += 1;
-            //                    li++;
-            //                }
-            //            }
-
-            //            if (!hasWritten)
-            //            {
-            //                linesWriterBinary.Write(currentByte);
-            //                hasWritten = true;
-            //            }
-
-            //            hasWritten = false;
-            //        }
-
-            //        if (File.Exists(ZTRExtract.OutTxtFile))
-            //        {
-            //            File.Delete(ZTRExtract.OutTxtFile);
-            //        }
-
-            //        var linesOutArray = linesOutMem.ToArray();
-            //        File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(encodingToUse, Encoding.UTF8, linesOutArray));
-            //    }
-            //}
         }
 
 
@@ -461,58 +346,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                 if (b2 >= 0x3F && b2 <= 0xFC && !isChecked)
                 {
                     isChara = true;
-                    isChecked = true;
                 }
             }
-
-            //// Main range 1
-            //if (b1 >= 0x81 && b1 <= 0x84 && !isChecked)
-            //{
-            //    if (b2 >= 0x3F && b2 <= 0xFF)
-            //    {
-            //        isChara = true;
-            //        isChecked = true;
-            //    }
-            //}
-
-            //// Main range 2
-            //if (b1 >= 0x87 && b1 <= 0x9F && !isChecked)
-            //{
-            //    if (b2 >= 0x3F && b2 <= 0xFF)
-            //    {
-            //        isChara = true;
-            //        isChecked = true;
-            //    }
-            //}
-
-            //// Main range 3
-            //if (b1 >= 0xE0 && b1 <= 0xEA && !isChecked)
-            //{
-            //    if (b2 >= 0x3F && b2 <= 0xFF)
-            //    {
-            //        isChara = true;
-            //        isChecked = true;
-            //    }
-            //}
-
-            //// Main range 4
-            //if (b1 >= 0xED && b1 <= 0xEE && !isChecked)
-            //{
-            //    if (b2 >= 0x3F && b2 <= 0xFF)
-            //    {
-            //        isChara = true;
-            //        isChecked = true;
-            //    }
-            //}
-
-            //// Main range 5 
-            //if (b1 >= 0xFA && b1 <= 0xFC && !isChecked)
-            //{
-            //    if (b2 >= 0x3F && b2 <= 0xFF)
-            //    {
-            //        isChara = true;
-            //    }
-            //}
 
             return isChara;
         }

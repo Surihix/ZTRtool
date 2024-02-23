@@ -16,43 +16,18 @@ namespace ZTRtool
 
         public static void ConvertProcess(string inTxtFile, EncodingSwitches encodingSwitch, ActionSwitches actionSwitch)
         {
-            var fileHeader = new FileHeader();
-            fileHeader.Magic = 1;
-            fileHeader.LineCount = (uint)File.ReadAllLines(inTxtFile).Length;
+            var fileHeader = new FileHeader
+            {
+                Magic = 1,
+                LineCount = (uint)File.ReadAllLines(inTxtFile).Length
+            };
             Console.WriteLine($"Line Count: {fileHeader.LineCount}");
-
-
-            var splitChara = new string[] { " |:| " };
 
             // Determine the encoding
             // to use
-            EncoderHelper.CodepageToUse = Encoding.GetEncoding(1252);
+            EncoderHelper.CodepageToUse = SetCodepage.DetermineCodepage(actionSwitch, encodingSwitch, inTxtFile);
 
-            switch (encodingSwitch)
-            {
-                case EncodingSwitches.auto:
-                    if (Path.GetFileName(inTxtFile).EndsWith("_ch.txt") || Path.GetFileName(inTxtFile).EndsWith("_c.ztr"))
-                        EncoderHelper.CodepageToUse = Encoding.GetEncoding(950);
-
-                    if (Path.GetFileName(inTxtFile).EndsWith("_jp.txt") || Path.GetFileName(inTxtFile).EndsWith("_j.ztr"))
-                        EncoderHelper.CodepageToUse = Encoding.GetEncoding(932);
-
-                    if (Path.GetFileName(inTxtFile).EndsWith("_kr.txt") || Path.GetFileName(inTxtFile).EndsWith("_k.ztr"))
-                        EncoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
-                    break;
-
-                case EncodingSwitches.ch:
-                    EncoderHelper.CodepageToUse = Encoding.GetEncoding(950);
-                    break;
-
-                case EncodingSwitches.jp:
-                    EncoderHelper.CodepageToUse = Encoding.GetEncoding(932);
-                    break;
-
-                case EncodingSwitches.kr:
-                    EncoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
-                    break;
-            }
+            var splitChara = new string[] { " |:| " };
 
             using (var ztrTxtReader = new StreamReader(inTxtFile, Encoding.UTF8))
             {
@@ -192,8 +167,11 @@ namespace ZTRtool
             }
 
             Console.WriteLine("");
-            Console.WriteLine($"Finished converting text data to '{Path.GetFileNameWithoutExtension(inTxtFile)}.ztr' file");
-            Console.ReadLine();
+            Console.WriteLine($"Finished converting text data to '{Path.GetFileNameWithoutExtension(inTxtFile)}.ztr' file");          
+            if (Core.IsDebug)
+            {
+                Console.ReadLine();
+            }
         }
     }
 }

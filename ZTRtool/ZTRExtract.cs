@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using ZTRtool.ExtractionClasses;
 using ZTRtool.ExtractionClasses.KeysDecoderClasses;
 using ZTRtool.SupportClasses;
@@ -13,49 +12,17 @@ namespace ZTRtool
 {
     internal class ZTRExtract
     {
-        // Debug stuff
         public static string OutTxtFile { get; set; }
         public static string OutTxtFileDir { get; set; }
 
-        public static void ExtractProcess(string inFile, EncodingSwitches encodingSwitch)
+        public static void ExtractProcess(string inZtrFile, ActionSwitches actionSwitch, EncodingSwitches encodingSwitch)
         {
-            ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(1252);
+            DecoderHelper.CodepageToUse = SetCodepage.DetermineCodepage(actionSwitch, encodingSwitch, inZtrFile);
 
-            switch (encodingSwitch)
-            {
-                case EncodingSwitches.auto:
-                    if (Path.GetFileName(inFile).EndsWith("_ch.ztr") || Path.GetFileName(inFile).EndsWith("_c.ztr"))
-                    {
-                        ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(950);
-                    }
-                    if (Path.GetFileName(inFile).EndsWith("_jp.ztr") || Path.GetFileName(inFile).EndsWith("_j.ztr"))
-                    {
-                        ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(932);
-                    }
-                    if (Path.GetFileName(inFile).EndsWith("_kr.ztr") || Path.GetFileName(inFile).EndsWith("_k.ztr"))
-                    {
-                        ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
-                    }
-                    break;
-
-                case EncodingSwitches.ch:
-                    ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(950);
-                    break;
-
-                case EncodingSwitches.jp:
-                    ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(932);
-                    break;
-
-                case EncodingSwitches.kr:
-                    ExtractionClasses.KeysDecoderClasses.DecoderHelper.CodepageToUse = Encoding.GetEncoding(51949);
-                    break;
-            }
-
-
-            OutTxtFile = Path.Combine(Path.GetDirectoryName(inFile), Path.GetFileNameWithoutExtension(inFile) + ".txt");
+            OutTxtFile = Path.Combine(Path.GetDirectoryName(inZtrFile), Path.GetFileNameWithoutExtension(inZtrFile) + ".txt");
             OutTxtFileDir = Path.GetDirectoryName(OutTxtFile);
 
-            using (var ztrReader = new BinaryReader(File.Open(inFile, FileMode.Open, FileAccess.Read, FileShare.Read)))
+            using (var ztrReader = new BinaryReader(File.Open(inZtrFile, FileMode.Open, FileAccess.Read, FileShare.Read)))
             {
                 // Get header values
                 var fileHeader = new FileHeader();
@@ -166,8 +133,11 @@ namespace ZTRtool
             }
 
             Console.WriteLine("");
-            Console.WriteLine($"Finished extracting text data from '{Path.GetFileName(inFile)}' file");
-            Console.ReadLine();
+            Console.WriteLine($"Finished extracting text data from '{Path.GetFileName(inZtrFile)}' file");
+            if (Core.IsDebug)
+            {
+                Console.ReadLine();
+            }
         }
     }
 }

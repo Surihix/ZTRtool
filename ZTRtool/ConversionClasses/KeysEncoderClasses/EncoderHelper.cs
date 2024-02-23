@@ -20,6 +20,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
                 // ch
                 case 950:
+                    KeysEncoderCh.EncodeCh(unprocessedLinesArray);
                     break;
 
                 // latin
@@ -29,6 +30,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
                 // kr
                 case 51949:
+                    KeysEncoderKr.EncodeKr(unprocessedLinesArray);
                     break;
             }
 

@@ -4,7 +4,7 @@ namespace ZTRtool.SupportClasses
 {
     internal class KeysDicts
     {
-        public static Dictionary<byte, string> SingleCodes = new Dictionary<byte, string>()
+        public static Dictionary<byte, string> SingleKeys = new Dictionary<byte, string>()
         {
             { 0x00, "{End}" },
             { 0x01, "{Escape}" },
@@ -15,7 +15,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        public static Dictionary<(byte b1, byte b2), string> ColorCodes = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> ColorKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF9, 0x40), "{Color PureWhite}" },
             { (0xF9, 0x41), "{Color BlizzardBlue}" },
@@ -52,7 +52,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        public static Dictionary<(byte b1, byte b2), string> IconCodes = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF0, 0x40), "{Icon Clock}" },
             { (0xF0, 0x41), "{Icon Attention}" },
@@ -110,7 +110,83 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        public static Dictionary<(byte b1, byte b2), string> CharaCodes = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xF1, 0x40), "{Btn Cross}" },
+            { (0xF1, 0x41), "{Btn Circle}" },
+            { (0xF1, 0x42), "{Btn Square}" },
+            { (0xF1, 0x43), "{Btn Triangle}" },
+            { (0xF1, 0x44), "{Btn Start}" },
+            { (0xF1, 0x45), "{Btn Select}" },
+            { (0xF1, 0x46), "{Btn L1}" },
+            { (0xF1, 0x47), "{Btn R1}" },
+            { (0xF1, 0x48), "{Btn L2}" },
+            { (0xF1, 0x49), "{Btn R2}" },
+            { (0xF1, 0x4A), "{Btn Left}" },
+            { (0xF1, 0x4B), "{Btn Down}" },
+            { (0xF1, 0x4C), "{Btn Right}" },
+            { (0xF1, 0x4D), "{Btn Up}" },
+            { (0xF1, 0x4E), "{Btn LSLeft}" },
+            { (0xF1, 0x4F), "{Btn LSDown}" },
+            { (0xF1, 0x50), "{Btn LSRight}" },
+            { (0xF1, 0x51), "{Btn LSUp}" },
+            { (0xF1, 0x52), "{Btn LSLeftRight}" },
+            { (0xF1, 0x53), "{Btn LSLSUpDow}" },
+            { (0xF1, 0x54), "{Btn LSPress}" },
+            { (0xF1, 0x55), "{Btn RSPress}" },
+            { (0xF1, 0x56), "{Btn RSLeft}" },
+            { (0xF1, 0x57), "{Btn RSDown}" },
+            { (0xF1, 0x58), "{Btn RSRight}" },
+            { (0xF1, 0x59), "{Btn RSUp}" },
+            { (0xF1, 0x5A), "{Btn DPad}" },
+            { (0xF1, 0x5B), "{Btn Analog}" },
+            { (0xF1, 0x5C), "{Btn LStick}" },
+            { (0xF1, 0x5D), "{Btn NPad}" },
+            { (0xF1, 0x5E), "{Btn LeftRightAnalogic}" },
+            { (0xF1, 0x5F), "{Btn LeftRightPad}" },
+            { (0xF1, 0x60), "{Btn Arrows}" },
+            { (0xF1, 0x61), "{Btn PadLeft}" }
+        };
+
+
+        public static Dictionary<(byte b1, byte b2), string> VarKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x81, 0x40), "{Var81 40}" }, // Nothing in EN
+            { (0x85, 0xA0), "{Var85 A0}" }, // Á
+            { (0x85, 0xA1), "{Var85 A1}" }, // Â
+            { (0x85, 0xA3), "{Var85 A3}" },
+            { (0x85, 0xA5), "{Var85 A5}" },
+            { (0x85, 0xA6), "{Var85 A6}" },
+            { (0x85, 0xA7), "{Var85 A7}" },
+            { (0x85, 0xA8), "{Var85 A8}" },
+            { (0x85, 0xA9), "{Var85 A9}" },
+            { (0x85, 0xAC), "{Var85 AC}" },
+            { (0x85, 0xAD), "{Var85 AD}" },
+            { (0x85, 0xB2), "{Var85 B2}" }, // Ó
+            { (0x85, 0xB3), "{Var85 B3}" },
+            { (0x85, 0xB5), "{Var85 B5}" },
+            { (0x85, 0xB9), "{Var85 B9}" },
+            { (0x85, 0xBA), "{Var85 BA}" },
+            { (0x85, 0xBB), "{Var85 BB}" },
+            { (0x85, 0x80), "{Var85 80}" },
+            { (0xFF, 0x86), "{VarFF 86}" }, // Nothing in EN
+            { (0xFF, 0x90), "{VarFF 90}" }, // Nothing in EN
+            { (0xFF, 0x91), "{VarFF 91}" }, // Nothing in EN
+            { (0xFF, 0x93), "{VarFF 93}" },
+            { (0xFF, 0x94), "{VarFF 94}" },
+            { (0xFF, 0x99), "{VarFF 99}" },
+            { (0xFF, 0x9A), "{VarFF 9A}" },
+            { (0xFF, 0x9B), "{VarFF 9B}" },
+            { (0xFF, 0x9D), "{VarFF 9D}" },
+            { (0xFF, 0x9E), "{VarFF 9E}" },
+            { (0xFF, 0xE0), "{VarFF E0}" },
+            { (0xFF, 0xF1), "{VarFF F1}" },
+            { (0xFF, 0xFF), "{VarFF FF}" } // Large Space
+        };
+
+
+        // Don't use this when using non latin codepages
+        public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupA = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x40, 0x70), "{Text NewPage}" },
             { (0x40, 0x72), "{Text NewLine}" },
@@ -236,8 +312,32 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Use only when using non latin codepages
-        public static Dictionary<(byte b1, byte b2), string> OtherEnCharaCodes = new Dictionary<(byte b1, byte b2), string>
+        // Don't use this when using non latin codepages
+        public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupA = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x87, 0x40), "{①}" },
+            { (0x87, 0x41), "{②}" },
+            { (0x87, 0x42), "{③}" },
+            { (0x87, 0x43), "{④}" },
+            { (0x87, 0x44), "{⑤}" },
+            { (0x87, 0x45), "{⑥}" },
+            { (0x87, 0x46), "{⑦}" },
+            { (0x87, 0x47), "{⑧}" },
+            { (0x87, 0x48), "{⑨}" },
+            { (0x87, 0x54), "{Ⅰ}" },
+            { (0x87, 0x55), "{Ⅱ}" },
+            { (0x87, 0x56), "{Ⅲ}" },
+            { (0x87, 0x57), "{Ⅳ}" },
+            { (0x87, 0x58), "{Ⅴ}" },
+            { (0x87, 0x59), "{Ⅵ}" },
+            { (0x87, 0x5A), "{Ⅶ}" },
+            { (0x87, 0x5B), "{Ⅷ}" },
+            { (0x87, 0x5C), "{Ⅸ}" }
+        };
+
+
+        // Don't use this when using latin codepage
+        public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x40, 0x70), "{Text NewPage}" },
             { (0x40, 0x72), "{Text NewLine}" },
@@ -363,8 +463,8 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Use only when using non latin codepages
-        public static Dictionary<(byte b1, byte b2), string> OtherEnUniCodeCharaCodes = new Dictionary<(byte b1, byte b2), string>
+        // Don't use this when using latin codepage
+        public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x87, 0x40), "{Uni87 40}" },
             { (0x87, 0x41), "{Uni87 41}" },
@@ -387,106 +487,8 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        public static Dictionary<(byte b1, byte b2), string> KeysCodes = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0xF1, 0x40), "{Key Cross}" },
-            { (0xF1, 0x41), "{Key Circle}" },
-            { (0xF1, 0x42), "{Key Square}" },
-            { (0xF1, 0x43), "{Key Triangle}" },
-            { (0xF1, 0x44), "{Key Start}" },
-            { (0xF1, 0x45), "{Key Select}" },
-            { (0xF1, 0x46), "{Key L1}" },
-            { (0xF1, 0x47), "{Key R1}" },
-            { (0xF1, 0x48), "{Key L2}" },
-            { (0xF1, 0x49), "{Key R2}" },
-            { (0xF1, 0x4A), "{Key Left}" },
-            { (0xF1, 0x4B), "{Key Down}" },
-            { (0xF1, 0x4C), "{Key Right}" },
-            { (0xF1, 0x4D), "{Key Up}" },
-            { (0xF1, 0x4E), "{Key LSLeft}" },
-            { (0xF1, 0x4F), "{Key LSDown}" },
-            { (0xF1, 0x50), "{Key LSRight}" },
-            { (0xF1, 0x51), "{Key LSUp}" },
-            { (0xF1, 0x52), "{Key LSLeftRight}" },
-            { (0xF1, 0x53), "{Key LSLSUpDow}" },
-            { (0xF1, 0x54), "{Key LSPress}" },
-            { (0xF1, 0x55), "{Key RSPress}" },
-            { (0xF1, 0x56), "{Key RSLeft}" },
-            { (0xF1, 0x57), "{Key RSDown}" },
-            { (0xF1, 0x58), "{Key RSRight}" },
-            { (0xF1, 0x59), "{Key RSUp}" },
-            { (0xF1, 0x5A), "{Key DPad}" },
-            { (0xF1, 0x5B), "{Key Analog}" },
-            { (0xF1, 0x5C), "{Key LStick}" },
-            { (0xF1, 0x5D), "{Key NPad}" },
-            { (0xF1, 0x5E), "{Key LeftRightAnalogic}" },
-            { (0xF1, 0x5F), "{Key LeftRightPad}" },
-            { (0xF1, 0x60), "{Key Arrows}" },
-            { (0xF1, 0x61), "{Key PadLeft}" }
-        };
-
-
-        public static Dictionary<(byte b1, byte b2), string> UnkVarCodes = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0x81, 0x40), "{Var81 40}" }, // Nothing in EN
-            { (0x85, 0xA0), "{Var85 A0}" }, // Á
-            { (0x85, 0xA1), "{Var85 A1}" }, // Â
-            { (0x85, 0xA3), "{Var85 A3}" },
-            { (0x85, 0xA5), "{Var85 A5}" },
-            { (0x85, 0xA6), "{Var85 A6}" },
-            { (0x85, 0xA7), "{Var85 A7}" },
-            { (0x85, 0xA8), "{Var85 A8}" },
-            { (0x85, 0xA9), "{Var85 A9}" },
-            { (0x85, 0xAC), "{Var85 AC}" },
-            { (0x85, 0xAD), "{Var85 AD}" },
-            { (0x85, 0xB2), "{Var85 B2}" }, // Ó
-            { (0x85, 0xB3), "{Var85 B3}" },
-            { (0x85, 0xB5), "{Var85 B5}" },
-            { (0x85, 0xB9), "{Var85 B9}" },
-            { (0x85, 0xBA), "{Var85 BA}" },
-            { (0x85, 0xBB), "{Var85 BB}" },
-            { (0x85, 0x80), "{Var85 80}" },
-            { (0xFF, 0x86), "{VarFF 86}" }, // Nothing in EN
-            { (0xFF, 0x90), "{VarFF 90}" }, // Nothing in EN
-            { (0xFF, 0x91), "{VarFF 91}" }, // Nothing in EN
-            { (0xFF, 0x93), "{VarFF 93}" },
-            { (0xFF, 0x94), "{VarFF 94}" },
-            { (0xFF, 0x99), "{VarFF 99}" },
-            { (0xFF, 0x9A), "{VarFF 9A}" },
-            { (0xFF, 0x9B), "{VarFF 9B}" },
-            { (0xFF, 0x9D), "{VarFF 9D}" },
-            { (0xFF, 0x9E), "{VarFF 9E}" },
-            { (0xFF, 0xE0), "{VarFF E0}" },
-            { (0xFF, 0xF1), "{VarFF F1}" },
-            { (0xFF, 0xFF), "{VarFF FF}" } // Large Space
-        };
-
-
-        public static Dictionary<(byte b1, byte b2), string> UniCodeCharaCodes = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0x87, 0x40), "{①}" },
-            { (0x87, 0x41), "{②}" }, 
-            { (0x87, 0x42), "{③}" }, 
-            { (0x87, 0x43), "{④}" }, 
-            { (0x87, 0x44), "{⑤}" }, 
-            { (0x87, 0x45), "{⑥}" }, 
-            { (0x87, 0x46), "{⑦}" }, 
-            { (0x87, 0x47), "{⑧}" }, 
-            { (0x87, 0x48), "{⑨}" }, 
-            { (0x87, 0x54), "{Ⅰ}" }, 
-            { (0x87, 0x55), "{Ⅱ}" },
-            { (0x87, 0x56), "{Ⅲ}" }, 
-            { (0x87, 0x57), "{Ⅳ}" }, 
-            { (0x87, 0x58), "{Ⅴ}" }, 
-            { (0x87, 0x59), "{Ⅵ}" }, 
-            { (0x87, 0x5A), "{Ⅶ}" }, 
-            { (0x87, 0x5B), "{Ⅷ}" }, 
-            { (0x87, 0x5C), "{Ⅸ}" }
-        };
-
-
-        // Don't use this when shift-jis encoding is being used for writing 
-        public static Dictionary<(byte b1, byte b2), string> ShiftJIScharaCodes = new Dictionary<(byte b1, byte b2), string>
+        // Don't use this when shift-jis codepage is being used 
+        public static Dictionary<(byte b1, byte b2), string> ShiftJIScharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x81, 0x41), "{、}" }, 
             { (0x81, 0x42), "{。}" }, 
@@ -537,48 +539,48 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when shift-jis encoding is being used for writing 
-        public static Dictionary<(byte b1, byte b2), string> ShiftJISLetterCodes = new Dictionary<(byte b1, byte b2), string>
+        // Don't use this when shift-jis codepage is being used
+        public static Dictionary<(byte b1, byte b2), string> ShiftJISletterKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xFF, 0xA9), "{VarFF A9}" }, // a jpn letter
-            { (0xFF, 0xC9), "{VarFF C9}" }, // a jpn letter
-            { (0xFF, 0xD3), "{VarFF D3}" }, // a jpn letter
-            { (0xFF, 0xDA), "{VarFF DA}" }, // a jpn letter
-            { (0xFF, 0xD0), "{VarFF D0}" } // a jpn letter
+            { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // a jpn letter ｩ
+            { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // a jpn letter ﾉ
+            { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // a jpn letter ﾓ
+            { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // a jpn letter ﾚ
+            { (0xFF, 0xD0), "{ShJIS_FF D0}" } // a jpn letter ﾐ
         };
 
 
-        // Don't use this when Big5 encoding is being used for writing 
-        public static Dictionary<(byte b1, byte b2), string> Big5LetterCodes = new Dictionary<(byte b1, byte b2), string>
+        // Don't use this when Big5 codepage is being used
+        public static Dictionary<(byte b1, byte b2), string> Big5LetterKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xF2, 0x4F), "{VarF2 4F}" },
-            { (0xF2, 0x52), "{VarF2 52}" },
-            { (0xF2, 0x57), "{VarF2 57}" },
-            { (0xF2, 0x5A), "{VarF2 5A}" },
-            { (0xF2, 0x61), "{VarF2 61}" },
-            { (0xF2, 0x64), "{VarF2 64}" },
-            { (0xF2, 0x65), "{VarF2 65}" },
-            { (0xF2, 0x69), "{VarF2 69}" },
-            { (0xF2, 0x72), "{VarF2 72}" },
-            { (0xF2, 0x73), "{VarF2 73}" },
-            { (0xF2, 0x74), "{VarF2 74}" },
-            { (0xF2, 0x77), "{VarF2 77}" },
-            { (0xF2, 0x5B), "{VarF2 5B}" },
-            { (0xF2, 0x5C), "{VarF2 5C}" },
-            { (0xF2, 0x5F), "{VarF2 5F}" },
-            { (0xF4, 0x40), "{VarF4 40}" },
-            { (0xF4, 0x41), "{VarF4 41}" },
-            { (0xF4, 0x42), "{VarF4 42}" },
-            { (0xF4, 0x43), "{VarF4 43}" },
-            { (0xF4, 0x44), "{VarF4 44}" },
-            { (0xF4, 0x46), "{VarF4 46}" },
-            { (0xF4, 0x48), "{VarF4 48}" },
-            { (0xF4, 0x60), "{VarF4 60}" },
-            { (0xF6, 0x40), "{VarF6 40}" },
-            { (0xF6, 0x60), "{VarF6 60}" },
-            { (0xF7, 0x40), "{VarF7 40}" }, // displays Square
-            { (0xF7, 0x41), "{VarF7 41}" }, // displays Square
-            { (0xF7, 0x42), "{VarF7 42}" }
+            { (0xF2, 0x4F), "{Big5_F2 4F}" },
+            { (0xF2, 0x52), "{Big5_F2 52}" },
+            { (0xF2, 0x57), "{Big5_F2 57}" },
+            { (0xF2, 0x5A), "{Big5_F2 5A}" },
+            { (0xF2, 0x61), "{Big5_F2 61}" },
+            { (0xF2, 0x64), "{Big5_F2 64}" },
+            { (0xF2, 0x65), "{Big5_F2 65}" },
+            { (0xF2, 0x69), "{Big5_F2 69}" },
+            { (0xF2, 0x72), "{Big5_F2 72}" },
+            { (0xF2, 0x73), "{Big5_F2 73}" },
+            { (0xF2, 0x74), "{Big5_F2 74}" },
+            { (0xF2, 0x77), "{Big5_F2 77}" },
+            { (0xF2, 0x5B), "{Big5_F2 5B}" },
+            { (0xF2, 0x5C), "{Big5_F2 5C}" },
+            { (0xF2, 0x5F), "{Big5_F2 5F}" },
+            { (0xF4, 0x40), "{Big5_F4 40}" },
+            { (0xF4, 0x41), "{Big5_F4 41}" },
+            { (0xF4, 0x42), "{Big5_F4 42}" },
+            { (0xF4, 0x43), "{Big5_F4 43}" },
+            { (0xF4, 0x44), "{Big5_F4 44}" },
+            { (0xF4, 0x46), "{Big5_F4 46}" },
+            { (0xF4, 0x48), "{Big5_F4 48}" },
+            { (0xF4, 0x60), "{Big5_F4 60}" },
+            { (0xF6, 0x40), "{Big5_F6 40}" },
+            { (0xF6, 0x60), "{Big5_F6 60}" },
+            { (0xF7, 0x40), "{Big5_F7 40}" }, // displays Square
+            { (0xF7, 0x41), "{Big5_F7 41}" }, // displays Square
+            { (0xF7, 0x42), "{Big5_F7 42}" }
         };
     }
 }

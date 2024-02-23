@@ -77,7 +77,7 @@ namespace ZTRtool
             switch (actionSwitch)
             {
                 case ActionSwitches.x:
-                    ZTRExtract.ExtractProcess(inFile, encodingSwitch);
+                    ZTRExtract.ExtractProcess(inFile, actionSwitch, encodingSwitch);
                     break;
 
                 case ActionSwitches.c:

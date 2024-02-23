@@ -14,8 +14,13 @@
         {
             auto,
             ch,
+            fr,
+            gr,
+            it,
             jp,
             kr,
+            sp,
+            uk,
             us
         }
     }

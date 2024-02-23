@@ -11,8 +11,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
 
-            bool Condition1;
-            bool Condition2;
+            bool condition1;
+            bool condition2;
             bool hasWritten = false;
 
             if (File.Exists(ZTRExtract.OutTxtFile))
@@ -28,8 +28,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                 {
                     currentByte = linesReader.ReadByte();
 
-                    Condition1 = !hasWritten && SingleCodes.ContainsKey(currentByte);
-                    if (Condition1)
+                    condition1 = !hasWritten && SingleKeys.ContainsKey(currentByte);
+                    if (condition1)
                     {
                         // End the line if next
                         // byte is 0
@@ -48,84 +48,84 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                         if (!hasWritten)
                         {
-                            linesWriter.Write(SingleCodes[currentByte]);
+                            linesWriter.Write(SingleKeys[currentByte]);
                             hasWritten = true;
                         }
                     }
 
-                    Condition2 = !hasWritten && linesReader.BaseStream.Position < linesStreamLength;
-                    if (Condition2)
+                    condition2 = !hasWritten && linesReader.BaseStream.Position < linesStreamLength;
+                    if (condition2)
                     {
                         nextByte = linesReader.ReadByte();
                         linesReader.BaseStream.Position -= 1;
 
-                        if (!hasWritten && ColorCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && ColorKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(ColorCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(ColorKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && IconCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && IconKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(IconCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(IconKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && CharaCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && CharaKeysGroupA.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(CharaCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(CharaKeysGroupA[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && KeysCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(KeysCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(BtnKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && UnkVarCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(UnkVarCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(VarKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && UniCodeCharaCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && UniCodeKeysGroupA.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(UniCodeCharaCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(UniCodeKeysGroupA[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && ShiftJIScharaCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && ShiftJIScharaKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(ShiftJIScharaCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(ShiftJIScharaKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && ShiftJISLetterCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && ShiftJISletterKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(ShiftJISLetterCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(ShiftJISletterKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && Big5LetterCodes.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && Big5LetterKeys.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(Big5LetterCodes[(currentByte, nextByte)]);
+                            linesWriter.Write(Big5LetterKeys[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;

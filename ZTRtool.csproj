@@ -96,6 +96,7 @@
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\DecoderHelper.cs" />
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\EncoderHelper.cs" />
     <Compile Include="ZTRtool\SupportClasses\KeysDicts.cs" />
+    <Compile Include="ZTRtool\SupportClasses\SetCodepage.cs" />
     <Compile Include="ZTRtool\SupportClasses\ZTREnums.cs" />
     <Compile Include="ZTRtool\ZTRConvert.cs" />
     <Compile Include="ZTRtool\SupportClasses\DictionaryHelpers.cs" />

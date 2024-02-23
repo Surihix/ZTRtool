@@ -2,6 +2,9 @@
 {
     internal class KeysEncoderKr
     {
+        public static void EncodeKr(byte[] unprocessedLinesArray)
+        {
 
+        }
     }
 }

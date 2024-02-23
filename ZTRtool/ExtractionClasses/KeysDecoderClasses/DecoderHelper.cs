@@ -23,7 +23,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                 {
                     // ch
                     case 950:
-                        KeysDecoderCh.DecodeCh();
+                        KeysDecoderCh.DecodeCh(linesStreamLength, linesReader);
                         break;
 
                     // jp
@@ -38,7 +38,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                     // kr
                     case 51949:
-                        KeysDecoderKr.DecodeKr();
+                        KeysDecoderKr.DecodeKr(linesStreamLength, linesReader);
                         break;
                 }
             }
