@@ -75,14 +75,6 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             li++;
                         }
 
-                        if (!hasWritten && CharaKeysGroupA.ContainsKey((currentByte, nextByte)))
-                        {
-                            linesWriter.Write(CharaKeysGroupA[(currentByte, nextByte)]);
-                            hasWritten = true;
-                            linesReader.BaseStream.Position += 1;
-                            li++;
-                        }
-
                         if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
                         {
                             linesWriter.Write(BtnKeys[(currentByte, nextByte)]);
@@ -94,6 +86,14 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
                         {
                             linesWriter.Write(VarKeys[(currentByte, nextByte)]);
+                            hasWritten = true;
+                            linesReader.BaseStream.Position += 1;
+                            li++;
+                        }
+
+                        if (!hasWritten && CharaKeysGroupA.ContainsKey((currentByte, nextByte)))
+                        {
+                            linesWriter.Write(CharaKeysGroupA[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;

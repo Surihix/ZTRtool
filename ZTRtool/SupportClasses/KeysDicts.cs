@@ -151,6 +151,8 @@ namespace ZTRtool.SupportClasses
 
         public static Dictionary<(byte b1, byte b2), string> VarKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0x80, 0x69), "{Var80 69}" },
+            { (0x80, 0x77), "{Var80 77}" },
             { (0x81, 0x40), "{Var81 40}" }, // Nothing in EN
             { (0x85, 0xA0), "{Var85 A0}" }, // Á
             { (0x85, 0xA1), "{Var85 A1}" }, // Â
@@ -542,15 +544,19 @@ namespace ZTRtool.SupportClasses
         // Don't use this when shift-jis codepage is being used
         public static Dictionary<(byte b1, byte b2), string> ShiftJISletterKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0xFE, 0xBB), "{ShJIS_FE BB}" }, // a empty area and a jpn letter ｻ
+            { (0xFE, 0xBC), "{ShJIS_FE BC}" }, // a empty area and a jpn letter ｼ
+            { (0xFE, 0xBD), "{ShJIS_FE BD}" }, // a empty area and a jpn letter ｽ
+            { (0xFE, 0xC0), "{ShJIS_FE C0}" }, // a empty area and a jpn letter ﾀ
             { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // a jpn letter ｩ
             { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // a jpn letter ﾉ
             { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // a jpn letter ﾓ
             { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // a jpn letter ﾚ
-            { (0xFF, 0xD0), "{ShJIS_FF D0}" } // a jpn letter ﾐ
+            { (0xFF, 0xD0), "{ShJIS_FF D0}" }, // a jpn letter ﾐ
         };
 
 
-        // Don't use this when Big5 codepage is being used
+        // Don't use this when big5 codepage is being used
         public static Dictionary<(byte b1, byte b2), string> Big5LetterKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF2, 0x4F), "{Big5_F2 4F}" },
@@ -581,6 +587,24 @@ namespace ZTRtool.SupportClasses
             { (0xF7, 0x40), "{Big5_F7 40}" }, // displays Square
             { (0xF7, 0x41), "{Big5_F7 41}" }, // displays Square
             { (0xF7, 0x42), "{Big5_F7 42}" }
+        };
+
+
+        // Don't use this when shift-jis or big5 codepages are being used
+        public static Dictionary<(byte b1, byte b2), string> ShJISBig5letterKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xC9, 0xA2), "{ShJ-Big5_C9 A2}" },
+            { (0xC9, 0xAB), "{ShJ-Big5_C9 AB}" },
+            { (0xC9, 0xAD), "{ShJ-Big5_C9 AD}" },
+            { (0xC9, 0xD1), "{ShJ-Big5_C9 D1}" },
+            { (0xC9, 0xD3), "{ShJ-Big5_C9 D3}" },
+            { (0xC9, 0xDA), "{ShJ-Big5_C9 DA}" },
+            { (0xC9, 0xDB), "{ShJ-Big5_C9 DB}" },
+            { (0xC9, 0xDD), "{ShJ-Big5_C9 DD}" },
+            { (0xC9, 0xDE), "{ShJ-Big5_C9 DE}" },
+            { (0xC9, 0xDF), "{ShJ-Big5_C9 DF}" },
+            { (0xC9, 0xE0), "{ShJ-Big5_C9 E0}" },
+            { (0xC9, 0xE1), "{ShJ-Big5_C9 E1}" },
         };
     }
 }

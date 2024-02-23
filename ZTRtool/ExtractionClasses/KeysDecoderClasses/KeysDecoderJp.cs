@@ -20,14 +20,14 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             {
                 using (var linesWriterBinary = new BinaryWriter(linesOutMem, DecoderHelper.CodepageToUse))
                 {
-                    bool ifShiftJisChara;
+                    bool isShiftJisChara;
                     for (int li = 0; li < linesStreamLength; li++)
                     {
                         currentByte = linesReader.ReadByte();
 
-                        ifShiftJisChara = ShiftJISCharaCheck(prevByte, currentByte);
+                        isShiftJisChara = ShiftJISCharaCheck(prevByte, currentByte);
 
-                        if (ifShiftJisChara)
+                        if (isShiftJisChara)
                         {
                             linesWriterBinary.Write(currentByte);
                             hasWritten = true;
@@ -84,15 +84,6 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && CharaKeysGroupB.ContainsKey((currentByte, nextByte)))
-                            {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(CharaKeysGroupB[(currentByte, nextByte)]));
-                                hasWritten = true;
-                                currentByte = 0;
-                                linesReader.BaseStream.Position += 1;
-                                li++;
-                            }
-
                             if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
                             {
                                 linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BtnKeys[(currentByte, nextByte)]));
@@ -105,6 +96,15 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
                             {
                                 linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(VarKeys[(currentByte, nextByte)]));
+                                hasWritten = true;
+                                currentByte = 0;
+                                linesReader.BaseStream.Position += 1;
+                                li++;
+                            }
+
+                            if (!hasWritten && CharaKeysGroupB.ContainsKey((currentByte, nextByte)))
+                            {
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(CharaKeysGroupB[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
