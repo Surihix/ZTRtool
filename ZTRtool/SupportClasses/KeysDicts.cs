@@ -171,6 +171,7 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xBA), "{Var85 BA}" },
             { (0x85, 0xBB), "{Var85 BB}" },
             { (0x85, 0x80), "{Var85 80}" },
+            { (0xFA, 0x20), "{VarFA 20}" },
             { (0xFF, 0x86), "{VarFF 86}" }, // Nothing in EN
             { (0xFF, 0x90), "{VarFF 90}" }, // Nothing in EN
             { (0xFF, 0x91), "{VarFF 91}" }, // Nothing in EN
@@ -596,15 +597,29 @@ namespace ZTRtool.SupportClasses
             { (0xC9, 0xA2), "{ShJ-Big5_C9 A2}" },
             { (0xC9, 0xAB), "{ShJ-Big5_C9 AB}" },
             { (0xC9, 0xAD), "{ShJ-Big5_C9 AD}" },
+            { (0xC9, 0xD0), "{ShJ-Big5_C9 D0}" },
             { (0xC9, 0xD1), "{ShJ-Big5_C9 D1}" },
+            { (0xC9, 0xD2), "{ShJ-Big5_C9 D2}" },
             { (0xC9, 0xD3), "{ShJ-Big5_C9 D3}" },
+            { (0xC9, 0xD4), "{ShJ-Big5_C9 D4}" },
+            { (0xC9, 0xD5), "{ShJ-Big5_C9 D5}" },
+            { (0xC9, 0xD6), "{ShJ-Big5_C9 D6}" },
+            { (0xC9, 0xD7), "{ShJ-Big5_C9 D7}" },
+            { (0xC9, 0xD8), "{ShJ-Big5_C9 D8}" },
+            { (0xC9, 0xD9), "{ShJ-Big5_C9 D9}" },
             { (0xC9, 0xDA), "{ShJ-Big5_C9 DA}" },
             { (0xC9, 0xDB), "{ShJ-Big5_C9 DB}" },
+            { (0xC9, 0xDC), "{ShJ-Big5_C9 DC}" },
             { (0xC9, 0xDD), "{ShJ-Big5_C9 DD}" },
             { (0xC9, 0xDE), "{ShJ-Big5_C9 DE}" },
             { (0xC9, 0xDF), "{ShJ-Big5_C9 DF}" },
             { (0xC9, 0xE0), "{ShJ-Big5_C9 E0}" },
             { (0xC9, 0xE1), "{ShJ-Big5_C9 E1}" },
+            { (0xC9, 0xEC), "{ShJ-Big5_C9 EC}" },
+            { (0xC9, 0xED), "{ShJ-Big5_C9 ED}" },
+            { (0xC9, 0xEE), "{ShJ-Big5_C9 EE}" },
+            { (0xC9, 0xEF), "{ShJ-Big5_C9 EF}" },
+            { (0xC9, 0xF0), "{ShJ-Big5_C9 F0}" },
         };
     }
 }
