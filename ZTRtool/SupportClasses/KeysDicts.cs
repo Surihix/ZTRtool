@@ -545,10 +545,23 @@ namespace ZTRtool.SupportClasses
         // Don't use this when shift-jis codepage is being used
         public static Dictionary<(byte b1, byte b2), string> ShiftJISletterKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0x80, 0xC8), "{ShJIS_80 C8}" }, // a empty area and a jpn letter ﾈ
+            { (0x80, 0xD2), "{ShJIS_80 D2}" }, // a empty area and a jpn letter ﾒ
+            { (0xFE, 0xB0), "{ShJIS_FE B0}" }, // a empty area and a jpn letter ﾏ
+            { (0xFE, 0xB3), "{ShJIS_FE B3}" }, // a empty area and a jpn letter ｳ
+            { (0xFE, 0xB8), "{ShJIS_FE B8}" }, // a empty area and a jpn letter 
             { (0xFE, 0xBB), "{ShJIS_FE BB}" }, // a empty area and a jpn letter ｻ
             { (0xFE, 0xBC), "{ShJIS_FE BC}" }, // a empty area and a jpn letter ｼ
             { (0xFE, 0xBD), "{ShJIS_FE BD}" }, // a empty area and a jpn letter ｽ
             { (0xFE, 0xC0), "{ShJIS_FE C0}" }, // a empty area and a jpn letter ﾀ
+            { (0xFE, 0xC2), "{ShJIS_FE C2}" }, // a empty area and a jpn letter ﾂ
+            { (0xFE, 0xC5), "{ShJIS_FE C5}" }, // a empty area and a jpn letter ﾅ
+            { (0xFE, 0xC6), "{ShJIS_FE C6}" }, // a empty area and a jpn letter 
+            { (0xFE, 0xCA), "{ShJIS_FE CA}" }, // a empty area and a jpn letter ﾊ
+            { (0xFE, 0xD3), "{ShJIS_FE D3}" }, // a empty area and a jpn letter ﾓ
+            { (0xFE, 0xD4), "{ShJIS_FE D4}" }, // a empty area and a jpn letter ﾔ
+            { (0xFE, 0xD5), "{ShJIS_FE D5}" }, // a empty area and a jpn letter 
+            { (0xFE, 0xD8), "{ShJIS_FE D8}" }, // a empty area and a jpn letter 
             { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // a jpn letter ｩ
             { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // a jpn letter ﾉ
             { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // a jpn letter ﾓ
@@ -594,9 +607,34 @@ namespace ZTRtool.SupportClasses
         // Don't use this when shift-jis or big5 codepages are being used
         public static Dictionary<(byte b1, byte b2), string> ShJISBig5letterKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0xC9, 0xA1), "{ShJ-Big5_C9 A1}" },
             { (0xC9, 0xA2), "{ShJ-Big5_C9 A2}" },
+            { (0xC9, 0xA3), "{ShJ-Big5_C9 A3}" },
+            { (0xC9, 0xA4), "{ShJ-Big5_C9 A4}" },
+            { (0xC9, 0xA7), "{ShJ-Big5_C9 A7}" },
+            { (0xC9, 0xA8), "{ShJ-Big5_C9 A8}" },
+            { (0xC9, 0xA9), "{ShJ-Big5_C9 A9}" },
+            { (0xC9, 0xAA), "{ShJ-Big5_C9 AA}" },
             { (0xC9, 0xAB), "{ShJ-Big5_C9 AB}" },
+            { (0xC9, 0xAC), "{ShJ-Big5_C9 AC}" },
             { (0xC9, 0xAD), "{ShJ-Big5_C9 AD}" },
+            { (0xC9, 0xAE), "{ShJ-Big5_C9 AE}" },
+            { (0xC9, 0xAF), "{ShJ-Big5_C9 AF}" },
+            { (0xC9, 0xB0), "{ShJ-Big5_C9 B0}" },
+            { (0xC9, 0xB4), "{ShJ-Big5_C9 B4}" },
+            { (0xC9, 0xB5), "{ShJ-Big5_C9 B5}" },
+            { (0xC9, 0xB6), "{ShJ-Big5_C9 B6}" },
+            { (0xC9, 0xB7), "{ShJ-Big5_C9 B7}" },
+            { (0xC9, 0xB8), "{ShJ-Big5_C9 B8}" },
+            { (0xC9, 0xB9), "{ShJ-Big5_C9 B9}" },
+            { (0xC9, 0xBA), "{ShJ-Big5_C9 BA}" },
+            { (0xC9, 0xBB), "{ShJ-Big5_C9 BB}" },
+            { (0xC9, 0xBC), "{ShJ-Big5_C9 BC}" },
+            { (0xC9, 0xBE), "{ShJ-Big5_C9 BE}" },
+            { (0xC9, 0xBF), "{ShJ-Big5_C9 BF}" },
+            { (0xC9, 0xC0), "{ShJ-Big5_C9 C0}" },
+            { (0xC9, 0xC1), "{ShJ-Big5_C9 C1}" },
+            { (0xC9, 0xC2), "{ShJ-Big5_C9 C2}" },
             { (0xC9, 0xD0), "{ShJ-Big5_C9 D0}" },
             { (0xC9, 0xD1), "{ShJ-Big5_C9 D1}" },
             { (0xC9, 0xD2), "{ShJ-Big5_C9 D2}" },
@@ -615,11 +653,20 @@ namespace ZTRtool.SupportClasses
             { (0xC9, 0xDF), "{ShJ-Big5_C9 DF}" },
             { (0xC9, 0xE0), "{ShJ-Big5_C9 E0}" },
             { (0xC9, 0xE1), "{ShJ-Big5_C9 E1}" },
+            { (0xC9, 0xE2), "{ShJ-Big5_C9 E2}" },
+            { (0xC9, 0xE4), "{ShJ-Big5_C9 E4}" },
+            { (0xC9, 0xE5), "{ShJ-Big5_C9 E5}" },
+            { (0xC9, 0xE6), "{ShJ-Big5_C9 E6}" },
+            { (0xC9, 0xE7), "{ShJ-Big5_C9 E7}" },
+            { (0xC9, 0xE8), "{ShJ-Big5_C9 E8}" },
+            { (0xC9, 0xE9), "{ShJ-Big5_C9 E9}" },
+            { (0xC9, 0xEB), "{ShJ-Big5_C9 EB}" },
             { (0xC9, 0xEC), "{ShJ-Big5_C9 EC}" },
             { (0xC9, 0xED), "{ShJ-Big5_C9 ED}" },
             { (0xC9, 0xEE), "{ShJ-Big5_C9 EE}" },
             { (0xC9, 0xEF), "{ShJ-Big5_C9 EF}" },
             { (0xC9, 0xF0), "{ShJ-Big5_C9 F0}" },
+            { (0xC9, 0xF1), "{ShJ-Big5_C9 F1}" },
         };
     }
 }
