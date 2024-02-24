@@ -161,7 +161,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             switch (b1)
             {
                 case 0x81:
-                    if (b2 >= 0x3F && b2 <= 0xAC && !isChecked)
+                    if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x80 && b2 <= 0xAC && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -181,9 +186,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         isChara = true;
                         isChecked = true;
                     }
-                    // Warning: Counts 4 null characters
-                    // in between
-                    if (b2 >= 0xF0 && b2 <= 0xFC && !isChecked)
+                    if (b2 >= 0xF0 && b2 <= 0xF7 && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 == 0xFC && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -214,7 +222,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     break;
 
                 case 0x83:
-                    if (b2 >= 0x40 && b2 <= 0x96 && !isChecked)
+                    if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x80 && b2 <= 0x96 && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -237,22 +250,17 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         isChara = true;
                         isChecked = true;
                     }
-                    if (b2 >= 0x70 && b2 <= 0x91 && !isChecked)
+                    if (b2 >= 0x70 && b2 <= 0x7E && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
                     }
-                    if (b2 >= 0x9F && b2 <= 0xBD && !isChecked)
+                    if (b2 >= 0x80 && b2 <= 0x91 && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
                     }
-                    if (b2 >= 0x9F && b2 <= 0xBD && !isChecked)
-                    {
-                        isChara = true;
-                        isChecked = true;
-                    }
-                    if (b1 == 0xBE && !isChecked)
+                    if (b2 >= 0x9F && b2 <= 0xBE && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -260,12 +268,32 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     break;
 
                 case 0x87:
-                    if (b2 >= 0x40 && b2 <= 0x76 && !isChecked)
+                    if (b2 >= 0x40 && b2 <= 0x5D && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
                     }
-                    if (b2 >= 0x7F && b2 <= 0xBE && !isChecked)
+                    if (b2 >= 0x5F && b2 <= 0x75 && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 == 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x80 && b2 <= 0x8F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x93 && b2 <= 0x94 && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x98 && b2 <= 0x99 && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -294,17 +322,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     break;
 
                 case 0xEA:
-                    if (b2 >= 0x40 && b2 <= 0xA4 && !isChecked)
+                    if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
                     }
-                    break;
-
-                case 0xED:
-                case 0xEE:
-                case 0xFB:
-                    if (b2 >= 0x40 && b2 <= 0xFC && !isChecked)
+                    if (b2 >= 0x80 && b2 <= 0xA4 && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -312,7 +335,43 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     break;
 
                 case 0xFA:
-                    if (b2 >= 0x50 && b2 <= 0xFC && !isChecked)
+                    if (b2 >= 0x40 && b2 <= 0x49 && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x55 && b2 <= 0x57 && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x5C && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x80 && b2 <= 0xFC && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    break;
+
+                case 0xFB:
+                    if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x80 && b2 <= 0xFC && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    break;
+
+                case 0xFC:
+                    if (b2 >= 0x40 && b2 <= 0x4B && !isChecked)
                     {
                         isChara = true;
                         isChecked = true;
@@ -323,7 +382,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             // Range 2
             if (b1 >= 0x89 && b1 <= 0x97 && !isChecked)
             {
-                if (b2 >= 0x3F && b2 <= 0xFC && !isChecked)
+                if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+                if (b2 >= 0x80 && b2 <= 0xFC && !isChecked)
                 {
                     isChara = true;
                     isChecked = true;
@@ -333,7 +397,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             // Range 3
             if (b1 >= 0x99 && b1 <= 0x9F && !isChecked)
             {
-                if (b2 >= 0x3F && b2 <= 0xFC && !isChecked)
+                if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+                if (b2 >= 0x80 && b2 <= 0xFC && !isChecked)
                 {
                     isChara = true;
                     isChecked = true;
@@ -343,7 +412,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             // Range 4
             if (b1 >= 0xE0 && b1 <= 0xE9 && !isChecked)
             {
-                if (b2 >= 0x3F && b2 <= 0xFC && !isChecked)
+                if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+                if (b2 >= 0x80 && b2 <= 0xFC && !isChecked)
                 {
                     isChara = true;
                 }
