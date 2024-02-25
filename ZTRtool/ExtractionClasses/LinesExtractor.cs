@@ -37,6 +37,7 @@ namespace ZTRtool.ExtractionClasses
                     var currentLineDict = new Dictionary<int, List<byte>>();
                     byte currentLineByte = 255;
                     byte prevLineByte = 255;
+                    byte prevLineByteBeforeDict = 255;
                     byte currentLineDictByteKey = 0;
                     var currentLineDictByteCount = 0;
 
@@ -117,6 +118,7 @@ namespace ZTRtool.ExtractionClasses
 
                             if (currentLineDict.ContainsKey(currentLineByte))
                             {
+                                prevLineByte = prevLineByteBeforeDict;
                                 currentLineDictByteKey = currentLineByte;
                                 currentLineDictByteCount = currentLineDict[currentLineDictByteKey].Count;
 
@@ -144,11 +146,14 @@ namespace ZTRtool.ExtractionClasses
                             {
                                 linesWriter.Write(currentLineByte);
                             }
+
+                            prevLineByteBeforeDict = currentLineByte;
                         }
 
                         // Move to next line
                         currentLineByte = 255;
                         prevLineByte = 255;
+                        prevLineByteBeforeDict = 255;
 
                         LineInfoTableStartPos += 4;
                         linesWriter.Write((byte)13);
