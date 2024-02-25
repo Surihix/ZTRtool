@@ -75,18 +75,18 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && IconKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KrIconKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(IconKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrIconKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KrBtnKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BtnKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrBtnKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -139,15 +139,6 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             if (!hasWritten && Big5LetterKeys.ContainsKey((currentByte, nextByte)))
                             {
                                 linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Big5LetterKeys[(currentByte, nextByte)]));
-                                hasWritten = true;
-                                currentByte = 0;
-                                linesReader.BaseStream.Position += 1;
-                                li++;
-                            }
-
-                            if (!hasWritten && ShJISBig5letterKeys.ContainsKey((currentByte, nextByte)))
-                            {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ShJISBig5letterKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;

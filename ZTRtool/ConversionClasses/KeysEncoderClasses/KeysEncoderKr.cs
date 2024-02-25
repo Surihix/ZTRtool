@@ -28,7 +28,6 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool shiftJIScharaKeysCondition;
             bool shiftJISletterKeysCondition;
             bool big5LetterKeysCondition;
-            bool shJSbig5LetterKeysCondition;
 
 
             using (var unprocessedLinesStream = new MemoryStream())
@@ -73,19 +72,19 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    iconKeysCondition = !isKeyConverted && IconKeys.ContainsValue("{" + currentKey + "}");
+                                    iconKeysCondition = !isKeyConverted && KrIconKeys.ContainsValue("{" + currentKey + "}");
                                     if (iconKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(IconKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(KrIconKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
                                     }
 
-                                    btnKeysCondition = !isKeyConverted && BtnKeys.ContainsValue("{" + currentKey + "}");
+                                    btnKeysCondition = !isKeyConverted && KrBtnKeys.ContainsValue("{" + currentKey + "}");
                                     if (btnKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(BtnKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(KrBtnKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
@@ -140,15 +139,6 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                     if (big5LetterKeysCondition)
                                     {
                                         twoBytesKey = GetDictByteKey(Big5LetterKeys, "{" + currentKey + "}");
-                                        processedLinesWriter.Write(twoBytesKey.Item1);
-                                        processedLinesWriter.Write(twoBytesKey.Item2);
-                                        isKeyConverted = true;
-                                    }
-
-                                    shJSbig5LetterKeysCondition = !isKeyConverted && ShJISBig5letterKeys.ContainsValue("{" + currentKey + "}");
-                                    if (shJSbig5LetterKeysCondition)
-                                    {
-                                        twoBytesKey = GetDictByteKey(ShJISBig5letterKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;

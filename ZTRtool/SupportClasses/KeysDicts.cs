@@ -52,6 +52,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        // Don't use this when using euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF0, 0x40), "{Icon Clock}" },
@@ -110,6 +111,46 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        // Don't use this when using latin, shift-jis, or big5 codepages
+        public static Dictionary<(byte b1, byte b2), string> KrIconKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xC9, 0xA1), "{KrIcon A1}" },
+            { (0xC9, 0xA2), "{KrIcon A2}" },
+            { (0xC9, 0xA3), "{KrIcon A3}" },
+            { (0xC9, 0xA4), "{KrIcon A4}" },
+            { (0xC9, 0xA5), "{KrIcon A5}" },
+            { (0xC9, 0xA6), "{KrIcon A6}" },
+            { (0xC9, 0xA7), "{KrIcon A7}" },
+            { (0xC9, 0xA8), "{KrIcon A8}" },
+            { (0xC9, 0xA9), "{KrIcon A9}" },
+            { (0xC9, 0xAA), "{KrIcon AA}" },
+            { (0xC9, 0xAB), "{KrIcon AB}" },
+            { (0xC9, 0xAC), "{KrIcon AC}" },
+            { (0xC9, 0xAD), "{KrIcon AD}" },
+            { (0xC9, 0xAE), "{KrIcon AE}" },
+            { (0xC9, 0xAF), "{KrIcon AF}" },
+            { (0xC9, 0xB0), "{KrIcon B0}" },
+            { (0xC9, 0xB1), "{KrIcon B1}" },
+            { (0xC9, 0xB2), "{KrIcon B2}" },
+            { (0xC9, 0xB3), "{KrIcon B3}" },
+            { (0xC9, 0xB4), "{KrIcon B4}" },
+            { (0xC9, 0xB5), "{KrIcon B5}" },
+            { (0xC9, 0xB6), "{KrIcon B6}" },
+            { (0xC9, 0xB7), "{KrIcon B7}" },
+            { (0xC9, 0xB8), "{KrIcon B8}" },
+            { (0xC9, 0xB9), "{KrIcon B9}" },
+            { (0xC9, 0xBA), "{KrIcon BA}" },
+            { (0xC9, 0xBB), "{KrIcon BB}" },
+            { (0xC9, 0xBC), "{KrIcon BC}" },
+            { (0xC9, 0xBD), "{KrIcon BD}" },
+            { (0xC9, 0xBE), "{KrIcon BE}" },
+            { (0xC9, 0xBF), "{KrIcon BF}" },
+            { (0xC9, 0xC0), "{KrIcon C0}" },
+            { (0xC9, 0xC1), "{KrIcon C1}" },
+        };
+
+
+        // Don't use this when using euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF1, 0x40), "{Btn Cross}" },
@@ -146,6 +187,48 @@ namespace ZTRtool.SupportClasses
             { (0xF1, 0x5F), "{Btn LeftRightPad}" },
             { (0xF1, 0x60), "{Btn Arrows}" },
             { (0xF1, 0x61), "{Btn PadLeft}" }
+        };
+
+
+        // Don't use this when using latin, shift-jis, or big5 codepages
+        public static Dictionary<(byte b1, byte b2), string> KrBtnKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xC9, 0xD0), "{KrBtn D0}" },
+            { (0xC9, 0xD1), "{KrBtn D1}" },
+            { (0xC9, 0xD2), "{KrBtn D2}" },
+            { (0xC9, 0xD3), "{KrBtn D3}" },
+            { (0xC9, 0xD4), "{KrBtn D4}" },
+            { (0xC9, 0xD5), "{KrBtn D5}" },
+            { (0xC9, 0xD6), "{KrBtn D6}" },
+            { (0xC9, 0xD7), "{KrBtn D7}" },
+            { (0xC9, 0xD8), "{KrBtn D8}" },
+            { (0xC9, 0xD9), "{KrBtn D9}" },
+            { (0xC9, 0xDA), "{KrBtn DA}" },
+            { (0xC9, 0xDB), "{KrBtn DB}" },
+            { (0xC9, 0xDC), "{KrBtn DC}" },
+            { (0xC9, 0xDD), "{KrBtn DD}" },
+            { (0xC9, 0xDE), "{KrBtn DE}" },
+            { (0xC9, 0xDF), "{KrBtn DF}" },
+            { (0xC9, 0xE0), "{KrBtn E0}" },
+            { (0xC9, 0xE1), "{KrBtn E1}" },
+            { (0xC9, 0xE2), "{KrBtn E2}" },
+            { (0xC9, 0xE3), "{KrBtn E3}" },
+            { (0xC9, 0xE4), "{KrBtn E4}" },
+            { (0xC9, 0xE5), "{KrBtn E5}" },
+            { (0xC9, 0xE6), "{KrBtn E6}" },
+            { (0xC9, 0xE7), "{KrBtn E7}" },
+            { (0xC9, 0xE8), "{KrBtn E8}" },
+            { (0xC9, 0xE9), "{KrBtn E9}" },
+            { (0xC9, 0xEA), "{KrBtn EA}" },
+            { (0xC9, 0xEB), "{KrBtn EB}" },
+            { (0xC9, 0xEC), "{KrBtn EC}" },
+            { (0xC9, 0xED), "{KrBtn ED}" },
+            { (0xC9, 0xEE), "{KrBtn EE}" },
+            { (0xC9, 0xEF), "{KrBtn EF}" },
+            { (0xC9, 0xF0), "{KrBtn F0}" },
+            { (0xC9, 0xF1), "{KrBtn F1}" },
+            { (0xC9, 0xF2), "{KrBtn F2}" },
+            { (0xC9, 0xF3), "{KrBtn F3}" },
         };
 
 
@@ -490,7 +573,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when shift-jis codepage is being used 
+        // Don't use this when using shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> ShiftJIScharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x81, 0x41), "{、}" }, 
@@ -542,7 +625,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when shift-jis codepage is being used
+        // Don't use this when using shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> ShiftJISletterKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x80, 0xC8), "{ShJIS_80 C8}" }, // a empty area and a jpn letter ﾈ
@@ -570,7 +653,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when big5 codepage is being used
+        // Don't use this when using big5 codepage
         public static Dictionary<(byte b1, byte b2), string> Big5LetterKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF2, 0x4F), "{Big5_F2 4F}" },
@@ -601,72 +684,6 @@ namespace ZTRtool.SupportClasses
             { (0xF7, 0x40), "{Big5_F7 40}" }, // displays Square
             { (0xF7, 0x41), "{Big5_F7 41}" }, // displays Square
             { (0xF7, 0x42), "{Big5_F7 42}" }
-        };
-
-
-        // Don't use this when shift-jis or big5 codepages are being used
-        public static Dictionary<(byte b1, byte b2), string> ShJISBig5letterKeys = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0xC9, 0xA1), "{ShJ-Big5_C9 A1}" },
-            { (0xC9, 0xA2), "{ShJ-Big5_C9 A2}" },
-            { (0xC9, 0xA3), "{ShJ-Big5_C9 A3}" },
-            { (0xC9, 0xA4), "{ShJ-Big5_C9 A4}" },
-            { (0xC9, 0xA7), "{ShJ-Big5_C9 A7}" },
-            { (0xC9, 0xA8), "{ShJ-Big5_C9 A8}" },
-            { (0xC9, 0xA9), "{ShJ-Big5_C9 A9}" },
-            { (0xC9, 0xAA), "{ShJ-Big5_C9 AA}" },
-            { (0xC9, 0xAB), "{ShJ-Big5_C9 AB}" },
-            { (0xC9, 0xAC), "{ShJ-Big5_C9 AC}" },
-            { (0xC9, 0xAD), "{ShJ-Big5_C9 AD}" },
-            { (0xC9, 0xAE), "{ShJ-Big5_C9 AE}" },
-            { (0xC9, 0xAF), "{ShJ-Big5_C9 AF}" },
-            { (0xC9, 0xB0), "{ShJ-Big5_C9 B0}" },
-            { (0xC9, 0xB4), "{ShJ-Big5_C9 B4}" },
-            { (0xC9, 0xB5), "{ShJ-Big5_C9 B5}" },
-            { (0xC9, 0xB6), "{ShJ-Big5_C9 B6}" },
-            { (0xC9, 0xB7), "{ShJ-Big5_C9 B7}" },
-            { (0xC9, 0xB8), "{ShJ-Big5_C9 B8}" },
-            { (0xC9, 0xB9), "{ShJ-Big5_C9 B9}" },
-            { (0xC9, 0xBA), "{ShJ-Big5_C9 BA}" },
-            { (0xC9, 0xBB), "{ShJ-Big5_C9 BB}" },
-            { (0xC9, 0xBC), "{ShJ-Big5_C9 BC}" },
-            { (0xC9, 0xBE), "{ShJ-Big5_C9 BE}" },
-            { (0xC9, 0xBF), "{ShJ-Big5_C9 BF}" },
-            { (0xC9, 0xC0), "{ShJ-Big5_C9 C0}" },
-            { (0xC9, 0xC1), "{ShJ-Big5_C9 C1}" },
-            { (0xC9, 0xC2), "{ShJ-Big5_C9 C2}" },
-            { (0xC9, 0xD0), "{ShJ-Big5_C9 D0}" },
-            { (0xC9, 0xD1), "{ShJ-Big5_C9 D1}" },
-            { (0xC9, 0xD2), "{ShJ-Big5_C9 D2}" },
-            { (0xC9, 0xD3), "{ShJ-Big5_C9 D3}" },
-            { (0xC9, 0xD4), "{ShJ-Big5_C9 D4}" },
-            { (0xC9, 0xD5), "{ShJ-Big5_C9 D5}" },
-            { (0xC9, 0xD6), "{ShJ-Big5_C9 D6}" },
-            { (0xC9, 0xD7), "{ShJ-Big5_C9 D7}" },
-            { (0xC9, 0xD8), "{ShJ-Big5_C9 D8}" },
-            { (0xC9, 0xD9), "{ShJ-Big5_C9 D9}" },
-            { (0xC9, 0xDA), "{ShJ-Big5_C9 DA}" },
-            { (0xC9, 0xDB), "{ShJ-Big5_C9 DB}" },
-            { (0xC9, 0xDC), "{ShJ-Big5_C9 DC}" },
-            { (0xC9, 0xDD), "{ShJ-Big5_C9 DD}" },
-            { (0xC9, 0xDE), "{ShJ-Big5_C9 DE}" },
-            { (0xC9, 0xDF), "{ShJ-Big5_C9 DF}" },
-            { (0xC9, 0xE0), "{ShJ-Big5_C9 E0}" },
-            { (0xC9, 0xE1), "{ShJ-Big5_C9 E1}" },
-            { (0xC9, 0xE2), "{ShJ-Big5_C9 E2}" },
-            { (0xC9, 0xE4), "{ShJ-Big5_C9 E4}" },
-            { (0xC9, 0xE5), "{ShJ-Big5_C9 E5}" },
-            { (0xC9, 0xE6), "{ShJ-Big5_C9 E6}" },
-            { (0xC9, 0xE7), "{ShJ-Big5_C9 E7}" },
-            { (0xC9, 0xE8), "{ShJ-Big5_C9 E8}" },
-            { (0xC9, 0xE9), "{ShJ-Big5_C9 E9}" },
-            { (0xC9, 0xEB), "{ShJ-Big5_C9 EB}" },
-            { (0xC9, 0xEC), "{ShJ-Big5_C9 EC}" },
-            { (0xC9, 0xED), "{ShJ-Big5_C9 ED}" },
-            { (0xC9, 0xEE), "{ShJ-Big5_C9 EE}" },
-            { (0xC9, 0xEF), "{ShJ-Big5_C9 EF}" },
-            { (0xC9, 0xF0), "{ShJ-Big5_C9 F0}" },
-            { (0xC9, 0xF1), "{ShJ-Big5_C9 F1}" },
         };
     }
 }
