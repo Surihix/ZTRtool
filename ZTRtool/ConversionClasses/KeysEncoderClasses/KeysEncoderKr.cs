@@ -63,10 +63,10 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    colorKeysCondition = !isKeyConverted && ColorKeys.ContainsValue("{" + currentKey + "}");
+                                    colorKeysCondition = !isKeyConverted && KrColorKeys.ContainsValue("{" + currentKey + "}");
                                     if (colorKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(ColorKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(KrColorKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;

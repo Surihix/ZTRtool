@@ -66,9 +66,9 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             nextByte = linesReader.ReadByte();
                             linesReader.BaseStream.Position -= 1;
 
-                            if (!hasWritten && ColorKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KrColorKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ColorKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrColorKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -274,11 +274,14 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     break;
 
                 case 0xAC:
-                    if (b2 >= 0xA1 && b2 <= 0xC1 && !isChecked)
-                    {
-                        isChara = true;
-                        isChecked = true;
-                    }
+                    //// Commented out as the value ranges under 
+                    //// this check are used for color keys in 
+                    //// korean ztrs
+                    //if (b2 >= 0xA1 && b2 <= 0xC1 && !isChecked)
+                    //{                        
+                    //    isChara = true;
+                    //    isChecked = true;
+                    //}
                     if (b2 >= 0xDC && b2 <= 0xF1 && !isChecked)
                     {
                         isChara = true;

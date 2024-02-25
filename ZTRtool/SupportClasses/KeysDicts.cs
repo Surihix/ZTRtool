@@ -15,6 +15,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> ColorKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF9, 0x40), "{Color PureWhite}" },
@@ -52,7 +53,45 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using euc-kr codepage
+        // Use only for euc-kr codepage
+        public static Dictionary<(byte b1, byte b2), string> KrColorKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xAC, 0xA1), "{KrColor PureWhite}" },
+            { (0xAC, 0xA2), "{KrColor BlizzardBlue}" },
+            { (0xAC, 0xA3), "{KrColor Gold}" },
+            { (0xAC, 0xA4), "{KrColor Red}" },
+            { (0xAC, 0xA5), "{KrColor Yellow}" },
+            { (0xAC, 0xA6), "{KrColor Green}" },
+            { (0xAC, 0xA7), "{KrColor Gray}" },
+            { (0xAC, 0xA8), "{KrColor LightGold}" },
+            { (0xAC, 0xA9), "{KrColor Rose}" },
+            { (0xAC, 0xAA), "{KrColor Purple}" },
+            { (0xAC, 0xAB), "{KrColor DarkYellow}" },
+            { (0xAC, 0xAC), "{KrColor GrayWhite}" },
+            { (0xAC, 0xAD), "{KrColor WhitePurple}" },
+            { (0xAC, 0xAE), "{KrColor WhiteGreen}" },
+            { (0xAC, 0xAF), "{KrColor Transparent}" },
+            { (0xAC, 0xB0), "{KrColor DarkCyan}" },
+            { (0xAC, 0xB1), "{KrColor OrangeViolet}" },
+            { (0xAC, 0xB2), "{KrColor RoseWhite}" }, // LR shows it as dark blue
+            { (0xAC, 0xB3), "{KrColor DarkOlive}" },
+            { (0xAC, 0xB4), "{KrColor DarkGreen}" },
+            { (0xAC, 0xB5), "{KrColor DarkGray}" },
+            { (0xAC, 0xB6), "{KrColor DarkGold}" },
+            { (0xAC, 0xB7), "{KrColor DarkRed}" },
+            { (0xAC, 0xB8), "{KrColor DarkPurple}" }, // LR shows it dark red
+            { (0xAC, 0xB9), "{KrColor DarkWhite}" }, // LR shows it dark green
+            { (0xAC, 0xBA), "{KrColor SmokeDark}" },
+            { (0xAC, 0xBB), "{KrColor 0xBB}" },
+            { (0xAC, 0xBC), "{KrColor 0xBC}" },
+            { (0xAC, 0xBD), "{KrColor 0xBD}" },
+            { (0xAC, 0xBE), "{KrColor 0xBE}" },
+            { (0xAC, 0xBF), "{KrColor 0xBF}" },
+            { (0xAC, 0xC0), "{KrColor 0xC0}" }
+        };
+
+
+        // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF0, 0x40), "{Icon Clock}" },
@@ -111,46 +150,103 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using latin, shift-jis, or big5 codepages
+        // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrIconKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xC9, 0xA1), "{KrIcon A1}" },
-            { (0xC9, 0xA2), "{KrIcon A2}" },
-            { (0xC9, 0xA3), "{KrIcon A3}" },
-            { (0xC9, 0xA4), "{KrIcon A4}" },
-            { (0xC9, 0xA5), "{KrIcon A5}" },
-            { (0xC9, 0xA6), "{KrIcon A6}" },
-            { (0xC9, 0xA7), "{KrIcon A7}" },
-            { (0xC9, 0xA8), "{KrIcon A8}" },
-            { (0xC9, 0xA9), "{KrIcon A9}" },
-            { (0xC9, 0xAA), "{KrIcon AA}" },
-            { (0xC9, 0xAB), "{KrIcon AB}" },
-            { (0xC9, 0xAC), "{KrIcon AC}" },
-            { (0xC9, 0xAD), "{KrIcon AD}" },
-            { (0xC9, 0xAE), "{KrIcon AE}" },
-            { (0xC9, 0xAF), "{KrIcon AF}" },
-            { (0xC9, 0xB0), "{KrIcon B0}" },
-            { (0xC9, 0xB1), "{KrIcon B1}" },
-            { (0xC9, 0xB2), "{KrIcon B2}" },
-            { (0xC9, 0xB3), "{KrIcon B3}" },
-            { (0xC9, 0xB4), "{KrIcon B4}" },
-            { (0xC9, 0xB5), "{KrIcon B5}" },
-            { (0xC9, 0xB6), "{KrIcon B6}" },
-            { (0xC9, 0xB7), "{KrIcon B7}" },
-            { (0xC9, 0xB8), "{KrIcon B8}" },
-            { (0xC9, 0xB9), "{KrIcon B9}" },
-            { (0xC9, 0xBA), "{KrIcon BA}" },
-            { (0xC9, 0xBB), "{KrIcon BB}" },
-            { (0xC9, 0xBC), "{KrIcon BC}" },
-            { (0xC9, 0xBD), "{KrIcon BD}" },
-            { (0xC9, 0xBE), "{KrIcon BE}" },
-            { (0xC9, 0xBF), "{KrIcon BF}" },
-            { (0xC9, 0xC0), "{KrIcon C0}" },
-            { (0xC9, 0xC1), "{KrIcon C1}" },
+            { (0xC9, 0xA1), "{KrIcon_C9 A1}" },
+            { (0xC9, 0xA2), "{KrIcon_C9 A2}" },
+            { (0xC9, 0xA3), "{KrIcon_C9 A3}" },
+            { (0xC9, 0xA4), "{KrIcon_C9 A4}" },
+            { (0xC9, 0xA5), "{KrIcon_C9 A5}" },
+            { (0xC9, 0xA6), "{KrIcon_C9 A6}" },
+            { (0xC9, 0xA7), "{KrIcon_C9 A7}" },
+            { (0xC9, 0xA8), "{KrIcon_C9 A8}" },
+            { (0xC9, 0xA9), "{KrIcon_C9 A9}" },
+            { (0xC9, 0xAA), "{KrIcon_C9 AA}" },
+            { (0xC9, 0xAB), "{KrIcon_C9 AB}" },
+            { (0xC9, 0xAC), "{KrIcon_C9 AC}" },
+            { (0xC9, 0xAD), "{KrIcon_C9 AD}" },
+            { (0xC9, 0xAE), "{KrIcon_C9 AE}" },
+            { (0xC9, 0xAF), "{KrIcon_C9 AF}" },
+            { (0xC9, 0xB0), "{KrIcon_C9 B0}" },
+            { (0xC9, 0xB1), "{KrIcon_C9 B1}" },
+            { (0xC9, 0xB2), "{KrIcon_C9 B2}" },
+            { (0xC9, 0xB3), "{KrIcon_C9 B3}" },
+            { (0xC9, 0xB4), "{KrIcon_C9 B4}" },
+            { (0xC9, 0xB5), "{KrIcon_C9 B5}" },
+            { (0xC9, 0xB6), "{KrIcon_C9 B6}" },
+            { (0xC9, 0xB7), "{KrIcon_C9 B7}" },
+            { (0xC9, 0xB8), "{KrIcon_C9 B8}" },
+            { (0xC9, 0xB9), "{KrIcon_C9 B9}" },
+            { (0xC9, 0xBA), "{KrIcon_C9 BA}" },
+            { (0xC9, 0xBB), "{KrIcon_C9 BB}" },
+            { (0xC9, 0xBC), "{KrIcon_C9 BC}" },
+            { (0xC9, 0xBD), "{KrIcon_C9 BD}" },
+            { (0xC9, 0xBE), "{KrIcon_C9 BE}" },
+            { (0xC9, 0xBF), "{KrIcon_C9 BF}" },
+            { (0xC9, 0xC0), "{KrIcon_C9 C0}" },
+            { (0xC9, 0xC1), "{KrIcon_C9 C1}" },
+            { (0xC9, 0xC2), "{KrIcon_C9 C2}" },
+            { (0xFE, 0xA1), "{KrIcon_FE A1}" },
+            { (0xFE, 0xA2), "{KrIcon_FE A2}" },
+            { (0xFE, 0xA3), "{KrIcon_FE A3}" },
+            { (0xFE, 0xA4), "{KrIcon_FE A4}" },
+            { (0xFE, 0xA5), "{KrIcon_FE A5}" },
+            { (0xFE, 0xA6), "{KrIcon_FE A6}" },
+            { (0xFE, 0xA7), "{KrIcon_FE A7}" },
+            { (0xFE, 0xA8), "{KrIcon_FE A8}" },
+            { (0xFE, 0xA9), "{KrIcon_FE A9}" },
+            { (0xFE, 0xAA), "{KrIcon_FE AA}" },
+            { (0xFE, 0xAB), "{KrIcon_FE AB}" },
+            { (0xFE, 0xAC), "{KrIcon_FE AC}" },
+            { (0xFE, 0xAD), "{KrIcon_FE AD}" },
+            { (0xFE, 0xAE), "{KrIcon_FE AE}" },
+            { (0xFE, 0xAF), "{KrIcon_FE AF}" },
+            { (0xFE, 0xB0), "{KrIcon_FE B0}" },
+            { (0xFE, 0xB1), "{KrIcon_FE B1}" },
+            { (0xFE, 0xB2), "{KrIcon_FE B2}" },
+            { (0xFE, 0xB3), "{KrIcon_FE B3}" },
+            { (0xFE, 0xB4), "{KrIcon_FE B4}" },
+            { (0xFE, 0xB5), "{KrIcon_FE B5}" },
+            { (0xFE, 0xB6), "{KrIcon_FE B6}" },
+            { (0xFE, 0xB7), "{KrIcon_FE B7}" },
+            { (0xFE, 0xB8), "{KrIcon_FE B8}" },
+            { (0xFE, 0xB9), "{KrIcon_FE B9}" },
+            { (0xFE, 0xBA), "{KrIcon_FE BA}" },
+            { (0xFE, 0xBB), "{KrIcon_FE BB}" },
+            { (0xFE, 0xBC), "{KrIcon_FE BC}" },
+            { (0xFE, 0xBD), "{KrIcon_FE BD}" },
+            { (0xFE, 0xBE), "{KrIcon_FE BE}" },
+            { (0xFE, 0xBF), "{KrIcon_FE BF}" },
+            { (0xFE, 0xC0), "{KrIcon_FE C0}" },
+            { (0xFE, 0xC1), "{KrIcon_FE C1}" },
+            { (0xFE, 0xC2), "{KrIcon_FE C2}" },
+            { (0xFE, 0xC3), "{KrIcon_FE C3}" },
+            { (0xFE, 0xC4), "{KrIcon_FE C4}" },
+            { (0xFE, 0xC5), "{KrIcon_FE C5}" },
+            { (0xFE, 0xC6), "{KrIcon_FE C6}" },
+            { (0xFE, 0xC7), "{KrIcon_FE C7}" },
+            { (0xFE, 0xC8), "{KrIcon_FE C8}" },
+            { (0xFE, 0xC9), "{KrIcon_FE C9}" },
+            { (0xFE, 0xCA), "{KrIcon_FE CA}" },
+            { (0xFE, 0xCB), "{KrIcon_FE CB}" },
+            { (0xFE, 0xCC), "{KrIcon_FE CC}" },
+            { (0xFE, 0xCD), "{KrIcon_FE CD}" },
+            { (0xFE, 0xCE), "{KrIcon_FE CE}" },
+            { (0xFE, 0xCF), "{KrIcon_FE CF}" },
+            { (0xFE, 0xD0), "{KrIcon_FE D0}" },
+            { (0xFE, 0xD1), "{KrIcon_FE D1}" },
+            { (0xFE, 0xD2), "{KrIcon_FE D2}" },
+            { (0xFE, 0xD3), "{KrIcon_FE D3}" },
+            { (0xFE, 0xD4), "{KrIcon_FE D4}" },
+            { (0xFE, 0xD5), "{KrIcon_FE D5}" },
+            { (0xFE, 0xD6), "{KrIcon_FE D6}" },
+            { (0xFE, 0xD7), "{KrIcon_FE D7}" },
+            { (0xFE, 0xD8), "{KrIcon_FE D8}" }
         };
 
 
-        // Don't use this when using euc-kr codepage
+        // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF1, 0x40), "{Btn Cross}" },
@@ -190,7 +286,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using latin, shift-jis, or big5 codepages
+        // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrBtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xC9, 0xD0), "{KrBtn D0}" },
@@ -228,7 +324,7 @@ namespace ZTRtool.SupportClasses
             { (0xC9, 0xF0), "{KrBtn F0}" },
             { (0xC9, 0xF1), "{KrBtn F1}" },
             { (0xC9, 0xF2), "{KrBtn F2}" },
-            { (0xC9, 0xF3), "{KrBtn F3}" },
+            { (0xC9, 0xF3), "{KrBtn F3}" }
         };
 
 
@@ -271,7 +367,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using non latin codepages
+        // Use only for latin codepage
         public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupA = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x40, 0x70), "{Text NewPage}" },
@@ -398,7 +494,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using non latin codepages
+        // Use only for latin codepage
         public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupA = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x87, 0x40), "{①}" },
@@ -422,7 +518,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using latin codepage
+        // Use only for shift-jis, euc-kr, and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x40, 0x70), "{Text NewPage}" },
@@ -549,7 +645,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using latin codepage
+        // Use only for latin codepage
         public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x87, 0x40), "{Uni87 40}" },
@@ -573,7 +669,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using shift-jis codepage
+        // Use only for euc-kr, and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> ShiftJIScharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x81, 0x41), "{、}" }, 
@@ -625,35 +721,21 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Don't use this when using shift-jis codepage
+        // ??
         public static Dictionary<(byte b1, byte b2), string> ShiftJISletterKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x80, 0xC8), "{ShJIS_80 C8}" }, // a empty area and a jpn letter ﾈ
-            { (0x80, 0xD2), "{ShJIS_80 D2}" }, // a empty area and a jpn letter ﾒ
-            { (0xFE, 0xB0), "{ShJIS_FE B0}" }, // a empty area and a jpn letter ﾏ
-            { (0xFE, 0xB3), "{ShJIS_FE B3}" }, // a empty area and a jpn letter ｳ
-            { (0xFE, 0xB8), "{ShJIS_FE B8}" }, // a empty area and a jpn letter 
-            { (0xFE, 0xBB), "{ShJIS_FE BB}" }, // a empty area and a jpn letter ｻ
-            { (0xFE, 0xBC), "{ShJIS_FE BC}" }, // a empty area and a jpn letter ｼ
-            { (0xFE, 0xBD), "{ShJIS_FE BD}" }, // a empty area and a jpn letter ｽ
-            { (0xFE, 0xC0), "{ShJIS_FE C0}" }, // a empty area and a jpn letter ﾀ
-            { (0xFE, 0xC2), "{ShJIS_FE C2}" }, // a empty area and a jpn letter ﾂ
-            { (0xFE, 0xC5), "{ShJIS_FE C5}" }, // a empty area and a jpn letter ﾅ
-            { (0xFE, 0xC6), "{ShJIS_FE C6}" }, // a empty area and a jpn letter 
-            { (0xFE, 0xCA), "{ShJIS_FE CA}" }, // a empty area and a jpn letter ﾊ
-            { (0xFE, 0xD3), "{ShJIS_FE D3}" }, // a empty area and a jpn letter ﾓ
-            { (0xFE, 0xD4), "{ShJIS_FE D4}" }, // a empty area and a jpn letter ﾔ
-            { (0xFE, 0xD5), "{ShJIS_FE D5}" }, // a empty area and a jpn letter 
-            { (0xFE, 0xD8), "{ShJIS_FE D8}" }, // a empty area and a jpn letter 
-            { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // a jpn letter ｩ
-            { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // a jpn letter ﾉ
-            { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // a jpn letter ﾓ
-            { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // a jpn letter ﾚ
-            { (0xFF, 0xD0), "{ShJIS_FF D0}" }, // a jpn letter ﾐ
+            { (0x80, 0xC8), "{ShJIS_80 C8}" }, // kr = é (found in kr)
+            { (0x80, 0xD2), "{ShJIS_80 D2}" }, // kr = ó (found in kr)
+
+            { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // (found in fr)
+            { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // kr = large space (found in fr, sp, kr)
+            { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // (found in fr)
+            { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // kr = large Space (found in kr, sp)
+            { (0xFF, 0xD0), "{ShJIS_FF D0}" }, // kr = large Space (found in gr, it, kr)
         };
 
 
-        // Don't use this when using big5 codepage
+        // ??
         public static Dictionary<(byte b1, byte b2), string> Big5LetterKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF2, 0x4F), "{Big5_F2 4F}" },
