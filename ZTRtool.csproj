@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ZTRtool\ConversionClasses\CompressionHelpers.cs" />
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderCh.cs" />
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderJp.cs" />
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderKr.cs" />
