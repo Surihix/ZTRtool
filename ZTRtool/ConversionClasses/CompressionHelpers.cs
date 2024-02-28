@@ -12,15 +12,15 @@ namespace ZTRtool.ConversionClasses
         {
             PatternType = 1;
 
-            var pageNumbersList = GetPageNumbers(dataArray);
+            var pageIndicesList = GetPageNumbers(dataArray);
 
             bool toCompress = true;
             (byte, byte) largestOccuringBytes;
             int repeatingBytesCount = 0;
             byte largestOccuringByte1;
             byte largestOccuringByte2;
-            byte pageNumber;
-            int pageNumbersListIndex = 0;
+            byte pageIndex;
+            int pageIndicesListPos = 0;
 
             var byteList = new List<byte>();
             var processedByteList = new List<byte>();
@@ -39,17 +39,17 @@ namespace ZTRtool.ConversionClasses
                 largestOccuringByte1 = largestOccuringBytes.Item1;
                 largestOccuringByte2 = largestOccuringBytes.Item2;
 
-                if (pageNumbersListIndex == pageNumbersList.Count())
+                if (pageIndicesListPos == pageIndicesList.Count())
                 {
                     toCompress = false;
                 }
 
-                pageNumber = pageNumbersList[pageNumbersListIndex];
+                pageIndex = pageIndicesList[pageIndicesListPos];
 
 
                 repeatingBytesCount = 0;
 
-                dictList.Add(pageNumber);
+                dictList.Add(pageIndex);
                 dictList.Add(largestOccuringByte1);
                 dictList.Add(largestOccuringByte2);
 
@@ -63,7 +63,7 @@ namespace ZTRtool.ConversionClasses
                     {
                         if (byteList[d] == largestOccuringByte1 && byteList[d + 1] == largestOccuringByte2)
                         {
-                            processedByteList.Add(pageNumber);
+                            processedByteList.Add(pageIndex);
                             d += 1;
                         }
                         else
@@ -75,7 +75,7 @@ namespace ZTRtool.ConversionClasses
 
                 dataArray = processedByteList.ToArray();
 
-                pageNumbersListIndex++;
+                pageIndicesListPos++;
                 byteList.Clear();
                 processedByteList.Clear();
             }
@@ -191,8 +191,8 @@ namespace ZTRtool.ConversionClasses
 
         static List<byte> GetPageNumbers(byte[] dataArray)
         {
-            var validPageIndices = new List<byte>();
-            byte currentPageValue;
+            var pageIndicesList = new List<byte>();
+            byte currentPageIndex;
 
             for (int b = 0; b <= 255; b++)
             {
@@ -201,19 +201,19 @@ namespace ZTRtool.ConversionClasses
                     continue;
                 }
 
-                currentPageValue = (byte)b;
+                currentPageIndex = (byte)b;
 
-                if (dataArray.Contains(currentPageValue))
+                if (dataArray.Contains(currentPageIndex))
                 {
                     continue;
                 }
                 else
                 {
-                    validPageIndices.Add(currentPageValue);
+                    pageIndicesList.Add(currentPageIndex);
                 }
             }
 
-            return validPageIndices;
+            return pageIndicesList;
         }
     }
 }
