@@ -116,7 +116,6 @@ namespace ZTRtool.ConversionClasses
                                             headerWriter.WriteBytesUInt32(fileHeader.DictChunkOffsetsCount, true);
 
 
-                                            // 
                                             if (File.Exists(ZTRConvert.OutFile))
                                             {
                                                 File.Delete(ZTRConvert.OutFile);

@@ -89,6 +89,7 @@
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderKr.cs" />
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderLatin.cs" />
     <Compile Include="ZTRtool\ConversionClasses\PackCmp.cs" />
+    <Compile Include="ZTRtool\ConversionClasses\PackIDs.cs" />
     <Compile Include="ZTRtool\ConversionClasses\PackUncmp.cs" />
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderCh.cs" />
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderLatin.cs" />

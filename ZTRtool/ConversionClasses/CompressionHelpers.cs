@@ -6,12 +6,8 @@ namespace ZTRtool.ConversionClasses
 {
     internal class CompressionHelpers
     {
-        static int PatternType { get; set; }
-
-        static byte[] CompressChunk(byte[] dataArray)
+        public static byte[] CompressChunk(byte[] dataArray)
         {
-            PatternType = 1;
-
             var pageIndicesList = GetPageNumbers(dataArray);
 
             bool toCompress = true;
@@ -151,19 +147,7 @@ namespace ZTRtool.ConversionClasses
                         }
                     }
 
-                    if (foundAmount > 1 && PatternType == 0)
-                    {
-                        i += 1;
-                    }
-
                     foundAmount = 1;
-                }
-                else
-                {
-                    if (PatternType == 0)
-                    {
-                        i += 1;
-                    }
                 }
             }
 

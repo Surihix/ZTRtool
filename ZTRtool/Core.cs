@@ -86,8 +86,8 @@ namespace ZTRtool
                     break;
 
                 case ActionSwitches.c2:
-                    Console.WriteLine("Not implemented");
-                    Console.ReadLine();
+                    ZTRConvert.ConvertProcess(inFile, encodingSwitch, actionSwitch);
+                    Environment.Exit(0);
                     break;
             }
         }
