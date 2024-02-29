@@ -125,7 +125,7 @@ namespace ZTRtool
 
                     case ActionSwitches.c2:
                         Console.WriteLine("Building compressed ztr....");
-                        Console.WriteLine("");
+                        //Console.WriteLine("");
 
                         PackCmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
                         break;
