@@ -52,7 +52,7 @@ namespace ZTRtool.ConversionClasses
                                 {
                                     currentIDchunk = CompressionHelpers.CompressChunk(idsReader.ReadBytes((int)idDictChunkStrDataSizes[idc]));
                                     chunkedIDsWriter.Write(currentIDchunk);
-                                    Console.Write("\r{0}", "Compressed chunk " + idc);
+                                    Console.Write("\r{0}", "Compressed id chunk " + idc);
                                 }
 
                                 processedIDsArray = chunkedIDsStream.ToArray();

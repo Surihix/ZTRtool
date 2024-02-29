@@ -37,7 +37,7 @@ namespace ZTRtool.ConversionClasses
 
                 if (pageIndicesListPos == pageIndicesList.Count())
                 {
-                    toCompress = false;
+                    break;
                 }
 
                 pageIndex = pageIndicesList[pageIndicesListPos];

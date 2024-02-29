@@ -127,7 +127,7 @@ namespace ZTRtool
                         Console.WriteLine("Building compressed ztr....");
                         Console.WriteLine("");
 
-                        PackUncmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
+                        PackCmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
                         break;
                 }
             }
