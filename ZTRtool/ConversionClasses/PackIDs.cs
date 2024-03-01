@@ -47,6 +47,7 @@ namespace ZTRtool.ConversionClasses
 
                             case ActionSwitches.c2:
                                 Console.WriteLine("Building compressed line IDs....");
+                                Console.WriteLine($"Total id chunks: {idsDictChunkCount}");
 
                                 for (idc = 0; idc < idsDictChunkCount; idc++)
                                 {
@@ -54,6 +55,8 @@ namespace ZTRtool.ConversionClasses
                                     chunkedIDsWriter.Write(currentIDchunk);
                                     Console.Write("\r{0}", "Compressed id chunk " + idc);
                                 }
+
+                                Console.Write("\r{0}", "Compressed id chunk " + idc);
 
                                 processedIDsArray = chunkedIDsStream.ToArray();
                                 Console.WriteLine("");

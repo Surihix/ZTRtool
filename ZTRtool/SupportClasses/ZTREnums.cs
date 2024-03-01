@@ -20,7 +20,6 @@
             jp,
             kr,
             sp,
-            uk,
             us
         }
     }

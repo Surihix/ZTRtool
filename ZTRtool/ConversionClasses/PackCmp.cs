@@ -19,6 +19,8 @@ namespace ZTRtool.ConversionClasses
             DictionaryHelpers.GetItemsGroupCount((uint)processedLinesArray.Length, 4096, ref linesDictChunkCount, ref linesDictChunkCmpDataSizes);
             fileHeader.DictChunkOffsetsCount = (uint)linesDictChunkCount;
 
+            Console.WriteLine($"Total line chunks: {fileHeader.DictChunkOffsetsCount}");
+
             // Open a stream for holding 
             // all chunk offsets
             using (var chunkOffsetsStream = new MemoryStream())
@@ -71,7 +73,6 @@ namespace ZTRtool.ConversionClasses
                                                     byte prevLineByteBeforeDict = byte.MaxValue;
                                                     byte currentLineDictByteKey = byte.MaxValue;
                                                     var currentLineDictByteCount = 0;
-                                                    byte prevLineDictByteKey = byte.MaxValue;
 
                                                     for (int ldc = 0; ldc < linesDictChunkCount; ldc++)
                                                     {
@@ -114,6 +115,7 @@ namespace ZTRtool.ConversionClasses
                                                             if (currentLineByte == 0 && prevLineByte == 0)
                                                             {
                                                                 lineEnded = true;
+                                                                lineInfo.LineStartPosInChunk++;
                                                                 continue;
                                                             }
 
@@ -125,17 +127,12 @@ namespace ZTRtool.ConversionClasses
                                                                 currentLineDictByteKey = currentLineByte;
                                                                 currentLineDictByteCount = currentLineDict[currentLineDictByteKey].Count;
 
-                                                                //if (currentLineDictByteKey != prevLineDictByteKey)
-                                                                //{
-                                                                //    lineInfo.CharaStartInDictPage = 0;
-                                                                //}
-
                                                                 for (int b = lineInfo.CharaStartInDictPage; b < currentLineDictByteCount; b++)
                                                                 {
                                                                     currentLineByte = currentLineDict[currentLineDictByteKey][b];
 
                                                                     // Terminate the line
-                                                                    if (prevLineByte == 0 && currentLineByte == 0)
+                                                                    if (currentLineByte == 0 && prevLineByte == 0)
                                                                     {
                                                                         if ((b + 1) < currentLineDictByteCount)
                                                                         {
@@ -162,8 +159,6 @@ namespace ZTRtool.ConversionClasses
                                                                 {
                                                                     lineInfo.CharaStartInDictPage = 0;
                                                                 }
-
-                                                                prevLineDictByteKey = currentLineDictByteKey;
                                                             }
                                                             else
                                                             {
@@ -176,17 +171,12 @@ namespace ZTRtool.ConversionClasses
                                                         Console.Write("\r{0}", "Compressed line chunk " + ldc);
 
                                                         chunkOffsetsWriter.WriteBytesUInt32((uint)lineDataStream.Position, true);
-                                                        if (Core.IsDebug)
-                                                        {
-                                                            lineInfoStream.Seek(0, SeekOrigin.Begin);
-                                                            File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_lineInfos"), lineInfoStream.ToArray());
-                                                            lineInfoStream.Seek(lineInfoStream.Length, SeekOrigin.Begin);
-                                                        }
                                                         lineInfo.DictChunkID++;
                                                         lineInfo.LineStartPosInChunk = 0;
                                                         lastLineChunkStartPos = (uint)lineDataStream.Position;
                                                     }
 
+                                                    Console.Write("\r{0}", "Compressed line chunk " + linesDictChunkCount);
                                                     Console.WriteLine("");
 
                                                     // Open a stream for holding
