@@ -80,8 +80,8 @@ namespace ZTRtool.ConversionClasses
                                                         currentLinesChunk = CompressionHelpers.CompressChunk(procLineDataReader.ReadBytes((int)linesDictChunkCmpDataSizes[ldc]));
                                                         lineDataWriter.Write(currentLinesChunk);
 
-                                                        // Decompress the chunk to get
-                                                        // the info data for each line
+                                                        // Rearrange the compressed chunk's
+                                                        // dictionary
                                                         lineDataReader.BaseStream.Position = lastLineChunkStartPos;
                                                         currentLineDictChunkSize = lineDataReader.ReadBytesUInt32(true);
                                                         lastLineChunkStartPos = (uint)lineDataReader.BaseStream.Position;
@@ -90,7 +90,8 @@ namespace ZTRtool.ConversionClasses
 
                                                         // Update line info offsets until
                                                         // the position equals the end of
-                                                        // the data stream
+                                                        // the data stream i.e at the end
+                                                        // of a chunk
                                                         while (lineDataReader.BaseStream.Position != lineDataReader.BaseStream.Length)
                                                         {
                                                             //if (linesWritten == x)
