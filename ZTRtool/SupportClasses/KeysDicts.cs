@@ -91,6 +91,44 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        // Use only for big5 codepage
+        public static Dictionary<(byte b1, byte b2), string> ChColorKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFE, 0x40), "{ChColor PureWhite}" },
+            { (0xFE, 0x41), "{ChColor BlizzardBlue}" },
+            { (0xFE, 0x42), "{ChColor Gold}" },
+            { (0xFE, 0x43), "{ChColor Red}" },
+            { (0xFE, 0x45), "{ChColor Yellow}" },
+            { (0xFE, 0x46), "{ChColor Green}" },
+            { (0xFE, 0x47), "{ChColor Gray}" },
+            { (0xFE, 0x48), "{ChColor LightGold}" },
+            { (0xFE, 0x49), "{ChColor Rose}" },
+            { (0xFE, 0x4A), "{ChColor Purple}" },
+            { (0xFE, 0x4B), "{ChColor DarkYellow}" },
+            { (0xFE, 0x4C), "{ChColor GrayWhite}" },
+            { (0xFE, 0x4D), "{ChColor WhitePurple}" },
+            { (0xFE, 0x4E), "{ChColor WhiteGreen}" },
+            { (0xFE, 0x4F), "{ChColor Transparent}" },
+            { (0xFE, 0x50), "{ChColor DarkCyan}" },
+            { (0xFE, 0x51), "{ChColor OrangeViolet}" },
+            { (0xFE, 0x52), "{ChColor RoseWhite}" }, // LR shows it as dark blue
+            { (0xFE, 0x53), "{ChColor DarkOlive}" },
+            { (0xFE, 0x54), "{ChColor DarkGreen}" },
+            { (0xFE, 0x55), "{ChColor DarkGray}" },
+            { (0xFE, 0x56), "{ChColor DarkGold}" },
+            { (0xFE, 0x57), "{ChColor DarkRed}" },
+            { (0xFE, 0x58), "{ChColor DarkPurple}" }, // LR shows it dark red
+            { (0xFE, 0x59), "{ChColor DarkWhite}" }, // LR shows it dark green
+            { (0xFE, 0x5A), "{ChColor SmokeDark}" },
+            { (0xFE, 0x5B), "{ChColor 0x5B}" },
+            { (0xFE, 0x5C), "{ChColor 0x5C}" },
+            { (0xFE, 0x5D), "{ChColor 0x5D}" },
+            { (0xFE, 0x5E), "{ChColor 0x5E}" },
+            { (0xFE, 0x5F), "{ChColor 0x5F}" },
+            { (0xFE, 0x60), "{ChColor 0x60}" }
+        };
+
+
         // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -672,35 +710,35 @@ namespace ZTRtool.SupportClasses
         // Use only for euc-kr, and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> ShiftJIScharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x81, 0x41), "{、}" }, 
-            { (0x81, 0x42), "{。}" }, 
-            { (0x81, 0x45), "{･}" }, 
-            { (0x81, 0x46), "{：}" }, 
-            { (0x81, 0x48), "{？}" }, 
-            { (0x81, 0x49), "{！}" }, 
-            { (0x81, 0x58), "{々}" }, 
-            { (0x81, 0x5B), "{ー}" }, 
+            { (0x81, 0x41), "{、}" },
+            { (0x81, 0x42), "{。}" },
+            { (0x81, 0x45), "{･}" },
+            { (0x81, 0x46), "{：}" },
+            { (0x81, 0x48), "{？}" },
+            { (0x81, 0x49), "{！}" },
+            { (0x81, 0x58), "{々}" },
+            { (0x81, 0x5B), "{ー}" },
             { (0x81, 0x5C), "{ｰ}" },
-            { (0x81, 0x5E), "{／}" }, 
+            { (0x81, 0x5E), "{／}" },
             { (0x81, 0x5F), "{＼}" },
             { (0x81, 0x60), "{〜}" },
-            { (0x81, 0x69), "{（}" }, 
-            { (0x81, 0x6A), "{）}" }, 
-            { (0x81, 0x75), "{「}" }, 
-            { (0x81, 0x76), "{」}" }, 
-            { (0x81, 0x77), "{『}" }, 
-            { (0x81, 0x78), "{』}" }, 
-            { (0x81, 0x79), "{【}" }, 
-            { (0x81, 0x7A), "{】}" }, 
-            { (0x81, 0x7B), "{＋}" }, 
-            { (0x81, 0x7C), "{－}" }, 
-            { (0x81, 0x81), "{゠}" }, 
-            { (0x81, 0x83), "{＜}" }, 
-            { (0x81, 0x84), "{＞}" }, 
-            { (0x81, 0x93), "{％}" }, 
-            { (0x81, 0x95), "{＆}" }, 
-            { (0x81, 0x99), "{☆}" }, 
-            { (0x81, 0x9A), "{★}" }, 
+            { (0x81, 0x69), "{（}" },
+            { (0x81, 0x6A), "{）}" },
+            { (0x81, 0x75), "{「}" },
+            { (0x81, 0x76), "{」}" },
+            { (0x81, 0x77), "{『}" },
+            { (0x81, 0x78), "{』}" },
+            { (0x81, 0x79), "{【}" },
+            { (0x81, 0x7A), "{】}" },
+            { (0x81, 0x7B), "{＋}" },
+            { (0x81, 0x7C), "{－}" },
+            { (0x81, 0x81), "{゠}" },
+            { (0x81, 0x83), "{＜}" },
+            { (0x81, 0x84), "{＞}" },
+            { (0x81, 0x93), "{％}" },
+            { (0x81, 0x95), "{＆}" },
+            { (0x81, 0x99), "{☆}" },
+            { (0x81, 0x9A), "{★}" },
             { (0x81, 0x9B), "{○}" },
             { (0x81, 0x9D), "{◎}" },
             { (0x81, 0xA0), "{□}" },
@@ -712,10 +750,10 @@ namespace ZTRtool.SupportClasses
             { (0x81, 0xAB), "{↓}" },
             { (0x81, 0xCB), "{⇒}" },
             { (0x81, 0x85), "{≦}" },
-            { (0x82, 0x72), "{Ｓ}" }, 
+            { (0x82, 0x72), "{Ｓ}" },
             { (0x82, 0x6E), "{Ｏ}" },
-            { (0x82, 0x98), "{ｘ}" }, 
-            { (0x83, 0xB6), "{Ω}" }, 
+            { (0x82, 0x98), "{ｘ}" },
+            { (0x83, 0xB6), "{Ω}" },
             { (0x83, 0xC0), "{β}" },
             { (0x83, 0xD4), "{χ}" }
         };
@@ -730,7 +768,7 @@ namespace ZTRtool.SupportClasses
             { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // (found in fr)
             { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // kr = large space (found in fr, sp, kr)
             { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // (found in fr)
-            { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // kr = large Space (found in kr, sp)
+            { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // kr = large Space (found in ch, sp, kr)
             { (0xFF, 0xD0), "{ShJIS_FF D0}" }, // kr = large Space (found in gr, it, kr)
         };
 
