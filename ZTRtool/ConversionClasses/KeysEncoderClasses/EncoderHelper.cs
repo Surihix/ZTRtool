@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 {
     internal class EncoderHelper
     {
-        public static byte[] ProcessedLinesArray { get; set; }
+        public static GameCodeSwitches GameCode { get; set; }
         public static Encoding CodepageToUse { get; set; }
+        public static byte[] ProcessedLinesArray { get; set; }
 
         public static byte[] ConvertLines(byte[] unprocessedLinesArray)
         {

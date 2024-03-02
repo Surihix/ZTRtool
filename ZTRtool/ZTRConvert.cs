@@ -13,8 +13,10 @@ namespace ZTRtool
     {
         public static string OutFile { get; set; }
 
-        public static void ConvertProcess(string inTxtFile, EncodingSwitches encodingSwitch, ActionSwitches actionSwitch)
+        public static void ConvertProcess(string inTxtFile, GameCodeSwitches gameCodeSwitch, ActionSwitches actionSwitch, EncodingSwitches encodingSwitch)
         {
+            EncoderHelper.GameCode = gameCodeSwitch;
+
             var fileHeader = new FileHeader
             {
                 Magic = 1,

@@ -14,14 +14,28 @@ namespace ZTRtool.SupportClasses
             { 0x05, "{ArticleMany}" }
         };
 
-
+        #region ColorKeysDicts 
         // Use only for latin, shift-jis codepages
-        public static Dictionary<(byte b1, byte b2), string> ColorKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> ColorKeysXIII = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xF9, 0x40), "{Color PureWhite}" },
-            { (0xF9, 0x41), "{Color BlizzardBlue}" },
+            { (0xF9, 0x32), "{Color Ex00}" },
+            { (0xF9, 0x33), "{Color Ex01}" },
+            { (0xF9, 0x34), "{Color Ex02}" },
+            { (0xF9, 0x35), "{Color Ex03}" },
+            { (0xF9, 0x36), "{Color Ex04}" },
+            { (0xF9, 0x37), "{Color Ex05}" },
+            { (0xF9, 0x38), "{Color Ex06}" },
+            { (0xF9, 0x39), "{Color Ex07}" },
+            { (0xF9, 0x3A), "{Color Ex08}" },
+            { (0xF9, 0x3B), "{Color Ex09}" },
+            { (0xF9, 0x3C), "{Color Ex10}" },
+            { (0xF9, 0x3D), "{Color Ex11}" },
+            { (0xF9, 0x3E), "{Color Ex12}" },
+            { (0xF9, 0x3F), "{Color Ex13}" },
+            { (0xF9, 0x40), "{Color White}" },
+            { (0xF9, 0x41), "{Color IceBlue}" },
             { (0xF9, 0x42), "{Color Gold}" },
-            { (0xF9, 0x43), "{Color Red}" },
+            { (0xF9, 0x43), "{Color LightRed}" },
             { (0xF9, 0x44), "{Color Yellow}" },
             { (0xF9, 0x45), "{Color Green}" },
             { (0xF9, 0x46), "{Color Gray}" },
@@ -29,106 +43,227 @@ namespace ZTRtool.SupportClasses
             { (0xF9, 0x48), "{Color Rose}" },
             { (0xF9, 0x49), "{Color Purple}" },
             { (0xF9, 0x4A), "{Color DarkYellow}" },
-            { (0xF9, 0x4B), "{Color GrayWhite}" },
-            { (0xF9, 0x4C), "{Color WhitePurple}" },
-            { (0xF9, 0x4D), "{Color WhiteGreen}" },
-            { (0xF9, 0x4E), "{Color Transparent}" },
-            { (0xF9, 0x4F), "{Color DarkCyan}" },
-            { (0xF9, 0x50), "{Color OrangeViolet}" },
-            { (0xF9, 0x51), "{Color RoseWhite}" },
-            { (0xF9, 0x52), "{Color DarkOlive}" },
-            { (0xF9, 0x53), "{Color DarkGreen}" },
-            { (0xF9, 0x54), "{Color DarkGray}" },
-            { (0xF9, 0x55), "{Color DarkGold}" },
-            { (0xF9, 0x56), "{Color DarkRed}" },
-            { (0xF9, 0x57), "{Color DarkPurple}" },
-            { (0xF9, 0x58), "{Color DarkWhite}" },
-            { (0xF9, 0x59), "{Color SmokeDark}" },
-            { (0xF9, 0x5A), "{Color 5A}" },
-            { (0xF9, 0x5B), "{Color 5B}" },
-            { (0xF9, 0x5C), "{Color 5C}" },
-            { (0xF9, 0x5D), "{Color 5D}" },
-            { (0xF9, 0x5E), "{Color 5E}" },
-            { (0xF9, 0x5F), "{Color 5F}" }
+            { (0xF9, 0x4B), "{Color Gray2}" },
+            { (0xF9, 0x4C), "{Color Voilet}" },
+            { (0xF9, 0x4D), "{Color LightGreen}" },
+            { (0xF9, 0x4F), "{Color Ex14}" },
+            { (0xF9, 0x50), "{Color Ex15}" },
+            { (0xF9, 0x51), "{Color Ex16}" },
+            { (0xF9, 0x52), "{Color Ex17}" },
+            { (0xF9, 0x53), "{Color Ex18}" },
+            { (0xF9, 0x54), "{Color Ex19}" },
+            { (0xF9, 0x55), "{Color Ex20}" },
+            { (0xF9, 0x56), "{Color Ex21}" },
+            { (0xF9, 0x57), "{Color Ex22}" },
+            { (0xF9, 0x58), "{Color Ex23}" },
+            { (0xF9, 0x59), "{Color Ex24}" },
+            { (0xF9, 0x5A), "{Color Ex25}" },
+            { (0xF9, 0x5B), "{Color Ex26}" },
+            { (0xF9, 0x5E), "{Color Ex27}" },
+            { (0xF9, 0x5F), "{Color Ex28}" }
         };
-
+        public static Dictionary<(byte b1, byte b2), string> ColorKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xF9, 0x40), "{Color White}" },
+            { (0xF9, 0x41), "{Color IceBlue}" },
+            { (0xF9, 0x42), "{Color Gold}" },
+            { (0xF9, 0x43), "{Color LightRed}" },
+            { (0xF9, 0x44), "{Color Yellow}" },
+            { (0xF9, 0x45), "{Color Green}" },
+            { (0xF9, 0x46), "{Color Gray}" },
+            { (0xF9, 0x47), "{Color LightGold}" },
+            { (0xF9, 0x48), "{Color Rose}" },
+            { (0xF9, 0x49), "{Color Purple}" },
+            { (0xF9, 0x4A), "{Color DarkYellow}" },
+            { (0xF9, 0x4B), "{Color Gray2}" },
+            { (0xF9, 0x4C), "{Color Voilet}" },
+            { (0xF9, 0x4D), "{Color LightGreen}" },
+            { (0xF9, 0x4E), "{Color Sapphire}" },
+            { (0xF9, 0x4F), "{Color Voilet2}" },
+            { (0xF9, 0x50), "{Color OliveGreen}" },
+            { (0xF9, 0x51), "{Color DarkCyan}" },
+            { (0xF9, 0x52), "{Color Lavender}" },
+            { (0xF9, 0x53), "{Color Brown}" },
+            { (0xF9, 0x54), "{Color Gold2}" },
+            { (0xF9, 0x55), "{Color Gold3}" },
+            { (0xF9, 0x56), "{Color DarkGray}" },
+            { (0xF9, 0x57), "{Color DarkRed}" },
+            { (0xF9, 0x58), "{Color Jade}" },
+            { (0xF9, 0x59), "{Color SmokeGray}" },
+            { (0xF9, 0x5A), "{Color DarkGold}" },
+            { (0xF9, 0x5B), "{Color Magenta}" },
+            { (0xF9, 0x5C), "{Color PureWhite}" },
+            { (0xF9, 0x5D), "{Color Orange}" },
+            { (0xF9, 0x5E), "{Color NavyBlue}" },
+        };
 
         // Use only for euc-kr codepage
-        public static Dictionary<(byte b1, byte b2), string> KrColorKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> KrColorKeysXIII = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xAC, 0xA1), "{KrColor PureWhite}" },
-            { (0xAC, 0xA2), "{KrColor BlizzardBlue}" },
-            { (0xAC, 0xA3), "{KrColor Gold}" },
-            { (0xAC, 0xA4), "{KrColor Red}" },
-            { (0xAC, 0xA5), "{KrColor Yellow}" },
-            { (0xAC, 0xA6), "{KrColor Green}" },
-            { (0xAC, 0xA7), "{KrColor Gray}" },
-            { (0xAC, 0xA8), "{KrColor LightGold}" },
-            { (0xAC, 0xA9), "{KrColor Rose}" },
-            { (0xAC, 0xAA), "{KrColor Purple}" },
-            { (0xAC, 0xAB), "{KrColor DarkYellow}" },
-            { (0xAC, 0xAC), "{KrColor GrayWhite}" },
-            { (0xAC, 0xAD), "{KrColor WhitePurple}" },
-            { (0xAC, 0xAE), "{KrColor WhiteGreen}" },
-            { (0xAC, 0xAF), "{KrColor Transparent}" },
-            { (0xAC, 0xB0), "{KrColor DarkCyan}" },
-            { (0xAC, 0xB1), "{KrColor OrangeViolet}" },
-            { (0xAC, 0xB2), "{KrColor RoseWhite}" }, // LR shows it as dark blue
-            { (0xAC, 0xB3), "{KrColor DarkOlive}" },
-            { (0xAC, 0xB4), "{KrColor DarkGreen}" },
-            { (0xAC, 0xB5), "{KrColor DarkGray}" },
-            { (0xAC, 0xB6), "{KrColor DarkGold}" },
-            { (0xAC, 0xB7), "{KrColor DarkRed}" },
-            { (0xAC, 0xB8), "{KrColor DarkPurple}" }, // LR shows it dark red
-            { (0xAC, 0xB9), "{KrColor DarkWhite}" }, // LR shows it dark green
-            { (0xAC, 0xBA), "{KrColor SmokeDark}" },
-            { (0xAC, 0xBB), "{KrColor BB}" },
-            { (0xAC, 0xBC), "{KrColor BC}" },
-            { (0xAC, 0xBD), "{KrColor BD}" },
-            { (0xAC, 0xBE), "{KrColor BE}" },
-            { (0xAC, 0xBF), "{KrColor BF}" },
-            { (0xAC, 0xC0), "{KrColor C0}" }
+            { (0xAC, 0x93), "{Color Ex00}" },
+            { (0xAC, 0x94), "{Color Ex01}" },
+            { (0xAC, 0x95), "{Color Ex02}" },
+            { (0xAC, 0x96), "{Color Ex03}" },
+            { (0xAC, 0x97), "{Color Ex04}" },
+            { (0xAC, 0x98), "{Color Ex05}" },
+            { (0xAC, 0x99), "{Color Ex06}" },
+            { (0xAC, 0x9A), "{Color Ex07}" },
+            { (0xAC, 0x9B), "{Color Ex08}" },
+            { (0xAC, 0x9C), "{Color Ex09}" },
+            { (0xAC, 0x9D), "{Color Ex10}" },
+            { (0xAC, 0x9E), "{Color Ex11}" },
+            { (0xAC, 0x9F), "{Color Ex12}" },
+            { (0xAC, 0xA0), "{Color Ex13}" },
+            { (0xAC, 0xA1), "{Color White}" },
+            { (0xAC, 0xA2), "{Color IceBlue}" },
+            { (0xAC, 0xA3), "{Color Gold}" },
+            { (0xAC, 0xA4), "{Color LightRed}" },
+            { (0xAC, 0xA5), "{Color Yellow}" },
+            { (0xAC, 0xA6), "{Color Green}" },
+            { (0xAC, 0xA7), "{Color Gray}" },
+            { (0xAC, 0xA8), "{Color LightGold}" },
+            { (0xAC, 0xA9), "{Color Rose}" },
+            { (0xAC, 0xAA), "{Color Purple}" },
+            { (0xAC, 0xAB), "{Color DarkYellow}" },
+            { (0xAC, 0xAC), "{Color Gray2}" },
+            { (0xAC, 0xAD), "{Color Voilet}" },
+            { (0xAC, 0xAE), "{Color LightGreen}" },
+            { (0xAC, 0xB0), "{Color Ex14}" },
+            { (0xAC, 0xB1), "{Color Ex15}" },
+            { (0xAC, 0xB2), "{Color Ex16}" },
+            { (0xAC, 0xB3), "{Color Ex17}" },
+            { (0xAC, 0xB4), "{Color Ex18}" },
+            { (0xAC, 0xB5), "{Color Ex19}" },
+            { (0xAC, 0xB6), "{Color Ex20}" },
+            { (0xAC, 0xB7), "{Color Ex21}" },
+            { (0xAC, 0xB8), "{Color Ex22}" },
+            { (0xAC, 0xB9), "{Color Ex23}" },
+            { (0xAC, 0xBA), "{Color Ex24}" },
+            { (0xAC, 0xBB), "{Color Ex25}" },
+            { (0xAC, 0xBC), "{Color Ex26}" },
+            { (0xAC, 0xBF), "{Color Ex27}" },
+            { (0xAC, 0xC0), "{Color Ex28}" }
         };
-
+        public static Dictionary<(byte b1, byte b2), string> KrColorKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xAC, 0xA1), "{Color White}" },
+            { (0xAC, 0xA2), "{Color IceBlue}" },
+            { (0xAC, 0xA3), "{Color Gold}" },
+            { (0xAC, 0xA4), "{Color LightRed}" },
+            { (0xAC, 0xA5), "{Color Yellow}" },
+            { (0xAC, 0xA6), "{Color Green}" },
+            { (0xAC, 0xA7), "{Color Gray}" },
+            { (0xAC, 0xA8), "{Color LightGold}" },
+            { (0xAC, 0xA9), "{Color Rose}" },
+            { (0xAC, 0xAA), "{Color Purple}" },
+            { (0xAC, 0xAB), "{Color DarkYellow}" },
+            { (0xAC, 0xAC), "{Color Gray2}" },
+            { (0xAC, 0xAD), "{Color Voilet}" },
+            { (0xAC, 0xAE), "{Color LightGreen}" },
+            { (0xAC, 0xAF), "{Color Sapphire}" },
+            { (0xAC, 0xB0), "{Color Voilet2}" },
+            { (0xAC, 0xB1), "{Color OliveGreen}" },
+            { (0xAC, 0xB2), "{Color DarkCyan}" },
+            { (0xAC, 0xB3), "{Color Lavender}" },
+            { (0xAC, 0xB4), "{Color Brown}" },
+            { (0xAC, 0xB5), "{Color Gold2}" },
+            { (0xAC, 0xB6), "{Color Gold3}" },
+            { (0xAC, 0xB7), "{Color DarkGray}" },
+            { (0xAC, 0xB8), "{Color DarkRed}" },
+            { (0xAC, 0xB9), "{Color Jade}" },
+            { (0xAC, 0xBA), "{Color SmokeGray}" },
+            { (0xAC, 0xBB), "{Color DarkGold}" },
+            { (0xAC, 0xBC), "{Color Magenta}" },
+            { (0xAC, 0xBD), "{Color PureWhite}" },
+            { (0xAC, 0xBE), "{Color Orange}" },
+            { (0xAC, 0xBF), "{Color NavyBlue}" },
+        };
 
         // Use only for big5 codepage
-        public static Dictionary<(byte b1, byte b2), string> ChColorKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> ChColorKeysXIII = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xFE, 0x40), "{ChColor PureWhite}" },
-            { (0xFE, 0x41), "{ChColor BlizzardBlue}" },
-            { (0xFE, 0x42), "{ChColor Gold}" },
-            { (0xFE, 0x43), "{ChColor Red}" },
-            { (0xFE, 0x45), "{ChColor Yellow}" },
-            { (0xFE, 0x46), "{ChColor Green}" },
-            { (0xFE, 0x47), "{ChColor Gray}" },
-            { (0xFE, 0x48), "{ChColor LightGold}" },
-            { (0xFE, 0x49), "{ChColor Rose}" },
-            { (0xFE, 0x4A), "{ChColor Purple}" },
-            { (0xFE, 0x4B), "{ChColor DarkYellow}" },
-            { (0xFE, 0x4C), "{ChColor GrayWhite}" },
-            { (0xFE, 0x4D), "{ChColor WhitePurple}" },
-            { (0xFE, 0x4E), "{ChColor WhiteGreen}" },
-            { (0xFE, 0x4F), "{ChColor Transparent}" },
-            { (0xFE, 0x50), "{ChColor DarkCyan}" },
-            { (0xFE, 0x51), "{ChColor OrangeViolet}" },
-            { (0xFE, 0x52), "{ChColor RoseWhite}" }, // LR shows it as dark blue
-            { (0xFE, 0x53), "{ChColor DarkOlive}" },
-            { (0xFE, 0x54), "{ChColor DarkGreen}" },
-            { (0xFE, 0x55), "{ChColor DarkGray}" },
-            { (0xFE, 0x56), "{ChColor DarkGold}" },
-            { (0xFE, 0x57), "{ChColor DarkRed}" },
-            { (0xFE, 0x58), "{ChColor DarkPurple}" }, // LR shows it dark red
-            { (0xFE, 0x59), "{ChColor DarkWhite}" }, // LR shows it dark green
-            { (0xFE, 0x5A), "{ChColor SmokeDark}" },
-            { (0xFE, 0x5B), "{ChColor 5B}" },
-            { (0xFE, 0x5C), "{ChColor 5C}" },
-            { (0xFE, 0x5D), "{ChColor 5D}" },
-            { (0xFE, 0x5E), "{ChColor 5E}" },
-            { (0xFE, 0x5F), "{ChColor 5F}" },
-            { (0xFE, 0x60), "{ChColor 60}" }
+            { (0xFE, 0x32), "{Color Ex00}" },
+            { (0xFE, 0x33), "{Color Ex01}" },
+            { (0xFE, 0x34), "{Color Ex02}" },
+            { (0xFE, 0x35), "{Color Ex03}" },
+            { (0xFE, 0x36), "{Color Ex04}" },
+            { (0xFE, 0x37), "{Color Ex05}" },
+            { (0xFE, 0x38), "{Color Ex06}" },
+            { (0xFE, 0x39), "{Color Ex07}" },
+            { (0xFE, 0x3A), "{Color Ex08}" },
+            { (0xFE, 0x3B), "{Color Ex09}" },
+            { (0xFE, 0x3C), "{Color Ex10}" },
+            { (0xFE, 0x3D), "{Color Ex11}" },
+            { (0xFE, 0x3E), "{Color Ex12}" },
+            { (0xFE, 0x3F), "{Color Ex13}" },
+            { (0xFE, 0x40), "{Color White}" },
+            { (0xFE, 0x41), "{Color IceBlue}" },
+            { (0xFE, 0x42), "{Color Gold}" },
+            { (0xFE, 0x43), "{Color LightRed}" },
+            { (0xFE, 0x45), "{Color Yellow}" },
+            { (0xFE, 0x46), "{Color Green}" },
+            { (0xFE, 0x47), "{Color Gray}" },
+            { (0xFE, 0x48), "{Color LightGold}" },
+            { (0xFE, 0x49), "{Color Rose}" },
+            { (0xFE, 0x4A), "{Color Purple}" },
+            { (0xFE, 0x4B), "{Color DarkYellow}" },
+            { (0xFE, 0x4C), "{Color Gray2}" },
+            { (0xFE, 0x4D), "{Color Voilet}" },
+            { (0xFE, 0x4E), "{Color LightGreen}" },
+            { (0xFE, 0x50), "{Color Ex14}" },
+            { (0xFE, 0x51), "{Color Ex15}" },
+            { (0xFE, 0x52), "{Color Ex16}" },
+            { (0xFE, 0x53), "{Color Ex17}" },
+            { (0xFE, 0x54), "{Color Ex18}" },
+            { (0xFE, 0x55), "{Color Ex19}" },
+            { (0xFE, 0x56), "{Color Ex20}" },
+            { (0xFE, 0x57), "{Color Ex21}" },
+            { (0xFE, 0x58), "{Color Ex22}" },
+            { (0xFE, 0x59), "{Color Ex23}" },
+            { (0xFE, 0x5A), "{Color Ex24}" },
+            { (0xFE, 0x5B), "{Color Ex25}" },
+            { (0xFE, 0x5C), "{Color Ex26}" },
+            { (0xFE, 0x5F), "{Color Ex27}" },
+            { (0xFE, 0x60), "{Color Ex28}" }
         };
+        public static Dictionary<(byte b1, byte b2), string> ChColorKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFE, 0x40), "{Color White}" },
+            { (0xFE, 0x41), "{Color IceBlue}" },
+            { (0xFE, 0x42), "{Color Gold}" },
+            { (0xFE, 0x43), "{Color LightRed}" },
+            { (0xFE, 0x45), "{Color Yellow}" },
+            { (0xFE, 0x46), "{Color Green}" },
+            { (0xFE, 0x47), "{Color Gray}" },
+            { (0xFE, 0x48), "{Color LightGold}" },
+            { (0xFE, 0x49), "{Color Rose}" },
+            { (0xFE, 0x4A), "{Color Purple}" },
+            { (0xFE, 0x4B), "{Color DarkYellow}" },
+            { (0xFE, 0x4C), "{Color Gray2}" },
+            { (0xFE, 0x4D), "{Color Voilet}" },
+            { (0xFE, 0x4E), "{Color LightGreen}" },
+            { (0xFE, 0x4F), "{Color Sapphire}" },
+            { (0xFE, 0x50), "{Color Voilet2}" },
+            { (0xFE, 0x51), "{Color OliveGreen}" },
+            { (0xFE, 0x52), "{Color DarkCyan}" },
+            { (0xFE, 0x53), "{Color Lavender}" },
+            { (0xFE, 0x54), "{Color Brown}" },
+            { (0xFE, 0x55), "{Color Gold2}" },
+            { (0xFE, 0x56), "{Color Gold3}" },
+            { (0xFE, 0x57), "{Color DarkGray}" },
+            { (0xFE, 0x58), "{Color DarkRed}" },
+            { (0xFE, 0x59), "{Color Jade}" },
+            { (0xFE, 0x5A), "{Color SmokeGray}" },
+            { (0xFE, 0x5B), "{Color DarkGold}" },
+            { (0xFE, 0x5C), "{Color Magenta}" },
+            { (0xFE, 0x5D), "{Color PureWhite}" },
+            { (0xFE, 0x5E), "{Color Orange}" },
+            { (0xFE, 0x5F), "{Color NavyBlue}" },
+        };
+        #endregion
 
 
+        #region IconKeysDicts
         // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -186,7 +321,6 @@ namespace ZTRtool.SupportClasses
             { (0xF0, 0x73), "{Icon Sphere}" },
             { (0xF0, 0x74), "{Icon Neck}" }
         };
-
 
         // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrIconKeys = new Dictionary<(byte b1, byte b2), string>
@@ -283,7 +417,6 @@ namespace ZTRtool.SupportClasses
             { (0xFE, 0xD8), "{KrIcon_FE D8}" }
         };
 
-
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChIconKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -323,21 +456,23 @@ namespace ZTRtool.SupportClasses
             { (0xFA, 0x61), "{ChIcon_FA 61}" },
 
         };
+        #endregion
 
 
+        #region BtnKeysDicts
         // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xF1, 0x40), "{Btn Cross}" },
-            { (0xF1, 0x41), "{Btn Circle}" },
-            { (0xF1, 0x42), "{Btn Square}" },
-            { (0xF1, 0x43), "{Btn Triangle}" },
+            { (0xF1, 0x40), "{Btn A}" },
+            { (0xF1, 0x41), "{Btn B}" },
+            { (0xF1, 0x42), "{Btn X}" },
+            { (0xF1, 0x43), "{Btn Y}" },
             { (0xF1, 0x44), "{Btn Start}" },
-            { (0xF1, 0x45), "{Btn Select}" },
-            { (0xF1, 0x46), "{Btn L1}" },
-            { (0xF1, 0x47), "{Btn R1}" },
-            { (0xF1, 0x48), "{Btn L2}" },
-            { (0xF1, 0x49), "{Btn R2}" },
+            { (0xF1, 0x45), "{Btn Back}" },
+            { (0xF1, 0x46), "{Btn LB}" },
+            { (0xF1, 0x47), "{Btn RB}" },
+            { (0xF1, 0x48), "{Btn LT}" },
+            { (0xF1, 0x49), "{Btn RT}" },
             { (0xF1, 0x4A), "{Btn Left}" },
             { (0xF1, 0x4B), "{Btn Down}" },
             { (0xF1, 0x4C), "{Btn Right}" },
@@ -363,7 +498,6 @@ namespace ZTRtool.SupportClasses
             { (0xF1, 0x60), "{Btn Arrows}" },
             { (0xF1, 0x61), "{Btn PadLeft}" }
         };
-
 
         // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrBtnKeys = new Dictionary<(byte b1, byte b2), string>
@@ -406,7 +540,6 @@ namespace ZTRtool.SupportClasses
             { (0xC9, 0xF3), "{KrBtn F3}" }
         };
 
-
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChBtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -447,6 +580,7 @@ namespace ZTRtool.SupportClasses
             { (0xFA, 0xC3), "{ChBtn C3}" },
             { (0xFA, 0xC4), "{ChBtn C4}" }
         };
+        #endregion
 
 
         public static Dictionary<(byte b1, byte b2), string> VarKeys = new Dictionary<(byte b1, byte b2), string>
@@ -488,6 +622,7 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        #region CharaKeysDicts
         // Use only for latin codepage
         public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupA = new Dictionary<(byte b1, byte b2), string>
         {
@@ -614,7 +749,6 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xDE), "{ÿ}" }
         };
 
-
         // Use only for shift-jis, euc-kr, and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
@@ -740,8 +874,10 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xDD), "{Char85 DD}" },
             { (0x85, 0xDE), "{Char85 DE}" }
         };
+        #endregion
 
 
+        #region UniCodeKeysDicts
         // Use only for latin codepage
         public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupA = new Dictionary<(byte b1, byte b2), string>
         {
@@ -765,7 +901,6 @@ namespace ZTRtool.SupportClasses
             { (0x87, 0x5C), "{Ⅸ}" }
         };
 
-
         // Use only for latin codepage
         public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
@@ -788,9 +923,10 @@ namespace ZTRtool.SupportClasses
             { (0x87, 0x5B), "{Uni87 5B}" },
             { (0x87, 0x5C), "{Uni87 5C}" }
         };
+        #endregion
 
 
-        // Use only for euc-kr, and big5 codepages
+        // Use only for latin, euc-kr, and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> ShiftJIScharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x81, 0x41), "{、}" },

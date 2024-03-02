@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using System.Text;
+using ZTRtool.ConversionClasses.KeysEncoderClasses;
 using static ZTRtool.SupportClasses.KeysDicts;
+using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 {
@@ -11,6 +13,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var prevByte = byte.MaxValue;
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
+
+            var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
 
             bool condition1;
             bool condition2;
@@ -66,9 +70,9 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             nextByte = linesReader.ReadByte();
                             linesReader.BaseStream.Position -= 1;
 
-                            if (!hasWritten && ColorKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && colorKeysDict.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ColorKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(colorKeysDict[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;

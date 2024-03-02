@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 {
     internal class DecoderHelper
     {
+        public static GameCodeSwitches GameCode { get; set; }
         public static Encoding CodepageToUse { get; set; }
 
         public static void DecodingProcess(MemoryStream linesStream)

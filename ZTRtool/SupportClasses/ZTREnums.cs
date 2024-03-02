@@ -6,8 +6,13 @@
         {
             x,
             c,
-            c2,
-            none
+            c2
+        }
+
+        public enum GameCodeSwitches
+        {            
+            ff131,
+            ff132
         }
 
         public enum EncodingSwitches

@@ -2,6 +2,7 @@
 using System.Text;
 using static ZTRtool.SupportClasses.DictionaryHelpers;
 using static ZTRtool.SupportClasses.KeysDicts;
+using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 {
@@ -17,6 +18,12 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool isKeyConverted = new bool();
             byte oneByteKey;
             (byte, byte) twoBytesKey;
+
+            var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
+            var iconKeysDict = IconKeys;
+            var btnKeysDict = BtnKeys;
+            var charaKeysDict = CharaKeysGroupA;
+            var unicodeKeysDict = UniCodeKeysGroupA;
 
             bool singleKeysCondition;
             bool colorKeysCondition;
@@ -62,28 +69,28 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    colorKeysCondition = !isKeyConverted && ColorKeys.ContainsValue("{" + currentKey + "}");
+                                    colorKeysCondition = !isKeyConverted && colorKeysDict.ContainsValue("{" + currentKey + "}");
                                     if (colorKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(ColorKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(colorKeysDict, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
                                     }
 
-                                    iconKeysCondition = !isKeyConverted && IconKeys.ContainsValue("{" + currentKey + "}");
+                                    iconKeysCondition = !isKeyConverted && iconKeysDict.ContainsValue("{" + currentKey + "}");
                                     if (iconKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(IconKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(iconKeysDict, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
                                     }
 
-                                    btnKeysCondition = !isKeyConverted && BtnKeys.ContainsValue("{" + currentKey + "}");
+                                    btnKeysCondition = !isKeyConverted && btnKeysDict.ContainsValue("{" + currentKey + "}");
                                     if (btnKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(BtnKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(btnKeysDict, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
@@ -98,19 +105,19 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    charaKeysCondition = !isKeyConverted && CharaKeysGroupA.ContainsValue("{" + currentKey + "}");
+                                    charaKeysCondition = !isKeyConverted && charaKeysDict.ContainsValue("{" + currentKey + "}");
                                     if (charaKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(CharaKeysGroupA, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(charaKeysDict, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
                                     }
 
-                                    unicodeCharaKeysCondition = !isKeyConverted && UniCodeKeysGroupA.ContainsValue("{" + currentKey + "}");
+                                    unicodeCharaKeysCondition = !isKeyConverted && unicodeKeysDict.ContainsValue("{" + currentKey + "}");
                                     if (unicodeCharaKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(UniCodeKeysGroupA, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(unicodeKeysDict, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
