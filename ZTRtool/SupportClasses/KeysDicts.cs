@@ -44,12 +44,12 @@ namespace ZTRtool.SupportClasses
             { (0xF9, 0x57), "{Color DarkPurple}" },
             { (0xF9, 0x58), "{Color DarkWhite}" },
             { (0xF9, 0x59), "{Color SmokeDark}" },
-            { (0xF9, 0x5A), "{Color 0x5A}" },
-            { (0xF9, 0x5B), "{Color 0x5B}" },
-            { (0xF9, 0x5C), "{Color 0x5C}" },
-            { (0xF9, 0x5D), "{Color 0x5D}" },
-            { (0xF9, 0x5E), "{Color 0x5E}" },
-            { (0xF9, 0x5F), "{Color 0x5F}" }
+            { (0xF9, 0x5A), "{Color 5A}" },
+            { (0xF9, 0x5B), "{Color 5B}" },
+            { (0xF9, 0x5C), "{Color 5C}" },
+            { (0xF9, 0x5D), "{Color 5D}" },
+            { (0xF9, 0x5E), "{Color 5E}" },
+            { (0xF9, 0x5F), "{Color 5F}" }
         };
 
 
@@ -82,12 +82,12 @@ namespace ZTRtool.SupportClasses
             { (0xAC, 0xB8), "{KrColor DarkPurple}" }, // LR shows it dark red
             { (0xAC, 0xB9), "{KrColor DarkWhite}" }, // LR shows it dark green
             { (0xAC, 0xBA), "{KrColor SmokeDark}" },
-            { (0xAC, 0xBB), "{KrColor 0xBB}" },
-            { (0xAC, 0xBC), "{KrColor 0xBC}" },
-            { (0xAC, 0xBD), "{KrColor 0xBD}" },
-            { (0xAC, 0xBE), "{KrColor 0xBE}" },
-            { (0xAC, 0xBF), "{KrColor 0xBF}" },
-            { (0xAC, 0xC0), "{KrColor 0xC0}" }
+            { (0xAC, 0xBB), "{KrColor BB}" },
+            { (0xAC, 0xBC), "{KrColor BC}" },
+            { (0xAC, 0xBD), "{KrColor BD}" },
+            { (0xAC, 0xBE), "{KrColor BE}" },
+            { (0xAC, 0xBF), "{KrColor BF}" },
+            { (0xAC, 0xC0), "{KrColor C0}" }
         };
 
 
@@ -120,12 +120,12 @@ namespace ZTRtool.SupportClasses
             { (0xFE, 0x58), "{ChColor DarkPurple}" }, // LR shows it dark red
             { (0xFE, 0x59), "{ChColor DarkWhite}" }, // LR shows it dark green
             { (0xFE, 0x5A), "{ChColor SmokeDark}" },
-            { (0xFE, 0x5B), "{ChColor 0x5B}" },
-            { (0xFE, 0x5C), "{ChColor 0x5C}" },
-            { (0xFE, 0x5D), "{ChColor 0x5D}" },
-            { (0xFE, 0x5E), "{ChColor 0x5E}" },
-            { (0xFE, 0x5F), "{ChColor 0x5F}" },
-            { (0xFE, 0x60), "{ChColor 0x60}" }
+            { (0xFE, 0x5B), "{ChColor 5B}" },
+            { (0xFE, 0x5C), "{ChColor 5C}" },
+            { (0xFE, 0x5D), "{ChColor 5D}" },
+            { (0xFE, 0x5E), "{ChColor 5E}" },
+            { (0xFE, 0x5F), "{ChColor 5F}" },
+            { (0xFE, 0x60), "{ChColor 60}" }
         };
 
 
@@ -284,6 +284,47 @@ namespace ZTRtool.SupportClasses
         };
 
 
+        // Use only for big5 codepage
+        public static Dictionary<(byte b1, byte b2), string> ChIconKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFA, 0x40), "{ChIcon_FA 40}" },
+            { (0xFA, 0x41), "{ChIcon_FA 41}" },
+            { (0xFA, 0x42), "{ChIcon_FA 42}" },
+            { (0xFA, 0x43), "{ChIcon_FA 43}" },
+            { (0xFA, 0x44), "{ChIcon_FA 44}" },
+            { (0xFA, 0x45), "{ChIcon_FA 45}" },
+            { (0xFA, 0x46), "{ChIcon_FA 46}" },
+            { (0xFA, 0x47), "{ChIcon_FA 47}" },
+            { (0xFA, 0x48), "{ChIcon_FA 48}" },
+            { (0xFA, 0x49), "{ChIcon_FA 49}" },
+            { (0xFA, 0x4A), "{ChIcon_FA 4A}" },
+            { (0xFA, 0x4B), "{ChIcon_FA 4B}" },
+            { (0xFA, 0x4C), "{ChIcon_FA 4C}" },
+            { (0xFA, 0x4D), "{ChIcon_FA 4D}" },
+            { (0xFA, 0x4E), "{ChIcon_FA 4E}" },
+            { (0xFA, 0x4F), "{ChIcon_FA 4F}" },
+            { (0xFA, 0x50), "{ChIcon_FA 50}" },
+            { (0xFA, 0x51), "{ChIcon_FA 51}" },
+            { (0xFA, 0x52), "{ChIcon_FA 52}" },
+            { (0xFA, 0x53), "{ChIcon_FA 53}" },
+            { (0xFA, 0x54), "{ChIcon_FA 54}" },
+            { (0xFA, 0x55), "{ChIcon_FA 55}" },
+            { (0xFA, 0x56), "{ChIcon_FA 56}" },
+            { (0xFA, 0x57), "{ChIcon_FA 57}" },
+            { (0xFA, 0x58), "{ChIcon_FA 58}" },
+            { (0xFA, 0x59), "{ChIcon_FA 59}" },
+            { (0xFA, 0x5A), "{ChIcon_FA 5A}" },
+            { (0xFA, 0x5B), "{ChIcon_FA 5B}" },
+            { (0xFA, 0x5C), "{ChIcon_FA 5C}" },
+            { (0xFA, 0x5D), "{ChIcon_FA 5D}" },
+            { (0xFA, 0x5E), "{ChIcon_FA 5E}" },
+            { (0xFA, 0x5F), "{ChIcon_FA 5F}" },
+            { (0xFA, 0x60), "{ChIcon_FA 60}" },
+            { (0xFA, 0x61), "{ChIcon_FA 61}" },
+
+        };
+
+
         // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -363,6 +404,48 @@ namespace ZTRtool.SupportClasses
             { (0xC9, 0xF1), "{KrBtn F1}" },
             { (0xC9, 0xF2), "{KrBtn F2}" },
             { (0xC9, 0xF3), "{KrBtn F3}" }
+        };
+
+
+        // Use only for big5 codepage
+        public static Dictionary<(byte b1, byte b2), string> ChBtnKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFA, 0xA1), "{ChBtn A1}" },
+            { (0xFA, 0xA2), "{ChBtn A2}" },
+            { (0xFA, 0xA3), "{ChBtn A3}" },
+            { (0xFA, 0xA4), "{ChBtn A4}" },
+            { (0xFA, 0xA5), "{ChBtn A5}" },
+            { (0xFA, 0xA6), "{ChBtn A6}" },
+            { (0xFA, 0xA7), "{ChBtn A7}" },
+            { (0xFA, 0xA8), "{ChBtn A8}" },
+            { (0xFA, 0xA9), "{ChBtn A9}" },
+            { (0xFA, 0xAA), "{ChBtn AA}" },
+            { (0xFA, 0xAB), "{ChBtn AB}" },
+            { (0xFA, 0xAC), "{ChBtn AC}" },
+            { (0xFA, 0xAD), "{ChBtn AD}" },
+            { (0xFA, 0xAE), "{ChBtn AE}" },
+            { (0xFA, 0xAF), "{ChBtn AF}" },
+            { (0xFA, 0xB0), "{ChBtn B0}" },
+            { (0xFA, 0xB1), "{ChBtn B1}" },
+            { (0xFA, 0xB2), "{ChBtn B2}" },
+            { (0xFA, 0xB3), "{ChBtn B3}" },
+            { (0xFA, 0xB4), "{ChBtn B4}" },
+            { (0xFA, 0xB5), "{ChBtn B5}" },
+            { (0xFA, 0xB6), "{ChBtn B6}" },
+            { (0xFA, 0xB7), "{ChBtn B7}" },
+            { (0xFA, 0xB8), "{ChBtn B8}" },
+            { (0xFA, 0xB9), "{ChBtn B9}" },
+            { (0xFA, 0xBA), "{ChBtn BA}" },
+            { (0xFA, 0xBB), "{ChBtn BB}" },
+            { (0xFA, 0xBC), "{ChBtn BC}" },
+            { (0xFA, 0xBD), "{ChBtn BD}" },
+            { (0xFA, 0xBE), "{ChBtn BE}" },
+            { (0xFA, 0xBF), "{ChBtn BF}" },
+            { (0xFA, 0xC0), "{ChBtn C0}" },
+            { (0xFA, 0xC1), "{ChBtn C1}" },
+            { (0xFA, 0xC2), "{ChBtn C2}" },
+            { (0xFA, 0xC3), "{ChBtn C3}" },
+            { (0xFA, 0xC4), "{ChBtn C4}" }
         };
 
 
@@ -532,30 +615,6 @@ namespace ZTRtool.SupportClasses
         };
 
 
-        // Use only for latin codepage
-        public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupA = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0x87, 0x40), "{①}" },
-            { (0x87, 0x41), "{②}" },
-            { (0x87, 0x42), "{③}" },
-            { (0x87, 0x43), "{④}" },
-            { (0x87, 0x44), "{⑤}" },
-            { (0x87, 0x45), "{⑥}" },
-            { (0x87, 0x46), "{⑦}" },
-            { (0x87, 0x47), "{⑧}" },
-            { (0x87, 0x48), "{⑨}" },
-            { (0x87, 0x54), "{Ⅰ}" },
-            { (0x87, 0x55), "{Ⅱ}" },
-            { (0x87, 0x56), "{Ⅲ}" },
-            { (0x87, 0x57), "{Ⅳ}" },
-            { (0x87, 0x58), "{Ⅴ}" },
-            { (0x87, 0x59), "{Ⅵ}" },
-            { (0x87, 0x5A), "{Ⅶ}" },
-            { (0x87, 0x5B), "{Ⅷ}" },
-            { (0x87, 0x5C), "{Ⅸ}" }
-        };
-
-
         // Use only for shift-jis, euc-kr, and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> CharaKeysGroupB = new Dictionary<(byte b1, byte b2), string>
         {
@@ -680,6 +739,30 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xDC), "{Char85 DC}" },
             { (0x85, 0xDD), "{Char85 DD}" },
             { (0x85, 0xDE), "{Char85 DE}" }
+        };
+
+
+        // Use only for latin codepage
+        public static Dictionary<(byte b1, byte b2), string> UniCodeKeysGroupA = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x87, 0x40), "{①}" },
+            { (0x87, 0x41), "{②}" },
+            { (0x87, 0x42), "{③}" },
+            { (0x87, 0x43), "{④}" },
+            { (0x87, 0x44), "{⑤}" },
+            { (0x87, 0x45), "{⑥}" },
+            { (0x87, 0x46), "{⑦}" },
+            { (0x87, 0x47), "{⑧}" },
+            { (0x87, 0x48), "{⑨}" },
+            { (0x87, 0x54), "{Ⅰ}" },
+            { (0x87, 0x55), "{Ⅱ}" },
+            { (0x87, 0x56), "{Ⅲ}" },
+            { (0x87, 0x57), "{Ⅳ}" },
+            { (0x87, 0x58), "{Ⅴ}" },
+            { (0x87, 0x59), "{Ⅵ}" },
+            { (0x87, 0x5A), "{Ⅶ}" },
+            { (0x87, 0x5B), "{Ⅷ}" },
+            { (0x87, 0x5C), "{Ⅸ}" }
         };
 
 

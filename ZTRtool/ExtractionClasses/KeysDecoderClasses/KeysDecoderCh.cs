@@ -75,23 +75,23 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            //if (!hasWritten && IconKeys.ContainsKey((currentByte, nextByte)))
-                            //{
-                            //    linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(IconKeys[(currentByte, nextByte)]));
-                            //    hasWritten = true;
-                            //    currentByte = 0;
-                            //    linesReader.BaseStream.Position += 1;
-                            //    li++;
-                            //}
+                            if (!hasWritten && ChIconKeys.ContainsKey((currentByte, nextByte)))
+                            {
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ChIconKeys[(currentByte, nextByte)]));
+                                hasWritten = true;
+                                currentByte = 0;
+                                linesReader.BaseStream.Position += 1;
+                                li++;
+                            }
 
-                            //if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
-                            //{
-                            //    linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BtnKeys[(currentByte, nextByte)]));
-                            //    hasWritten = true;
-                            //    currentByte = 0;
-                            //    linesReader.BaseStream.Position += 1;
-                            //    li++;
-                            //}
+                            if (!hasWritten && ChBtnKeys.ContainsKey((currentByte, nextByte)))
+                            {
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ChBtnKeys[(currentByte, nextByte)]));
+                                hasWritten = true;
+                                currentByte = 0;
+                                linesReader.BaseStream.Position += 1;
+                                li++;
+                            }
 
                             if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
                             {

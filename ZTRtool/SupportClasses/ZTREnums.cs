@@ -13,6 +13,7 @@
         public enum EncodingSwitches
         {
             auto,
+            ck,
             ch,
             fr,
             gr,
@@ -20,7 +21,8 @@
             jp,
             kr,
             sp,
-            us
+            us,
+            uk
         }
     }
 }

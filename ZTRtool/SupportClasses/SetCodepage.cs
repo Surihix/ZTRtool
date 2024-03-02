@@ -35,23 +35,28 @@ namespace ZTRtool.SupportClasses
                     if (fileName.EndsWith($"_ch.{fileExt}") || fileName.EndsWith($"_c.{fileExt}"))
                     {
                         encodingToUse = Encoding.GetEncoding(950);
-                        Console.WriteLine("Encoding set: chinese");
+                        Console.WriteLine("Encoding detected: Chinese");
                         break;
                     }
 
+                    if (fileName.EndsWith($"_ck.{fileExt}") || fileName.EndsWith($"_c.{fileExt}"))
+                    {
+                        Console.WriteLine("Encoding detected: CK");
+                        break;
+                    }
                     if (fileName.EndsWith($"_fr.{fileExt}") || fileName.EndsWith($"_f.{fileExt}"))
                     {
-                        Console.WriteLine("Encoding set: french");
+                        Console.WriteLine("Encoding detected: French");
                         break;
                     }
                     if (fileName.EndsWith($"_gr.{fileExt}") || fileName.EndsWith($"_g.{fileExt}"))
                     {
-                        Console.WriteLine("Encoding set: german");
+                        Console.WriteLine("Encoding detected: German");
                         break;
                     }
                     if (fileName.EndsWith($"_it.{fileExt}") || fileName.EndsWith($"_i.{fileExt}"))
                     {
-                        Console.WriteLine("Encoding set: italian");
+                        Console.WriteLine("Encoding detected: Italian");
                         break;
                     }
 
@@ -59,7 +64,7 @@ namespace ZTRtool.SupportClasses
                     if (fileName.EndsWith($"_jp.{fileExt}") || fileName.EndsWith($"_j.{fileExt}"))
                     {
                         encodingToUse = Encoding.GetEncoding(932);
-                        Console.WriteLine("Encoding set: japanese");
+                        Console.WriteLine("Encoding detected: Japanese");
                         break;
                     }
 
@@ -67,55 +72,68 @@ namespace ZTRtool.SupportClasses
                     if (fileName.EndsWith($"_kr.{fileExt}") || fileName.EndsWith($"_k.{fileExt}"))
                     {
                         encodingToUse = Encoding.GetEncoding(51949);
-                        Console.WriteLine("Encoding set: korean");
+                        Console.WriteLine("Encoding detected: Korean");
                         break;
                     }
 
                     if (fileName.EndsWith($"_sp.{fileExt}") || fileName.EndsWith($"_s.{fileExt}"))
                     {
-                        Console.WriteLine("Encoding set: spanish");
+                        Console.WriteLine("Encoding detected: Spanish");
                         break;
                     }
                     if (fileName.EndsWith($"_us.{fileExt}") || fileName.EndsWith($"_u.{fileExt}"))
                     {
-                        Console.WriteLine("Encoding set: english");
+                        Console.WriteLine("Encoding detected: English-US");
+                        break;
+                    }
+                    if (fileName.EndsWith($"_uk.{fileExt}") || fileName.EndsWith($"_u.{fileExt}"))
+                    {
+                        Console.WriteLine("Encoding detected: English-UK");
                         break;
                     }
                     break;
 
+                case EncodingSwitches.ck:
+                    Console.WriteLine("Encoding set: CK");
+                    break;
+
                 case EncodingSwitches.ch:
                     encodingToUse = Encoding.GetEncoding(950);
-                    Console.WriteLine("Encoding set: chinese");
+                    Console.WriteLine("Encoding set: Chinese");
                     break;
 
                 case EncodingSwitches.fr:
-                    Console.WriteLine("Encoding set: french");
+                    Console.WriteLine("Encoding set: French");
                     break;
 
                 case EncodingSwitches.gr:
-                    Console.WriteLine("Encoding set: german");
+                    Console.WriteLine("Encoding set: German");
                     break;
 
                 case EncodingSwitches.it:
-                    Console.WriteLine("Encoding set: italian");
+                    Console.WriteLine("Encoding set: Italian");
                     break;
 
                 case EncodingSwitches.jp:
                     encodingToUse = Encoding.GetEncoding(932);
-                    Console.WriteLine("Encoding set: japanese");
+                    Console.WriteLine("Encoding set: Japanese");
                     break;
 
                 case EncodingSwitches.kr:
                     encodingToUse = Encoding.GetEncoding(51949);
-                    Console.WriteLine("Encoding set: japanese");
+                    Console.WriteLine("Encoding set: Korean");
                     break;
 
                 case EncodingSwitches.sp:
-                    Console.WriteLine("Encoding set: spanish");
+                    Console.WriteLine("Encoding set: Spanish");
                     break;
 
                 case EncodingSwitches.us:
-                    Console.WriteLine("Encoding set: english");
+                    Console.WriteLine("Encoding set: English-US");
+                    break;
+
+                case EncodingSwitches.uk:
+                    Console.WriteLine("Encoding set: English-UK");
                     break;
             }
 
