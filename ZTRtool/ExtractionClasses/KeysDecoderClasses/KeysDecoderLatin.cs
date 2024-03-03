@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Text;
-using ZTRtool.ConversionClasses.KeysEncoderClasses;
 using static ZTRtool.SupportClasses.KeysDicts;
 using static ZTRtool.SupportClasses.ZTREnums;
 
@@ -13,9 +12,9 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
 
-            var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
-            var iconKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? IconKeysXIII : IconKeysXIII2;
-            var btnKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? BtnKeysXIII : BtnKeysXIII2;
+            var colorKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
+            var iconKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? IconKeysXIII : IconKeysXIII2;
+            var btnKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? BtnKeysXIII : BtnKeysXIII2;
 
             bool condition1;
             bool condition2;

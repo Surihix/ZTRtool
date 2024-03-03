@@ -94,46 +94,45 @@ namespace ZTRtool.SupportClasses
                     break;
 
                 case EncodingSwitches.ck:
-                    Console.WriteLine("Encoding set: CK");
                     break;
 
                 case EncodingSwitches.ch:
                     encodingToUse = Encoding.GetEncoding(950);
-                    Console.WriteLine("Encoding set: Chinese");
+                    Console.WriteLine("Encoding set to: Chinese");
                     break;
 
                 case EncodingSwitches.fr:
-                    Console.WriteLine("Encoding set: French");
+                    Console.WriteLine("Encoding set to: French");
                     break;
 
                 case EncodingSwitches.gr:
-                    Console.WriteLine("Encoding set: German");
+                    Console.WriteLine("Encoding set to: German");
                     break;
 
                 case EncodingSwitches.it:
-                    Console.WriteLine("Encoding set: Italian");
+                    Console.WriteLine("Encoding set to: Italian");
                     break;
 
                 case EncodingSwitches.jp:
                     encodingToUse = Encoding.GetEncoding(932);
-                    Console.WriteLine("Encoding set: Japanese");
+                    Console.WriteLine("Encoding set to: Japanese");
                     break;
 
                 case EncodingSwitches.kr:
                     encodingToUse = Encoding.GetEncoding(51949);
-                    Console.WriteLine("Encoding set: Korean");
+                    Console.WriteLine("Encoding set to: Korean");
                     break;
 
                 case EncodingSwitches.sp:
-                    Console.WriteLine("Encoding set: Spanish");
+                    Console.WriteLine("Encoding set to: Spanish");
                     break;
 
                 case EncodingSwitches.us:
-                    Console.WriteLine("Encoding set: English-US");
+                    Console.WriteLine("Encoding set to: English-US");
                     break;
 
                 case EncodingSwitches.uk:
-                    Console.WriteLine("Encoding set: English-UK");
+                    Console.WriteLine("Encoding set to: English-UK");
                     break;
             }
 

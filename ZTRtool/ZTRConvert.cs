@@ -23,6 +23,7 @@ namespace ZTRtool
                 LineCount = (uint)File.ReadAllLines(inTxtFile).Length
             };
             Console.WriteLine($"Line Count: {fileHeader.LineCount}");
+            Console.WriteLine("");
 
             // Determine the encoding
             // to use

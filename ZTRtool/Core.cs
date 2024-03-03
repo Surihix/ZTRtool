@@ -86,6 +86,7 @@ namespace ZTRtool
             }
 
             Console.WriteLine("");
+            Console.WriteLine($"Game Code set to: {gameCodeSwitch}");
 
             switch (actionSwitch)
             {

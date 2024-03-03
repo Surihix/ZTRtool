@@ -46,6 +46,8 @@ namespace ZTRtool
 
                 Console.WriteLine($"Line Count: {fileHeader.LineCount}");
                 Console.WriteLine($"Decompressed IDs Size: {fileHeader.DcmpIDsSize}");
+                Console.WriteLine("");
+
                 Console.WriteLine($"IDs Dictionary Chunks (computed): {idsDictChunkCount}");
                 Console.WriteLine($"Dictionary Chunks: {fileHeader.DictChunkOffsetsCount}");
                 Console.WriteLine("");
