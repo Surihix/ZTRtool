@@ -14,6 +14,7 @@ namespace ZTRtool.SupportClasses
             { 0x05, "{ArticleMany}" }
         };
 
+
         #region ColorKeysDicts 
         // Use only for latin, shift-jis codepages
         public static Dictionary<(byte b1, byte b2), string> ColorKeysXIII = new Dictionary<(byte b1, byte b2), string>
@@ -265,65 +266,148 @@ namespace ZTRtool.SupportClasses
 
         #region IconKeysDicts
         // Use only for latin, shift-jis codepages
-        public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> IconKeysXIII = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xF0, 0x40), "{Icon Clock}" },
-            { (0xF0, 0x41), "{Icon Attention}" },
-            { (0xF0, 0x42), "{Icon Exclamation}" },
-            { (0xF0, 0x43), "{Icon EmptyCirlces}" },
-            { (0xF0, 0x44), "{Icon Greather}" },
-            { (0xF0, 0x45), "{Icon Less}" },
-            { (0xF0, 0x46), "{Icon Doc}" },
-            { (0xF0, 0x47), "{Icon Ok}" },
-            { (0xF0, 0x48), "{Icon FilledCirlces}" },
-            { (0xF0, 0x49), "{Icon Gunblade}" },
-            { (0xF0, 0x4A), "{Icon Shotgun}" },
-            { (0xF0, 0x4B), "{Icon Weapon03}" },
-            { (0xF0, 0x4C), "{Icon Boomerang}" },
-            { (0xF0, 0x4D), "{Icon Rod}" },
-            { (0xF0, 0x4E), "{Icon Glaive}" },
-            { (0xF0, 0x4F), "{Icon AxisBlade}" },
-            { (0xF0, 0x50), "{Icon Katar}" },
-            { (0xF0, 0x51), "{Icon Weapon09}" },
-            { (0xF0, 0x52), "{Icon Shield01}" },
-            { (0xF0, 0x53), "{Icon Wrench}" },
-            { (0xF0, 0x54), "{Icon Note}" },
-            { (0xF0, 0x55), "{Icon Screw}" },
-            { (0xF0, 0x56), "{Icon Material01}" },
-            { (0xF0, 0x57), "{Icon Bracert}" },
-            { (0xF0, 0x58), "{Icon Ring}" },
-            { (0xF0, 0x59), "{Icon Earring}" },
-            { (0xF0, 0x5A), "{Icon Brooch}" },
-            { (0xF0, 0x5B), "{Icon Potion01}" },
-            { (0xF0, 0x5C), "{Icon Potion02}" },
-            { (0xF0, 0x5D), "{Icon Potion03}" },
-            { (0xF0, 0x5E), "{Icon Feather}" },
-            { (0xF0, 0x5F), "{Icon Cloth}" },
-            { (0xF0, 0x60), "{Icon Item}" },
-            { (0xF0, 0x61), "{Icon Eye01}" },
-            { (0xF0, 0x62), "{Icon Sword01}" },
-            { (0xF0, 0x63), "{Icon Staff01}" },
-            { (0xF0, 0x64), "{Icon Shield02}" },
-            { (0xF0, 0x65), "{Icon HealthUp}" },
-            { (0xF0, 0x66), "{Icon Imperial}" },
-            { (0xF0, 0x67), "{Icon Ugly}" },
-            { (0xF0, 0x68), "{Icon Rage}" },
-            { (0xF0, 0x69), "{Icon Provoke}" },
-            { (0xF0, 0x6A), "{Icon Sword02}" },
-            { (0xF0, 0x6B), "{Icon Shield03}" },
-            { (0xF0, 0x6C), "{Icon Staff}" },
-            { (0xF0, 0x6D), "{Icon Up}" },
-            { (0xF0, 0x6E), "{Icon Kn}" },
-            { (0xF0, 0x6F), "{Icon Yu}" },
-            { (0xF0, 0x70), "{Icon Rudder}" },
-            { (0xF0, 0x71), "{Icon Eye02}" },
-            { (0xF0, 0x72), "{Icon Ribbon}" },
-            { (0xF0, 0x73), "{Icon Sphere}" },
-            { (0xF0, 0x74), "{Icon Neck}" }
+            { (0xF0, 0x40), "{Icon_F0 40}" },
+            { (0xF0, 0x41), "{Icon_F0 41}" },
+            { (0xF0, 0x42), "{Icon_F0 42}" },
+            { (0xF0, 0x43), "{Icon_F0 43}" },
+            { (0xF0, 0x44), "{Icon_F0 44}" },
+            { (0xF0, 0x45), "{Icon_F0 45}" },
+            { (0xF0, 0x46), "{Icon_F0 46}" },
+            { (0xF0, 0x47), "{Icon_F0 47}" },
+            { (0xF0, 0x48), "{Icon_F0 48}" },
+
+        };
+        public static Dictionary<(byte b1, byte b2), string> IconKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xF0, 0x40), "{Icon_F0 40}" },
+            { (0xF0, 0x41), "{Icon_F0 41}" },
+            { (0xF0, 0x42), "{Icon_F0 42}" },
+            { (0xF0, 0x43), "{Icon_F0 43}" },
+            { (0xF0, 0x44), "{Icon_F0 44}" },
+            { (0xF0, 0x45), "{Icon_F0 45}" },
+            { (0xF0, 0x46), "{Icon_F0 46}" },
+            { (0xF0, 0x47), "{Icon_F0 47}" },
+            { (0xF0, 0x48), "{Icon_F0 48}" },
+            { (0xF0, 0x49), "{Icon_F0 49}" }, 
+            { (0xF0, 0x4A), "{Icon_F0 4A}" },
+            { (0xF0, 0x4B), "{Icon_F0 4B}" },
+            { (0xF0, 0x4C), "{Icon_F0 4C}" },
+            { (0xF0, 0x4D), "{Icon_F0 4D}" },
+            { (0xF0, 0x4E), "{Icon_F0 4E}" },
+            { (0xF0, 0x4F), "{Icon_F0 4F}" },
+            { (0xF0, 0x50), "{Icon_F0 50}" },
+            { (0xF0, 0x51), "{Icon_F0 51}" },
+            { (0xF0, 0x52), "{Icon_F0 52}" },
+            { (0xF0, 0x53), "{Icon_F0 53}" },
+            { (0xF0, 0x54), "{Icon_F0 54}" },
+            { (0xF0, 0x55), "{Icon_F0 55}" },
+            { (0xF0, 0x56), "{Icon_F0 56}" },
+            { (0xF0, 0x57), "{Icon_F0 57}" },
+            { (0xF0, 0x58), "{Icon_F0 58}" },
+            { (0xF0, 0x59), "{Icon_F0 59}" },
+            { (0xF0, 0x5A), "{Icon_F0 5A}" },
+            { (0xF0, 0x5B), "{Icon_F0 5B}" }, 
+            { (0xF0, 0x5C), "{Icon_F0 5C}" },
+            { (0xF0, 0x5D), "{Icon_F0 5D}" },
+            { (0xF0, 0x5E), "{Icon_F0 5E}" },
+            { (0xF0, 0x5F), "{Icon_F0 5F}" },
+            { (0xF0, 0x60), "{Icon_F0 60}" },
+            { (0xF0, 0x61), "{Icon_F0 61}" },
+            { (0xF0, 0x62), "{Icon_F0 62}" }, 
+            { (0xF0, 0x63), "{Icon_F0 63}" },
+            { (0xF0, 0x64), "{Icon_F0 64}" },
+            { (0xF0, 0x65), "{Icon_F0 65}" },
+            { (0xF0, 0x66), "{Icon_F0 66}" },
+            { (0xF0, 0x67), "{Icon_F0 67}" },
+            { (0xF0, 0x68), "{Icon_F0 68}" },
+            { (0xF0, 0x69), "{Icon_F0 69}" },
+            { (0xF0, 0x6A), "{Icon_F0 6A}" },
+            { (0xF0, 0x6B), "{Icon_F0 6B}" },
+            { (0xF0, 0x6C), "{Icon_F0 6C}" },
+            { (0xF0, 0x6D), "{Icon_F0 6D}" },
+            { (0xF0, 0x6E), "{Icon_F0 6E}" },
+            { (0xF0, 0x6F), "{Icon_F0 6F}" },
+            { (0xF0, 0x70), "{Icon_F0 70}" },
+            { (0xF0, 0x71), "{Icon_F0 71}" },
+            { (0xF0, 0x72), "{Icon_F0 72}" },
+            { (0xF0, 0x73), "{Icon_F0 73}" },
+            { (0xF0, 0x74), "{Icon_F0 74}" },
+            { (0xF0, 0x75), "{Icon_F0 75}" }
         };
 
         // Use only for euc-kr codepage
-        public static Dictionary<(byte b1, byte b2), string> KrIconKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> KrIconKeysXIII = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xC9, 0xA1), "{Icon_C9 A1}" },
+            { (0xC9, 0xA2), "{Icon_C9 A2}" },
+            { (0xC9, 0xA3), "{Icon_C9 A3}" },
+            { (0xC9, 0xA4), "{Icon_C9 A4}" },
+            { (0xC9, 0xA5), "{Icon_C9 A5}" },
+            { (0xC9, 0xA6), "{Icon_C9 A6}" },
+            { (0xC9, 0xA7), "{Icon_C9 A7}" },
+            { (0xC9, 0xA8), "{Icon_C9 A8}" },
+            { (0xC9, 0xA9), "{Icon_C9 A9}" },
+            { (0xFE, 0xA1), "{Icon_FE A1}" },
+            { (0xFE, 0xA2), "{Icon_FE A2}" },
+            { (0xFE, 0xA3), "{Icon_FE A3}" },
+            { (0xFE, 0xA4), "{Icon_FE A4}" },
+            { (0xFE, 0xA5), "{Icon_FE A5}" },
+            { (0xFE, 0xA6), "{Icon_FE A6}" },
+            { (0xFE, 0xA7), "{Icon_FE A7}" },
+            { (0xFE, 0xA8), "{Icon_FE A8}" },
+            { (0xFE, 0xA9), "{Icon_FE A9}" },
+            { (0xFE, 0xAA), "{Icon_FE AA}" },
+            { (0xFE, 0xAB), "{Icon_FE AB}" },
+            { (0xFE, 0xAC), "{Icon_FE AC}" },
+            { (0xFE, 0xAD), "{Icon_FE AD}" },
+            { (0xFE, 0xAE), "{Icon_FE AE}" },
+            { (0xFE, 0xAF), "{Icon_FE AF}" },
+            { (0xFE, 0xB0), "{Icon_FE B0}" },
+            { (0xFE, 0xB1), "{Icon_FE B1}" },
+            { (0xFE, 0xB2), "{Icon_FE B2}" },
+            { (0xFE, 0xB3), "{Icon_FE B3}" },
+            { (0xFE, 0xB4), "{Icon_FE B4}" },
+            { (0xFE, 0xB5), "{Icon_FE B5}" },
+            { (0xFE, 0xB6), "{Icon_FE B6}" },
+            { (0xFE, 0xB7), "{Icon_FE B7}" },
+            { (0xFE, 0xB8), "{Icon_FE B8}" },
+            { (0xFE, 0xB9), "{Icon_FE B9}" },
+            { (0xFE, 0xBA), "{Icon_FE BA}" },
+            { (0xFE, 0xBB), "{Icon_FE BB}" },
+            { (0xFE, 0xBC), "{Icon_FE BC}" },
+            { (0xFE, 0xBD), "{Icon_FE BD}" },
+            { (0xFE, 0xBE), "{Icon_FE BE}" },
+            { (0xFE, 0xBF), "{Icon_FE BF}" },
+            { (0xFE, 0xC0), "{Icon_FE C0}" },
+            { (0xFE, 0xC1), "{Icon_FE C1}" },
+            { (0xFE, 0xC2), "{Icon_FE C2}" },
+            { (0xFE, 0xC3), "{Icon_FE C3}" },
+            { (0xFE, 0xC4), "{Icon_FE C4}" },
+            { (0xFE, 0xC5), "{Icon_FE C5}" },
+            { (0xFE, 0xC6), "{Icon_FE C6}" },
+            { (0xFE, 0xC7), "{Icon_FE C7}" },
+            { (0xFE, 0xC8), "{Icon_FE C8}" },
+            { (0xFE, 0xC9), "{Icon_FE C9}" },
+            { (0xFE, 0xCA), "{Icon_FE CA}" },
+            { (0xFE, 0xCB), "{Icon_FE CB}" },
+            { (0xFE, 0xCC), "{Icon_FE CC}" },
+            { (0xFE, 0xCD), "{Icon_FE CD}" },
+
+            //{ (0xFE, 0xCE), "{Icon_FE CE}" },
+            //{ (0xFE, 0xCF), "{Icon_FE CF}" },
+            //{ (0xFE, 0xD0), "{Icon_FE D0}" },
+            //{ (0xFE, 0xD1), "{Icon_FE D1}" },
+            //{ (0xFE, 0xD2), "{Icon_FE D2}" },
+            //{ (0xFE, 0xD3), "{Icon_FE D3}" },
+            //{ (0xFE, 0xD4), "{Icon_FE D4}" },
+            //{ (0xFE, 0xD5), "{Icon_FE D5}" },
+            //{ (0xFE, 0xD6), "{Icon_FE D6}" },
+            //{ (0xFE, 0xD7), "{Icon_FE D7}" },
+            //{ (0xFE, 0xD8), "{Icon_FE D8}" }
+        };
+        public static Dictionary<(byte b1, byte b2), string> KrIconKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xC9, 0xA1), "{KrIcon_C9 A1}" },
             { (0xC9, 0xA2), "{KrIcon_C9 A2}" },
@@ -359,7 +443,7 @@ namespace ZTRtool.SupportClasses
             { (0xC9, 0xC0), "{KrIcon_C9 C0}" },
             { (0xC9, 0xC1), "{KrIcon_C9 C1}" },
             { (0xC9, 0xC2), "{KrIcon_C9 C2}" },
-            { (0xFE, 0xA1), "{KrIcon_FE A1}" },
+            { (0xFE, 0xA1), "{KrIcon_FE A1}" }, 
             { (0xFE, 0xA2), "{KrIcon_FE A2}" },
             { (0xFE, 0xA3), "{KrIcon_FE A3}" },
             { (0xFE, 0xA4), "{KrIcon_FE A4}" },
@@ -418,7 +502,7 @@ namespace ZTRtool.SupportClasses
         };
 
         // Use only for big5 codepage
-        public static Dictionary<(byte b1, byte b2), string> ChIconKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> ChIconKeysXIII = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xFA, 0x40), "{ChIcon_FA 40}" },
             { (0xFA, 0x41), "{ChIcon_FA 41}" },
@@ -456,12 +540,85 @@ namespace ZTRtool.SupportClasses
             { (0xFA, 0x61), "{ChIcon_FA 61}" },
 
         };
+        public static Dictionary<(byte b1, byte b2), string> ChIconKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFA, 0x40), "{ChIcon_FA 40}" },
+            { (0xFA, 0x41), "{ChIcon_FA 41}" },
+            { (0xFA, 0x42), "{ChIcon_FA 42}" },
+            { (0xFA, 0x43), "{ChIcon_FA 43}" },
+            { (0xFA, 0x44), "{ChIcon_FA 44}" },
+            { (0xFA, 0x45), "{ChIcon_FA 45}" },
+            { (0xFA, 0x46), "{ChIcon_FA 46}" },
+            { (0xFA, 0x47), "{ChIcon_FA 47}" },
+            { (0xFA, 0x48), "{ChIcon_FA 48}" },
+            { (0xFA, 0x49), "{ChIcon_FA 49}" },
+            { (0xFA, 0x4A), "{ChIcon_FA 4A}" },
+            { (0xFA, 0x4B), "{ChIcon_FA 4B}" },
+            { (0xFA, 0x4C), "{ChIcon_FA 4C}" },
+            { (0xFA, 0x4D), "{ChIcon_FA 4D}" },
+            { (0xFA, 0x4E), "{ChIcon_FA 4E}" },
+            { (0xFA, 0x4F), "{ChIcon_FA 4F}" },
+            { (0xFA, 0x50), "{ChIcon_FA 50}" },
+            { (0xFA, 0x51), "{ChIcon_FA 51}" },
+            { (0xFA, 0x52), "{ChIcon_FA 52}" },
+            { (0xFA, 0x53), "{ChIcon_FA 53}" },
+            { (0xFA, 0x54), "{ChIcon_FA 54}" },
+            { (0xFA, 0x55), "{ChIcon_FA 55}" },
+            { (0xFA, 0x56), "{ChIcon_FA 56}" },
+            { (0xFA, 0x57), "{ChIcon_FA 57}" },
+            { (0xFA, 0x58), "{ChIcon_FA 58}" },
+            { (0xFA, 0x59), "{ChIcon_FA 59}" },
+            { (0xFA, 0x5A), "{ChIcon_FA 5A}" },
+            { (0xFA, 0x5B), "{ChIcon_FA 5B}" },
+            { (0xFA, 0x5C), "{ChIcon_FA 5C}" },
+            { (0xFA, 0x5D), "{ChIcon_FA 5D}" },
+            { (0xFA, 0x5E), "{ChIcon_FA 5E}" },
+            { (0xFA, 0x5F), "{ChIcon_FA 5F}" },
+            { (0xFA, 0x60), "{ChIcon_FA 60}" },
+            { (0xFA, 0x61), "{ChIcon_FA 61}" }
+        };
         #endregion
 
 
         #region BtnKeysDicts
         // Use only for latin, shift-jis codepages
-        public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> BtnKeysXIII = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xF1, 0x40), "{Btn A}" },
+            { (0xF1, 0x41), "{Btn B}" },
+            { (0xF1, 0x42), "{Btn X}" },
+            { (0xF1, 0x43), "{Btn Y}" },
+            { (0xF1, 0x44), "{Btn Start}" },
+            { (0xF1, 0x45), "{Btn Back}" },
+            { (0xF1, 0x46), "{Btn LB}" },
+            { (0xF1, 0x47), "{Btn RB}" },
+            { (0xF1, 0x48), "{Btn LT}" },
+            { (0xF1, 0x49), "{Btn RT}" },
+            { (0xF1, 0x4A), "{Btn DPadLeft}" },
+            { (0xF1, 0x4B), "{Btn DPadDown}" },
+            { (0xF1, 0x4C), "{Btn DPadRight}" },
+            { (0xF1, 0x4D), "{Btn DPadUp}" },
+            { (0xF1, 0x4E), "{Btn LSLeft}" },
+            { (0xF1, 0x4F), "{Btn LSDown}" },
+            { (0xF1, 0x50), "{Btn LSRight}" },
+            { (0xF1, 0x51), "{Btn LSUp}" },
+            { (0xF1, 0x52), "{Btn LSLeftRight}" },
+            { (0xF1, 0x53), "{Btn LSUpDown}" },
+            { (0xF1, 0x54), "{Btn LSPress}" },
+            { (0xF1, 0x55), "{Btn RSPress}" },
+            { (0xF1, 0x56), "{Btn RSLeft}" },
+            { (0xF1, 0x57), "{Btn RSDown}" },
+            { (0xF1, 0x58), "{Btn RSRight}" },
+            { (0xF1, 0x59), "{Btn RSUp}" },
+            { (0xF1, 0x5A), "{Btn RSLeftRight}" },
+            { (0xF1, 0x5B), "{Btn RSUpDown}" },
+            { (0xF1, 0x5C), "{Btn LStick}" },
+            { (0xF1, 0x5D), "{Btn RStick}" },
+            { (0xF1, 0x5E), "{Btn DPadUpDown}" },
+            { (0xF1, 0x5F), "{Btn DPadLeftRight}" },
+            { (0xF1, 0x60), "{Btn DPad}" }
+        };
+        public static Dictionary<(byte b1, byte b2), string> BtnKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF1, 0x40), "{Btn A}" },
             { (0xF1, 0x41), "{Btn B}" },
@@ -500,7 +657,43 @@ namespace ZTRtool.SupportClasses
         };
 
         // Use only for euc-kr codepage
-        public static Dictionary<(byte b1, byte b2), string> KrBtnKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> KrBtnKeysXIII = new Dictionary<(byte b1, byte b2), string>
+        {            
+            { (0xC9, 0xAA), "{Btn A}" },
+            { (0xC9, 0xAB), "{Btn B}" },
+            { (0xC9, 0xAC), "{Btn X}" },
+            { (0xC9, 0xAD), "{Btn Y}" },
+            { (0xC9, 0xAE), "{Btn Start}" },
+            { (0xC9, 0xAF), "{Btn Back}" },
+            { (0xC9, 0xB0), "{Btn LB}" },
+            { (0xC9, 0xB1), "{Btn RB}" },
+            { (0xC9, 0xB2), "{Btn LT}" },
+            { (0xC9, 0xB3), "{Btn RT}" },
+            { (0xC9, 0xB4), "{Btn DPadLeft}" },
+            { (0xC9, 0xB5), "{Btn DPadDown}" },
+            { (0xC9, 0xB6), "{Btn DPadRight}" },
+            { (0xC9, 0xB7), "{Btn DPadUp}" },
+            { (0xC9, 0xB8), "{Btn LSLeft}" },
+            { (0xC9, 0xB9), "{Btn LSDown}" },
+            { (0xC9, 0xBA), "{Btn LSRight}" },
+            { (0xC9, 0xBB), "{Btn LSUp}" },
+            { (0xC9, 0xBC), "{Btn LSLeftRight}" },
+            { (0xC9, 0xBD), "{Btn LSUpDown}" },
+            { (0xC9, 0xBE), "{Btn LSPress}" },
+            { (0xC9, 0xBF), "{Btn RSPress}" },
+            { (0xC9, 0xC0), "{Btn RSLeft}" },
+            { (0xC9, 0xC1), "{Btn RSDown}" },
+            { (0xC9, 0xC2), "{Btn RSRight}" },
+            { (0xC9, 0xC3), "{Btn RSUp}" },
+            { (0xC9, 0xC4), "{Btn RSLeftRight}" },
+            { (0xC9, 0xC5), "{Btn RSUpDown}" },
+            { (0xC9, 0xC6), "{Btn LStick}" },
+            { (0xC9, 0xC7), "{Btn RStick}" },
+            { (0xC9, 0xC8), "{Btn DPadUpDown}" },
+            { (0xC9, 0xC9), "{Btn DPadLeftRight}" },
+            { (0xC9, 0xCA), "{Btn DPad}" },
+        };
+        public static Dictionary<(byte b1, byte b2), string> KrBtnKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xC9, 0xD0), "{KrBtn D0}" },
             { (0xC9, 0xD1), "{KrBtn D1}" },
@@ -541,7 +734,46 @@ namespace ZTRtool.SupportClasses
         };
 
         // Use only for big5 codepage
-        public static Dictionary<(byte b1, byte b2), string> ChBtnKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> ChBtnKeysXIII = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFA, 0xA1), "{ChBtn A1}" },
+            { (0xFA, 0xA2), "{ChBtn A2}" },
+            { (0xFA, 0xA3), "{ChBtn A3}" },
+            { (0xFA, 0xA4), "{ChBtn A4}" },
+            { (0xFA, 0xA5), "{ChBtn A5}" },
+            { (0xFA, 0xA6), "{ChBtn A6}" },
+            { (0xFA, 0xA7), "{ChBtn A7}" },
+            { (0xFA, 0xA8), "{ChBtn A8}" },
+            { (0xFA, 0xA9), "{ChBtn A9}" },
+            { (0xFA, 0xAA), "{ChBtn AA}" },
+            { (0xFA, 0xAB), "{ChBtn AB}" },
+            { (0xFA, 0xAC), "{ChBtn AC}" },
+            { (0xFA, 0xAD), "{ChBtn AD}" },
+            { (0xFA, 0xAE), "{ChBtn AE}" },
+            { (0xFA, 0xAF), "{ChBtn AF}" },
+            { (0xFA, 0xB0), "{ChBtn B0}" },
+            { (0xFA, 0xB1), "{ChBtn B1}" },
+            { (0xFA, 0xB2), "{ChBtn B2}" },
+            { (0xFA, 0xB3), "{ChBtn B3}" },
+            { (0xFA, 0xB4), "{ChBtn B4}" },
+            { (0xFA, 0xB5), "{ChBtn B5}" },
+            { (0xFA, 0xB6), "{ChBtn B6}" },
+            { (0xFA, 0xB7), "{ChBtn B7}" },
+            { (0xFA, 0xB8), "{ChBtn B8}" },
+            { (0xFA, 0xB9), "{ChBtn B9}" },
+            { (0xFA, 0xBA), "{ChBtn BA}" },
+            { (0xFA, 0xBB), "{ChBtn BB}" },
+            { (0xFA, 0xBC), "{ChBtn BC}" },
+            { (0xFA, 0xBD), "{ChBtn BD}" },
+            { (0xFA, 0xBE), "{ChBtn BE}" },
+            { (0xFA, 0xBF), "{ChBtn BF}" },
+            { (0xFA, 0xC0), "{ChBtn C0}" },
+            { (0xFA, 0xC1), "{ChBtn C1}" },
+            { (0xFA, 0xC2), "{ChBtn C2}" },
+            { (0xFA, 0xC3), "{ChBtn C3}" },
+            { (0xFA, 0xC4), "{ChBtn C4}" }
+        };
+        public static Dictionary<(byte b1, byte b2), string> ChBtnKeysXIII2 = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xFA, 0xA1), "{ChBtn A1}" },
             { (0xFA, 0xA2), "{ChBtn A2}" },
@@ -1024,5 +1256,24 @@ namespace ZTRtool.SupportClasses
             { (0xF7, 0x41), "{Big5_F7 41}" }, // displays Square
             { (0xF7, 0x42), "{Big5_F7 42}" }
         };
+
+
+        // Keys to add
+        // 80 57
+        // AA A8
+        // AA AA
+        // AA AC
+        // AA AD
+        // AA AE
+        // AA AF
+        // AA B0
+        // AA B1
+        // AA CA
+        // AE A1
+        // AE A3
+        // AE A9
+        // AE AA
+        // AE AC
+        // AE AE
     }
 }

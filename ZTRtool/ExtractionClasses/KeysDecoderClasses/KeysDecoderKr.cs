@@ -15,6 +15,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var nextByte = byte.MaxValue;
 
             var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? KrColorKeysXIII : KrColorKeysXIII2;
+            var iconKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? KrIconKeysXIII : KrIconKeysXIII2;
+            var btnKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? KrBtnKeysXIII : KrBtnKeysXIII2;
 
             bool condition1;
             bool condition2;
@@ -79,18 +81,18 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && KrIconKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && iconKeysDict.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrIconKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(iconKeysDict[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && KrBtnKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && btnKeysDict.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrBtnKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(btnKeysDict[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;

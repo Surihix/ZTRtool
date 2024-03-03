@@ -20,8 +20,8 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             (byte, byte) twoBytesKey;
 
             var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
-            var iconKeysDict = IconKeys;
-            var btnKeysDict = BtnKeys;
+            var iconKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? IconKeysXIII : IconKeysXIII2;
+            var btnKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? BtnKeysXIII : BtnKeysXIII2;
             var charaKeysDict = CharaKeysGroupA;
             var unicodeKeysDict = UniCodeKeysGroupA;
 

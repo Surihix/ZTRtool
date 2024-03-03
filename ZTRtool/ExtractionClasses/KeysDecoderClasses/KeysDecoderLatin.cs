@@ -14,6 +14,8 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var nextByte = byte.MaxValue;
 
             var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
+            var iconKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? IconKeysXIII : IconKeysXIII2;
+            var btnKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? BtnKeysXIII : BtnKeysXIII2;
 
             bool condition1;
             bool condition2;
@@ -71,17 +73,17 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             li++;
                         }
 
-                        if (!hasWritten && IconKeys.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && iconKeysDict.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(IconKeys[(currentByte, nextByte)]);
+                            linesWriter.Write(iconKeysDict[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
                         }
 
-                        if (!hasWritten && BtnKeys.ContainsKey((currentByte, nextByte)))
+                        if (!hasWritten && btnKeysDict.ContainsKey((currentByte, nextByte)))
                         {
-                            linesWriter.Write(BtnKeys[(currentByte, nextByte)]);
+                            linesWriter.Write(btnKeysDict[(currentByte, nextByte)]);
                             hasWritten = true;
                             linesReader.BaseStream.Position += 1;
                             li++;
