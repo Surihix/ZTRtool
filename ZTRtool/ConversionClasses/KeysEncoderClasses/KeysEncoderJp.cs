@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using static ZTRtool.SupportClasses.DictionaryHelpers;
 using static ZTRtool.SupportClasses.KeysDicts;
@@ -19,9 +20,31 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             byte oneByteKey;
             (byte, byte) twoBytesKey;
 
-            var colorKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? ColorKeysXIII : ColorKeysXIII2;
-            var iconKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? IconKeysXIII : IconKeysXIII2;
-            var btnKeysDict = EncoderHelper.GameCode == GameCodeSwitches.ff131 ? BtnKeysXIII : BtnKeysXIII2;
+            var colorKeysDict = new Dictionary<(byte, byte), string>();
+            var iconKeysDict = new Dictionary<(byte, byte), string>();
+            var btnKeysDict = new Dictionary<(byte, byte), string>();
+
+            switch (EncoderHelper.GameCode)
+            {
+                case GameCodeSwitches.ff131:
+                    colorKeysDict = ColorKeysXIII;
+                    iconKeysDict = IconKeysXIII;
+                    btnKeysDict = BtnKeysXIII;
+                    break;
+
+                case GameCodeSwitches.ff132:
+                    colorKeysDict = ColorKeysXIII2;
+                    iconKeysDict = IconKeysXIII2;
+                    btnKeysDict = BtnKeysXIII2;
+                    break;
+
+                case GameCodeSwitches.ff133:
+                    colorKeysDict = ColorKeysXIII2;
+                    iconKeysDict = IconKeysXIII3;
+                    btnKeysDict = BtnKeysXIII3;
+                    break;
+            }
+
             var charaKeysDict = CharaKeysGroupB;
             var unicodeKeysDict = UniCodeKeysGroupB;
 

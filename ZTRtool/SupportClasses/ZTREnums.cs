@@ -12,7 +12,8 @@
         public enum GameCodeSwitches
         {            
             ff131,
-            ff132
+            ff132,
+            ff133
         }
 
         public enum EncodingSwitches

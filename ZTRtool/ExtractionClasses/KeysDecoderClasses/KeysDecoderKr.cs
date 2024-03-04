@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using static ZTRtool.SupportClasses.KeysDicts;
 using static ZTRtool.SupportClasses.ZTREnums;
@@ -13,9 +14,30 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
 
-            var colorKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? KrColorKeysXIII : KrColorKeysXIII2;
-            var iconKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? KrIconKeysXIII : KrIconKeysXIII2;
-            var btnKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? KrBtnKeysXIII : KrBtnKeysXIII2;
+            var colorKeysDict = new Dictionary<(byte, byte), string>();
+            var iconKeysDict = new Dictionary<(byte, byte), string>();
+            var btnKeysDict = new Dictionary<(byte, byte), string>();
+
+            switch (DecoderHelper.GameCode)
+            {
+                case GameCodeSwitches.ff131:
+                    colorKeysDict = KrColorKeysXIII;
+                    iconKeysDict = KrIconKeysXIII;
+                    btnKeysDict = KrBtnKeysXIII;
+                    break;
+
+                case GameCodeSwitches.ff132:
+                    colorKeysDict = KrColorKeysXIII2;
+                    iconKeysDict = KrIconKeysXIII2;
+                    btnKeysDict = KrBtnKeysXIII2;
+                    break;
+
+                case GameCodeSwitches.ff133:
+                    colorKeysDict = KrColorKeysXIII2;
+                    iconKeysDict = KrIconKeysXIII3;
+                    btnKeysDict = KrBtnKeysXIII3;
+                    break;
+            }
 
             bool condition1;
             bool condition2;

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using static ZTRtool.SupportClasses.KeysDicts;
 using static ZTRtool.SupportClasses.ZTREnums;
@@ -13,9 +14,30 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var currentByte = byte.MaxValue;
             var nextByte = byte.MaxValue;
 
-            var colorKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? ChColorKeysXIII : ChColorKeysXIII2;
-            var iconKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? ChIconKeysXIII : ChIconKeysXIII2;
-            var btnKeysDict = DecoderHelper.GameCode == GameCodeSwitches.ff131 ? ChBtnKeysXIII : ChBtnKeysXIII2;
+            var colorKeysDict = new Dictionary<(byte, byte), string>();
+            var iconKeysDict = new Dictionary<(byte, byte), string>();
+            var btnKeysDict = new Dictionary<(byte, byte), string>();
+
+            switch (DecoderHelper.GameCode)
+            {
+                case GameCodeSwitches.ff131:
+                    colorKeysDict = ChColorKeysXIII;
+                    iconKeysDict = ChIconKeysXIII;
+                    btnKeysDict = ChBtnKeysXIII;
+                    break;
+
+                case GameCodeSwitches.ff132:
+                    colorKeysDict = ChColorKeysXIII2;
+                    iconKeysDict = ChIconKeysXIII2;
+                    btnKeysDict = ChBtnKeysXIII2;
+                    break;
+
+                case GameCodeSwitches.ff133:
+                    colorKeysDict = ChColorKeysXIII2;
+                    iconKeysDict = ChIconKeysXIII3;
+                    btnKeysDict = ChBtnKeysXIII3;
+                    break;
+            }
 
             bool condition1;
             bool condition2;
@@ -168,6 +190,205 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
         {
             var isChara = new bool();
             var isChecked = new bool();
+
+            // Range 1
+            switch (b1)
+            {
+                case 0xA1:
+                    if (b2 >= 0x41 && b2 <= 0x4F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x50 && b2 <= 0x5F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x60 && b2 <= 0x6F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x70 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xA1 && b2 <= 0xAF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xB0 && b2 <= 0xBF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xC0 && b2 <= 0xCF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xD0 && b2 <= 0xDF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xE0 && b2 <= 0xEF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xF0 && b2 <= 0xFE && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    break;
+
+                case 0xA2:
+                    if (b2 >= 0x40 && b2 <= 0x4F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x50 && b2 <= 0x5F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x60 && b2 <= 0x6F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x70 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xA1 && b2 <= 0xAF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xB0 && b2 <= 0xBF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xC0 && b2 <= 0xCF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xD0 && b2 <= 0xDF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xE0 && b2 <= 0xEF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xF0 && b2 <= 0xFE && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    break;
+
+                case 0xA3:
+                    if (b2 >= 0x40 && b2 <= 0x4F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x50 && b2 <= 0x5F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x60 && b2 <= 0x6F && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0x70 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xA1 && b2 <= 0xAF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xB0 && b2 <= 0xBF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xC0 && b2 <= 0xCF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xD0 && b2 <= 0xDF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xE0 && b2 <= 0xEF && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xF0 && b2 <= 0xFE && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    break;
+
+                case 0xBF:
+
+                    break;
+            }
+
+
+            // Range 2
+            if (b1 >= 0xA4 && b1 <= 0xA9 && !isChecked)
+            {
+                if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+                if (b2 >= 0xA1 && b2 <= 0xFE && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+            }
+
+            // Range 3
+            if (b1 >= 0xAA && b1 <= 0xBE && !isChecked)
+            {
+                if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+                if (b2 >= 0xA1 && b2 <= 0xFE && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+            }
+
 
 
             return isChara;
