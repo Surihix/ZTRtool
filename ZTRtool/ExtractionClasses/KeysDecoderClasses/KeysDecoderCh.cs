@@ -354,10 +354,18 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     break;
 
                 case 0xBF:
-
+                    if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
+                    if (b2 >= 0xA0 && b2 <= 0xFE && !isChecked)
+                    {
+                        isChara = true;
+                        isChecked = true;
+                    }
                     break;
             }
-
 
             // Range 2
             if (b1 >= 0xA4 && b1 <= 0xA9 && !isChecked)
@@ -389,7 +397,19 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                 }
             }
 
-
+            // Range 4
+            if (b1 >= 0xC0 && b1 <= 0xF9 && !isChecked)
+            {
+                if (b2 >= 0x40 && b2 <= 0x7E && !isChecked)
+                {
+                    isChara = true;
+                    isChecked = true;
+                }
+                if (b2 >= 0xA1 && b2 <= 0xFE && !isChecked)
+                {
+                    isChara = true;
+                }
+            }
 
             return isChara;
         }

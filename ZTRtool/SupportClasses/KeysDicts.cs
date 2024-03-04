@@ -1329,9 +1329,12 @@ namespace ZTRtool.SupportClasses
             { (0xFA, 0xBE), "{Btn RStick}" },
             { (0xFA, 0xBF), "{Btn DPadLeftRight}" },
             { (0xFA, 0xC0), "{Btn DPadUpDown}" },
-            { (0xFA, 0xC1), "{Btn DPad}" }, 
-            { (0xF1, 0x61), "{Btn B_2}" },
-            { (0xF1, 0x62), "{Btn A_2}" }
+            { (0xFA, 0xC1), "{Btn DPad}" },
+            { (0xFA, 0xC2), "{Btn B_2}" },
+            { (0xFA, 0xC3), "{Btn A_2}" }
+
+            //{ (0xF1, 0x61), "{Btn B_2}" },
+            //{ (0xF1, 0x62), "{Btn A_2}" }
         };
         #endregion
 
@@ -1761,5 +1764,15 @@ namespace ZTRtool.SupportClasses
             { (0xF7, 0x42), "{Big5_F7 42}" }
         };
 
+
+        // Keys to add/ check
+        // 80 59
+        // 80 6E
+        // FC 40
+        // FC 41
+        // FD 40
+        // FD 41
+
+        // FF F1 see how to implment this as it affects F1 78 in big5
     }
 }
