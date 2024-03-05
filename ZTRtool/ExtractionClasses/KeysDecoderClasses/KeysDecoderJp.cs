@@ -157,6 +157,14 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             }
                         }
 
+                        if (!hasWritten && currentByte == 255)
+                        {
+                            linesWriterBinary.Write((byte)123);
+                            linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes("FF"));
+                            linesWriterBinary.Write((byte)125);
+                            hasWritten = true;
+                        }
+
                         if (!hasWritten)
                         {
                             linesWriterBinary.Write(currentByte);

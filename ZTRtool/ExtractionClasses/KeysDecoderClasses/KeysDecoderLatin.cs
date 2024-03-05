@@ -159,6 +159,12 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         }
                     }
 
+                    if (!hasWritten && currentByte == 255)
+                    {
+                        linesWriter.Write("{FF}");
+                        hasWritten = true;
+                    }
+
                     if (!hasWritten)
                     {
                         writeArray = new byte[1] { currentByte };

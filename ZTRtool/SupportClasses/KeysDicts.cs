@@ -233,33 +233,33 @@ namespace ZTRtool.SupportClasses
             { (0xFE, 0x41), "{Color IceBlue}" },
             { (0xFE, 0x42), "{Color Gold}" },
             { (0xFE, 0x43), "{Color LightRed}" },
-            { (0xFE, 0x45), "{Color Yellow}" },
-            { (0xFE, 0x46), "{Color Green}" },
-            { (0xFE, 0x47), "{Color Gray}" },
-            { (0xFE, 0x48), "{Color LightGold}" },
-            { (0xFE, 0x49), "{Color Rose}" },
-            { (0xFE, 0x4A), "{Color Purple}" },
-            { (0xFE, 0x4B), "{Color DarkYellow}" },
-            { (0xFE, 0x4C), "{Color Gray2}" },
-            { (0xFE, 0x4D), "{Color Voilet}" },
-            { (0xFE, 0x4E), "{Color LightGreen}" },
-            { (0xFE, 0x4F), "{Color Sapphire}" },
-            { (0xFE, 0x50), "{Color Voilet2}" },
-            { (0xFE, 0x51), "{Color OliveGreen}" },
-            { (0xFE, 0x52), "{Color DarkCyan}" },
-            { (0xFE, 0x53), "{Color Lavender}" },
-            { (0xFE, 0x54), "{Color Brown}" },
-            { (0xFE, 0x55), "{Color Gold2}" },
-            { (0xFE, 0x56), "{Color Gold3}" },
-            { (0xFE, 0x57), "{Color DarkGray}" },
-            { (0xFE, 0x58), "{Color DarkRed}" },
-            { (0xFE, 0x59), "{Color Jade}" },
-            { (0xFE, 0x5A), "{Color SmokeGray}" },
-            { (0xFE, 0x5B), "{Color DarkGold}" },
-            { (0xFE, 0x5C), "{Color Magenta}" },
-            { (0xFE, 0x5D), "{Color PureWhite}" },
-            { (0xFE, 0x5E), "{Color Orange}" },
-            { (0xFE, 0x5F), "{Color NavyBlue}" },
+            { (0xFE, 0x44), "{Color Yellow}" },
+            { (0xFE, 0x45), "{Color Green}" },
+            { (0xFE, 0x46), "{Color Gray}" },
+            { (0xFE, 0x47), "{Color LightGold}" },
+            { (0xFE, 0x48), "{Color Rose}" },
+            { (0xFE, 0x49), "{Color Purple}" },
+            { (0xFE, 0x4A), "{Color DarkYellow}" },
+            { (0xFE, 0x4B), "{Color Gray2}" },
+            { (0xFE, 0x4C), "{Color Voilet}" },
+            { (0xFE, 0x4D), "{Color LightGreen}" },
+            { (0xFE, 0x4E), "{Color Sapphire}" },
+            { (0xFE, 0x4F), "{Color Voilet2}" },
+            { (0xFE, 0x50), "{Color OliveGreen}" },
+            { (0xFE, 0x51), "{Color DarkCyan}" },
+            { (0xFE, 0x52), "{Color Lavender}" },
+            { (0xFE, 0x53), "{Color Brown}" },
+            { (0xFE, 0x54), "{Color Gold2}" },
+            { (0xFE, 0x55), "{Color Gold3}" },
+            { (0xFE, 0x56), "{Color DarkGray}" },
+            { (0xFE, 0x57), "{Color DarkRed}" },
+            { (0xFE, 0x58), "{Color Jade}" },
+            { (0xFE, 0x59), "{Color SmokeGray}" },
+            { (0xFE, 0x5A), "{Color DarkGold}" },
+            { (0xFE, 0x5B), "{Color Magenta}" },
+            { (0xFE, 0x5C), "{Color PureWhite}" },
+            { (0xFE, 0x5D), "{Color Orange}" },
+            { (0xFE, 0x5E), "{Color NavyBlue}" },
         };
         #endregion
 
@@ -1341,7 +1341,9 @@ namespace ZTRtool.SupportClasses
 
         public static Dictionary<(byte b1, byte b2), string> VarKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0x80, 0x59), "{Var80 59}" },
             { (0x80, 0x69), "{Var80 69}" },
+            { (0x80, 0x6E), "{Var80 6E}" },
             { (0x80, 0x77), "{Var80 77}" },
             { (0x81, 0x40), "{Var81 40}" }, // Nothing in EN
             { (0x85, 0xA0), "{Var85 A0}" }, // Á
@@ -1362,6 +1364,10 @@ namespace ZTRtool.SupportClasses
             { (0x85, 0xBB), "{Var85 BB}" },
             { (0x85, 0x80), "{Var85 80}" },
             { (0xFA, 0x20), "{VarFA 20}" },
+            { (0xFC, 0x40), "{VarFC 40}" },
+            { (0xFC, 0x41), "{VarFC 41}" },
+            { (0xFD, 0x40), "{VarFD 40}" },
+            { (0xFD, 0x41), "{VarFD 41}" },
             { (0xFF, 0x86), "{VarFF 86}" }, // Nothing in EN
             { (0xFF, 0x90), "{VarFF 90}" }, // Nothing in EN
             { (0xFF, 0x91), "{VarFF 91}" }, // Nothing in EN
@@ -1373,8 +1379,8 @@ namespace ZTRtool.SupportClasses
             { (0xFF, 0x9D), "{VarFF 9D}" },
             { (0xFF, 0x9E), "{VarFF 9E}" },
             { (0xFF, 0xE0), "{VarFF E0}" },
-            { (0xFF, 0xF1), "{VarFF F1}" },
-            { (0xFF, 0xFF), "{VarFF FF}" } // Large Space
+            //{ (0xFF, 0xF1), "{VarFF F1}" },
+            //{ (0xFF, 0xFF), "{VarFF FF}" } // Large Space
         };
 
 
@@ -1749,6 +1755,7 @@ namespace ZTRtool.SupportClasses
         // UnkSet02
         public static Dictionary<(byte b1, byte b2), string> Big5LetterKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0xF1, 0x78), "{Big5_F1 78}" },
             { (0xF4, 0x40), "{Big5_F4 40}" },
             { (0xF4, 0x41), "{Big5_F4 41}" },
             { (0xF4, 0x42), "{Big5_F4 42}" },
@@ -1763,16 +1770,5 @@ namespace ZTRtool.SupportClasses
             { (0xF7, 0x41), "{Big5_F7 41}" }, // displays Square
             { (0xF7, 0x42), "{Big5_F7 42}" }
         };
-
-
-        // Keys to add/ check
-        // 80 59
-        // 80 6E
-        // FC 40
-        // FC 41
-        // FD 40
-        // FD 41
-
-        // FF F1 see how to implment this as it affects F1 78 in big5
     }
 }

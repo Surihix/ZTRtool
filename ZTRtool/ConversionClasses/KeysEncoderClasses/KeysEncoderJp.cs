@@ -154,6 +154,12 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
+                                    if (!isKeyConverted && currentKey == "FF")
+                                    {
+                                        processedLinesWriter.Write((byte)255);
+                                        isKeyConverted = true;
+                                    }
+
                                     if (!isKeyConverted)
                                     {
                                         unprocessedLinesReader.BaseStream.Position = lastReadPos;
