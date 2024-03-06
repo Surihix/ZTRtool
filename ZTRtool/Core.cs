@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTREnums;
@@ -13,12 +14,57 @@ namespace ZTRtool
 
         static void Main(string[] args)
         {
-            if (args.Length < 4)
+            if (args.Length == 1 && args.Contains("-h") || args.Contains("-?"))
             {
-                Console.WriteLine("Error: Enough arguments not specified.");
+                var actionSwitchesMsgArray = new string[]
+                { 
+                    "Action Switches:", "-x = To Extract", "-c = To Convert (Uncompressed)", 
+                    "-c0 = To Convert (Compressed)"
+                };
+
+                var gameCodeSwitchesMsgArray = new string[]
+                {
+                    "GameCode Switches:", "-ff131 = Use for FFXIII-1 ztr files", "-ff132 = Use for FFXIII-2 ztr files", 
+                    "-ff133 = Use for FFXIII-LR ztr files"
+                };
+
+                var encodingSwitchesMsgArray = new string[]
+                { 
+                    "Encoding Switches:", "-auto = Auto determine the encoding", 
+                    "-ch = Chinese encoding", "-jp = Japanese encoding", "-kr = Korean encoding",
+                    "-lt = Latin encoding (use for english, french, german, italian and spanish ztr files)"
+                };
+
+                var exampleMsgArray = new string[]
+                { 
+                    "Examples:", 
+                    "ZTRtool.exe -x -ff131 -lt \"txtres_us.ztr\"", 
+                    "ZTRtool.exe -c -ff131 -lt \"txtres_us.txt\"",
+                    "ZTRtool.exe -c0 -ff131 -lt \"txtres_us.txt\"", "", 
+                    "Important notes:", 
+                    "* Change the filename mentioned in the example to the name or path of the" + 
+                    "\n  file that you are trying to extract or convert.",
+                    "* Use the appropriate game code for the ztr file.",
+                    "* Use the '-lt' encoding only when dealing with ztrs that use latin alphabets.", 
+                    "* The '-c0' switch is recommended only for ztr files that need to be in a 'compressed' state.",
+                    "* Put the '-debug' switch after the filepath for debugging purposes."
+                };
+
+                Console.WriteLine($"\n{string.Join("\n", actionSwitchesMsgArray)}" +
+                    $"\n\n{string.Join("\n", gameCodeSwitchesMsgArray)}\n\n{string.Join("\n", encodingSwitchesMsgArray)}" +
+                    $"\n\n{string.Join("\n", exampleMsgArray)}");
                 Console.ReadLine();
                 Environment.Exit(0);
             }
+
+            if (args.Length < 4)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Warning: Enough arguments not specified. for more info, please launch this tool with -h or -? switches.");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+
 
             var toolAction = args[0].Replace("-", "");
             var gameCode = args[1].Replace("-", "");
@@ -33,7 +79,7 @@ namespace ZTRtool
             }
             else
             {
-                Console.WriteLine("Error: Specified tool action was invalid.");
+                Console.WriteLine("Error: Specified tool action switch was invalid.");
                 Console.ReadLine();
                 Environment.Exit(0);
             }
@@ -45,7 +91,7 @@ namespace ZTRtool
             }
             else
             {
-                Console.WriteLine("Error: Specified game code was invalid.");
+                Console.WriteLine("Error: Specified game code switch was invalid.");
                 Console.ReadLine();
                 Environment.Exit(0);
             }
@@ -70,6 +116,13 @@ namespace ZTRtool
                 }
             }
 
+            if (!File.Exists(inFile))
+            {
+                Console.WriteLine("Error: Specified infile is not present in the directory");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+
             if (IsDebug)
             {
                 DebugDir = Path.Combine(Path.GetDirectoryName(inFile), "_debug");
@@ -78,13 +131,6 @@ namespace ZTRtool
                     Directory.Delete(DebugDir, true);
                 }
                 Directory.CreateDirectory(DebugDir);
-            }
-
-            if (!File.Exists(inFile))
-            {
-                Console.WriteLine("Error: Specified infile is not present in the directory");
-                Console.ReadLine();
-                Environment.Exit(0);
             }
 
             Console.WriteLine("");

@@ -24,15 +24,15 @@ namespace ZTRtool.SupportClasses
                 // latin
                 if (fileNameNoExt.EndsWith("_fr") || fileNameNoExt.EndsWith("_f"))
                 {
-                    Console.WriteLine("Encoding detected: French");
+                    Console.WriteLine("Encoding detected: Latin");
                 }
                 if (fileNameNoExt.EndsWith("_gr") || fileNameNoExt.EndsWith("_g"))
                 {
-                    Console.WriteLine("Encoding detected: German");
+                    Console.WriteLine("Encoding detected: Latin");
                 }
                 if (fileNameNoExt.EndsWith("_it") || fileNameNoExt.EndsWith("_i"))
                 {
-                    Console.WriteLine("Encoding detected: Italian");
+                    Console.WriteLine("Encoding detected: Latin");
                 }
 
                 // jp
@@ -52,15 +52,15 @@ namespace ZTRtool.SupportClasses
                 // latin
                 if (fileNameNoExt.EndsWith("_sp") || fileNameNoExt.EndsWith("_s"))
                 {
-                    Console.WriteLine("Encoding detected: Spanish");
+                    Console.WriteLine("Encoding detected: Latin");
                 }
                 if (fileNameNoExt.EndsWith("_us") || fileNameNoExt.EndsWith("_u"))
                 {
-                    Console.WriteLine("Encoding detected: English-US");
+                    Console.WriteLine("Encoding detected: Latin");
                 }
                 if (fileNameNoExt.EndsWith("_uk"))
                 {
-                    Console.WriteLine("Encoding detected: English-UK");
+                    Console.WriteLine("Encoding detected: Latin");
                 }
             }
             else
@@ -70,18 +70,6 @@ namespace ZTRtool.SupportClasses
                     case EncodingSwitches.ch:
                         encodingToUse = Encoding.GetEncoding(950);
                         Console.WriteLine("Encoding set to: Chinese");
-                        break;
-
-                    case EncodingSwitches.fr:
-                        Console.WriteLine("Encoding set to: French");
-                        break;
-
-                    case EncodingSwitches.gr:
-                        Console.WriteLine("Encoding set to: German");
-                        break;
-
-                    case EncodingSwitches.it:
-                        Console.WriteLine("Encoding set to: Italian");
                         break;
 
                     case EncodingSwitches.jp:
@@ -94,16 +82,8 @@ namespace ZTRtool.SupportClasses
                         Console.WriteLine("Encoding set to: Korean");
                         break;
 
-                    case EncodingSwitches.sp:
-                        Console.WriteLine("Encoding set to: Spanish");
-                        break;
-
-                    case EncodingSwitches.us:
-                        Console.WriteLine("Encoding set to: English-US");
-                        break;
-
-                    case EncodingSwitches.uk:
-                        Console.WriteLine("Encoding set to: English-UK");
+                    case EncodingSwitches.lt:
+                        Console.WriteLine("Encoding set to: Latin");
                         break;
                 }
             }
