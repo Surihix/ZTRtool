@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Text;
+using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool
@@ -88,19 +90,21 @@ namespace ZTRtool
             Console.WriteLine("");
             Console.WriteLine($"Game Code set to: {gameCodeSwitch}");
 
+            Encoding codepageToUse = SetCodepage.DetermineCodepage(encodingSwitch, Path.GetFileNameWithoutExtension(inFile));
+
             switch (actionSwitch)
             {
                 case ActionSwitches.x:
-                    ZTRExtract.ExtractProcess(inFile, actionSwitch, gameCodeSwitch, encodingSwitch);
+                    ZTRExtract.ExtractProcess(inFile, gameCodeSwitch, codepageToUse);
                     break;
 
                 case ActionSwitches.c:
-                    ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, actionSwitch, encodingSwitch);
+                    ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, codepageToUse, actionSwitch);
                     Environment.Exit(0);
                     break;
 
                 case ActionSwitches.c2:
-                    ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, actionSwitch, encodingSwitch);
+                    ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, codepageToUse, actionSwitch);
                     Environment.Exit(0);
                     break;
             }

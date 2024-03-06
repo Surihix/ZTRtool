@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using ZTRtool.ExtractionClasses;
 using ZTRtool.ExtractionClasses.KeysDecoderClasses;
 using ZTRtool.SupportClasses;
@@ -15,10 +16,10 @@ namespace ZTRtool
         public static string OutTxtFile { get; set; }
         public static string OutTxtFileDir { get; set; }
 
-        public static void ExtractProcess(string inZtrFile, ActionSwitches actionSwitch, GameCodeSwitches gameCodeSwitch, EncodingSwitches encodingSwitch)
+        public static void ExtractProcess(string inZtrFile, GameCodeSwitches gameCodeSwitch, Encoding codepageToUse)
         {
             DecoderHelper.GameCode = gameCodeSwitch;
-            DecoderHelper.CodepageToUse = SetCodepage.DetermineCodepage(actionSwitch, encodingSwitch, inZtrFile);
+            DecoderHelper.CodepageToUse = codepageToUse;
 
             OutTxtFile = Path.Combine(Path.GetDirectoryName(inZtrFile), Path.GetFileNameWithoutExtension(inZtrFile) + ".txt");
             OutTxtFileDir = Path.GetDirectoryName(OutTxtFile);

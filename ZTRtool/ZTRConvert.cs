@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using ZTRtool.ConversionClasses;
 using ZTRtool.ConversionClasses.KeysEncoderClasses;
-using ZTRtool.SupportClasses;
 using static ZTRtool.SupportClasses.ZTREnums;
 using static ZTRtool.SupportClasses.ZTRFileVariables;
 
@@ -13,9 +12,10 @@ namespace ZTRtool
     {
         public static string OutFile { get; set; }
 
-        public static void ConvertProcess(string inTxtFile, GameCodeSwitches gameCodeSwitch, ActionSwitches actionSwitch, EncodingSwitches encodingSwitch)
+        public static void ConvertProcess(string inTxtFile, GameCodeSwitches gameCodeSwitch, Encoding codepageToUse, ActionSwitches actionSwitch)
         {
             EncoderHelper.GameCode = gameCodeSwitch;
+            EncoderHelper.CodepageToUse = codepageToUse;
 
             var fileHeader = new FileHeader
             {
@@ -24,10 +24,6 @@ namespace ZTRtool
             };
             Console.WriteLine($"Line Count: {fileHeader.LineCount}");
             Console.WriteLine("");
-
-            // Determine the encoding
-            // to use
-            EncoderHelper.CodepageToUse = SetCodepage.DetermineCodepage(actionSwitch, encodingSwitch, inTxtFile);
 
             var splitChara = new string[] { " |:| " };
 
@@ -55,7 +51,6 @@ namespace ZTRtool
 
                         fileHeader.DcmpIDsSize = (uint)idsStream.Length;
 
-
                         // Copy data from the id stream into
                         // a large stream and split the data
                         // into multiple chunks 
@@ -64,7 +59,7 @@ namespace ZTRtool
 
 
                     // Collect all of the lines
-                    // into a array
+                    // into an array
                     using (var linesStream = new MemoryStream())
                     {
                         using (var linesWriter = new BinaryWriter(linesStream))
@@ -98,7 +93,7 @@ namespace ZTRtool
                 }
 
 
-                // Convert all expanded keys from the 
+                // Convert all decoded keys from the 
                 // linesStream into valid two
                 // byte values
                 Console.WriteLine("Converting keys in lines....");
@@ -128,7 +123,6 @@ namespace ZTRtool
 
                     case ActionSwitches.c2:
                         Console.WriteLine("Building compressed ztr....");
-                        //Console.WriteLine("");
 
                         PackCmp.BuildZTR(fileHeader, processedIDsArray, processedLinesArray);
                         break;
