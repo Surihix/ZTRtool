@@ -95,7 +95,7 @@ namespace ZTRtool.SupportClasses
             { (0xF9, 0x5B), "{Color Magenta}" },
             { (0xF9, 0x5C), "{Color PureWhite}" },
             { (0xF9, 0x5D), "{Color Orange}" },
-            { (0xF9, 0x5E), "{Color NavyBlue}" },
+            { (0xF9, 0x5E), "{Color NavyBlue}" }
         };
 
         // Use only for big5 codepage
@@ -177,7 +177,7 @@ namespace ZTRtool.SupportClasses
             { (0xFE, 0x5B), "{Color Magenta}" },
             { (0xFE, 0x5C), "{Color PureWhite}" },
             { (0xFE, 0x5D), "{Color Orange}" },
-            { (0xFE, 0x5E), "{Color NavyBlue}" },
+            { (0xFE, 0x5E), "{Color NavyBlue}" }
         };
 
         // Use only for euc-kr codepage
@@ -1375,9 +1375,7 @@ namespace ZTRtool.SupportClasses
             { (0xFF, 0x9B), "{VarFF 9B}" },
             { (0xFF, 0x9D), "{VarFF 9D}" },
             { (0xFF, 0x9E), "{VarFF 9E}" },
-            { (0xFF, 0xE0), "{VarFF E0}" },
-            //{ (0xFF, 0xF1), "{VarFF F1}" },
-            //{ (0xFF, 0xFF), "{VarFF FF}" } // Large Space
+            { (0xFF, 0xE0), "{VarFF E0}" }
         };
 
 
@@ -1746,7 +1744,7 @@ namespace ZTRtool.SupportClasses
             { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // kr = large space (found in fr, sp, kr)
             { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // (found in fr)
             { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // kr = large Space (found in ch, sp, kr)
-            { (0xFF, 0xD0), "{ShJIS_FF D0}" }, // kr = large Space (found in gr, it, kr)
+            { (0xFF, 0xD0), "{ShJIS_FF D0}" } // kr = large Space (found in gr, it, kr)
         };
 
         // UnkSet02

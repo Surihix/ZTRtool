@@ -103,7 +103,7 @@ namespace ZTRtool
             }
             else
             {
-                Console.WriteLine("Error: Specified encoding was invalid.");
+                Console.WriteLine("Error: Specified encoding switch was invalid.");
                 Console.ReadLine();
                 Environment.Exit(0);
             }
@@ -123,36 +123,46 @@ namespace ZTRtool
                 Environment.Exit(0);
             }
 
-            if (IsDebug)
+            try
             {
-                DebugDir = Path.Combine(Path.GetDirectoryName(inFile), "_debug");
-                if (Directory.Exists(DebugDir))
+                if (IsDebug)
                 {
-                    Directory.Delete(DebugDir, true);
+                    DebugDir = Path.Combine(Path.GetDirectoryName(inFile), "_debug");
+                    if (Directory.Exists(DebugDir))
+                    {
+                        Directory.Delete(DebugDir, true);
+                    }
+                    Directory.CreateDirectory(DebugDir);
                 }
-                Directory.CreateDirectory(DebugDir);
+
+                Console.WriteLine("");
+                Console.WriteLine($"Game Code set to: {gameCodeSwitch}");
+
+                Encoding codepageToUse = SetCodepage.DetermineCodepage(encodingSwitch, Path.GetFileNameWithoutExtension(inFile));
+
+                switch (actionSwitch)
+                {
+                    case ActionSwitches.x:
+                        ZTRExtract.ExtractProcess(inFile, gameCodeSwitch, codepageToUse);
+                        break;
+
+                    case ActionSwitches.c:
+                        ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, codepageToUse, actionSwitch);
+                        Environment.Exit(0);
+                        break;
+
+                    case ActionSwitches.c2:
+                        ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, codepageToUse, actionSwitch);
+                        Environment.Exit(0);
+                        break;
+                }
             }
-
-            Console.WriteLine("");
-            Console.WriteLine($"Game Code set to: {gameCodeSwitch}");
-
-            Encoding codepageToUse = SetCodepage.DetermineCodepage(encodingSwitch, Path.GetFileNameWithoutExtension(inFile));
-
-            switch (actionSwitch)
+            catch (Exception ex)
             {
-                case ActionSwitches.x:
-                    ZTRExtract.ExtractProcess(inFile, gameCodeSwitch, codepageToUse);
-                    break;
-
-                case ActionSwitches.c:
-                    ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, codepageToUse, actionSwitch);
-                    Environment.Exit(0);
-                    break;
-
-                case ActionSwitches.c2:
-                    ZTRConvert.ConvertProcess(inFile, gameCodeSwitch, codepageToUse, actionSwitch);
-                    Environment.Exit(0);
-                    break;
+                Console.WriteLine("An exception has occured.");
+                Console.WriteLine(ex.ToString());
+                Console.ReadLine();
+                Environment.Exit(0);
             }
         }
     }
