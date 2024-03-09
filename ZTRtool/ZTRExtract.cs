@@ -119,7 +119,7 @@ namespace ZTRtool
                             // mode
                             if (Core.IsDebug)
                             {
-                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_IDs-dump"), idsStream.ToArray());
+                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_IDs-dump"), idsStream.ToArray());
                             }
 
                             // Extract lines

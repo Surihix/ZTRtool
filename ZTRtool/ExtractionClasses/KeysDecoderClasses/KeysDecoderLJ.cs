@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using ZTRtool.SupportClasses.KeyDictionaries;
 using static ZTRtool.SupportClasses.KeysDicts;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 {
-    internal class KeysDecoderJp
+    internal class KeysDecoderLJ
     {
-        public static void DecodeJp(long linesStreamLength, BinaryReader linesReader)
+        public static void DecodeLJ(long linesStreamLength, BinaryReader linesReader)
         {
             var prevByte = byte.MaxValue;
             var currentByte = byte.MaxValue;
@@ -21,21 +22,21 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             switch (DecoderHelper.GameCode)
             {
                 case GameCodeSwitches.ff131:
-                    colorKeysDict = ColorKeysXIII;
-                    iconKeysDict = IconKeysXIII;
-                    btnKeysDict = BtnKeysXIII;
+                    colorKeysDict = KeyDictsXIII.ColorKeys;
+                    iconKeysDict = KeyDictsXIII.IconKeys;
+                    btnKeysDict = KeyDictsXIII.BtnKeys;
                     break;
 
                 case GameCodeSwitches.ff132:
-                    colorKeysDict = ColorKeysXIII2;
-                    iconKeysDict = IconKeysXIII2;
-                    btnKeysDict = BtnKeysXIII2;
+                    colorKeysDict = KeyDictsXIII2.ColorKeys;
+                    iconKeysDict = KeyDictsXIII2.IconKeys;
+                    btnKeysDict = KeyDictsXIII2.BtnKeys;
                     break;
 
                 case GameCodeSwitches.ff133:
-                    colorKeysDict = ColorKeysXIII2;
-                    iconKeysDict = IconKeysXIII3;
-                    btnKeysDict = BtnKeysXIII3;
+                    colorKeysDict = KeyDictsXIII3.ColorKeys;
+                    iconKeysDict = KeyDictsXIII3.IconKeys;
+                    btnKeysDict = KeyDictsXIII3.BtnKeys;
                     break;
             }
 
@@ -61,7 +62,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             currentByte = 0;
                         }
 
-                        condition1 = !hasWritten && SingleKeys.ContainsKey(currentByte);
+                        condition1 = !hasWritten && KeyDictsCmn.SingleKeys.ContainsKey(currentByte);
                         if (condition1)
                         {
                             // End the line if next
@@ -81,7 +82,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten)
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SingleKeys[currentByte]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KeyDictsCmn.SingleKeys[currentByte]));
                                 hasWritten = true;
                                 currentByte = 0;
                             }
@@ -120,27 +121,18 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KeyDictsCmn.VarKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(VarKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KeyDictsCmn.VarKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && CharaKeysGroupB.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KeyDictsCmn.PreConvtdCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(CharaKeysGroupB[(currentByte, nextByte)]));
-                                hasWritten = true;
-                                currentByte = 0;
-                                linesReader.BaseStream.Position += 1;
-                                li++;
-                            }
-
-                            if (!hasWritten && UniCodeKeysGroupB.ContainsKey((currentByte, nextByte)))
-                            {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UniCodeKeysGroupB[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KeyDictsCmn.PreConvtdCharaKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -176,12 +168,68 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         hasWritten = false;
                     }
 
-                    if (File.Exists(ZTRExtract.OutTxtFile))
-                    {
-                        File.Delete(ZTRExtract.OutTxtFile);
-                    }
+                    var utfDataArray = Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
 
-                    File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray()));
+
+                    using (var outUTFdataStream = new MemoryStream())
+                    {
+                        using (var outUTFdataReader = new BinaryReader(outUTFdataStream, Encoding.UTF8))
+                        {
+                            outUTFdataStream.Write(utfDataArray, 0, utfDataArray.Length);
+                            outUTFdataStream.Seek(0, SeekOrigin.Begin);
+                            var lineBytesLength = outUTFdataReader.BaseStream.Length;
+
+                            if (File.Exists(ZTRExtract.OutTxtFile))
+                            {
+                                File.Delete(ZTRExtract.OutTxtFile);
+                            }
+
+                            using (var processedUTFlinesStream = new FileStream(ZTRExtract.OutTxtFile, FileMode.Append, FileAccess.Write))
+                            {
+                                using (var processedUTFlinesWriter = new BinaryWriter(processedUTFlinesStream, Encoding.UTF8))
+                                {
+
+                                    long lastReadPos;
+                                    string currentKey;
+                                    bool charaKeysCondition;
+                                    var isKeyConverted = false;
+
+                                    for (int i = 0; i <= lineBytesLength; i++)
+                                    {
+                                        currentByte = outUTFdataReader.ReadByte();
+                                        lastReadPos = outUTFdataReader.BaseStream.Position;
+
+                                        if (currentByte == 123 && outUTFdataReader.BaseStream.Position < lineBytesLength)
+                                        {
+                                            currentKey = DecoderHelper.DeriveSymbolString(outUTFdataReader);
+
+                                            charaKeysCondition = !isKeyConverted && KeyDictsCmn.ConvtdCharaKeys.ContainsKey(currentKey);
+                                            if (charaKeysCondition)
+                                            {
+                                                processedUTFlinesWriter.Write(Encoding.UTF8.GetBytes(KeyDictsCmn.ConvtdCharaKeys[currentKey]));
+                                                isKeyConverted = true;
+                                            }
+
+                                            if (!isKeyConverted)
+                                            {
+                                                outUTFdataReader.BaseStream.Position = lastReadPos;
+                                                processedUTFlinesWriter.Write(currentByte);
+                                                isKeyConverted = true;
+                                            }
+
+                                            i = (int)outUTFdataReader.BaseStream.Position;
+                                        }
+                                        else
+                                        {
+                                            processedUTFlinesWriter.Write(currentByte);
+                                        }
+
+                                        isKeyConverted = false;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

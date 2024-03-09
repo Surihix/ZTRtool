@@ -8,9 +8,9 @@ namespace ZTRtool.SupportClasses
     {
         public static Encoding DetermineCodepage(EncodingSwitches encodingSwitch, string fileNameNoExt)
         {
-            // By default set the encoding to 1252 for
+            // By default set the encoding to 932 for
             // latin languages
-            var encodingToUse = Encoding.GetEncoding(1252);
+            var encodingToUse = Encoding.GetEncoding(932);
 
             if (encodingSwitch == EncodingSwitches.auto)
             {
@@ -24,22 +24,21 @@ namespace ZTRtool.SupportClasses
                 // latin
                 if (fileNameNoExt.EndsWith("_fr") || fileNameNoExt.EndsWith("_f"))
                 {
-                    Console.WriteLine("Encoding detected: Latin");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
                 if (fileNameNoExt.EndsWith("_gr") || fileNameNoExt.EndsWith("_g"))
                 {
-                    Console.WriteLine("Encoding detected: Latin");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
                 if (fileNameNoExt.EndsWith("_it") || fileNameNoExt.EndsWith("_i"))
                 {
-                    Console.WriteLine("Encoding detected: Latin");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
 
                 // jp
                 if (fileNameNoExt.EndsWith("_jp") || fileNameNoExt.EndsWith("_j"))
                 {
-                    encodingToUse = Encoding.GetEncoding(932);
-                    Console.WriteLine("Encoding detected: Japanese");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
 
                 // kr
@@ -52,15 +51,15 @@ namespace ZTRtool.SupportClasses
                 // latin
                 if (fileNameNoExt.EndsWith("_sp") || fileNameNoExt.EndsWith("_s"))
                 {
-                    Console.WriteLine("Encoding detected: Latin");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
                 if (fileNameNoExt.EndsWith("_us") || fileNameNoExt.EndsWith("_u"))
                 {
-                    Console.WriteLine("Encoding detected: Latin");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
                 if (fileNameNoExt.EndsWith("_uk"))
                 {
-                    Console.WriteLine("Encoding detected: Latin");
+                    Console.WriteLine("Encoding detected: Latin/ Japanese");
                 }
             }
             else
@@ -72,18 +71,14 @@ namespace ZTRtool.SupportClasses
                         Console.WriteLine("Encoding set to: Chinese");
                         break;
 
-                    case EncodingSwitches.jp:
+                    case EncodingSwitches.lj:
                         encodingToUse = Encoding.GetEncoding(932);
-                        Console.WriteLine("Encoding set to: Japanese");
+                        Console.WriteLine("Encoding set to: Latin/Japanese");
                         break;
 
                     case EncodingSwitches.kr:
                         encodingToUse = Encoding.GetEncoding(51949);
                         Console.WriteLine("Encoding set to: Korean");
-                        break;
-
-                    case EncodingSwitches.lt:
-                        Console.WriteLine("Encoding set to: Latin");
                         break;
                 }
             }

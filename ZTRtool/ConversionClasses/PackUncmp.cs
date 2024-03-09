@@ -140,9 +140,9 @@ namespace ZTRtool.ConversionClasses
 
                                             if (Core.IsDebug)
                                             {
-                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_chunkOffsets"), chunkOffsetsStream.ToArray());
-                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_infoOffsets"), lineInfoStream.ToArray());
-                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_LinesData"), lineDataStream.ToArray());
+                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_chunkOffsets"), chunkOffsetsStream.ToArray());
+                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_infoOffsets"), lineInfoStream.ToArray());
+                                                File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_LinesData"), lineDataStream.ToArray());
                                             }
                                         }
                                     }

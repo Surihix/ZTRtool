@@ -88,8 +88,8 @@ namespace ZTRtool
                 // mode
                 if (Core.IsDebug)
                 {
-                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_IDsData"), processedIDsArray);
-                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_unp-lines"), unprocessedLinesArray);
+                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_IDsData"), processedIDsArray);
+                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_unp-lines"), unprocessedLinesArray);
                 }
 
 
@@ -106,7 +106,7 @@ namespace ZTRtool
                 // mode
                 if (Core.IsDebug)
                 {
-                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "test_proc-lines"), processedLinesArray);
+                    File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_proc-lines"), processedLinesArray);
                 }
 
                 // Build the ztr file

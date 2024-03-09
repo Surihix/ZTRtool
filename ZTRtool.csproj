@@ -94,9 +94,13 @@
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderCh.cs" />
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderLatin.cs" />
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderKr.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderJp.cs" />
+    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderLJ.cs" />
     <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\DecoderHelper.cs" />
     <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\EncoderHelper.cs" />
+    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsCmn.cs" />
+    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII.cs" />
+    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII2.cs" />
+    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII3.cs" />
     <Compile Include="ZTRtool\SupportClasses\KeysDicts.cs" />
     <Compile Include="ZTRtool\SupportClasses\SetCodepage.cs" />
     <Compile Include="ZTRtool\SupportClasses\ZTREnums.cs" />

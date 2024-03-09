@@ -20,9 +20,8 @@
         {
             auto,
             ch,
-            jp,
             kr,
-            lt
+            lj
         }
     }
 }

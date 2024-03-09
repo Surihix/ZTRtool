@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using static ZTRtool.SupportClasses.ZTREnums;
@@ -28,14 +29,9 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         KeysDecoderCh.DecodeCh(linesStreamLength, linesReader);
                         break;
 
-                    // jp
+                    // latin/jp
                     case 932:
-                        KeysDecoderJp.DecodeJp(linesStreamLength, linesReader);
-                        break;
-
-                    // latin
-                    case 1252:
-                        KeysDecoderLatin.DecodeLatin(linesStreamLength, linesReader);
+                        KeysDecoderLJ.DecodeLJ(linesStreamLength, linesReader);
                         break;
 
                     // kr
@@ -44,6 +40,25 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         break;
                 }
             }
+        }
+
+
+        public static string DeriveSymbolString(BinaryReader reader)
+        {
+            byte currentByte;
+            var derivedStringList = new List<byte>();
+
+            while ((currentByte = reader.ReadByte()) != 125)
+            {
+                derivedStringList.Add(currentByte);
+
+                if (derivedStringList.Count > 32)
+                {
+                    break;
+                }
+            }
+
+            return Encoding.UTF8.GetString(derivedStringList.ToArray());
         }
     }
 }

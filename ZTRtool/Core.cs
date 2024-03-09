@@ -31,22 +31,22 @@ namespace ZTRtool
                 var encodingSwitchesMsgArray = new string[]
                 { 
                     "Encoding Switches:", "-auto = Auto determine the encoding", 
-                    "-ch = Chinese encoding", "-jp = Japanese encoding", "-kr = Korean encoding",
-                    "-lt = Latin encoding (use for english, french, german, italian and spanish ztr files)"
+                    "-ch = Chinese encoding", "-kr = Korean encoding",
+                    "-lj = Latin/ Japanese encoding (use for english, french, german, italian, japanese and spanish ztr files)"
                 };
 
                 var exampleMsgArray = new string[]
                 { 
-                    "Examples:", 
-                    "ZTRtool.exe -x -ff131 -lt \"txtres_us.ztr\"", 
-                    "ZTRtool.exe -c -ff131 -lt \"txtres_us.txt\"",
-                    "ZTRtool.exe -c0 -ff131 -lt \"txtres_us.txt\"", "", 
+                    "Examples:",
+                    "ZTRtool.exe -x -ff131 -auto \"txtres_us.ztr\"",
+                    "ZTRtool.exe -c -ff131 -auto \"txtres_us.txt\"",
+                    "ZTRtool.exe -c2 -ff131 -auto \"txtres_us.txt\"", "", 
                     "Important notes:", 
                     "* Change the filename mentioned in the example to the name or path of the" + 
                     "\n  file that you are trying to extract or convert.",
                     "* Use the appropriate game code for the ztr file.",
-                    "* Use the '-lt' encoding only when dealing with ztrs that use latin alphabets.", 
-                    "* The '-c0' switch is recommended only for ztr files that need to be in a 'compressed' state.",
+                    "* Use the '-lj' encoding when dealing with ztrs that use latin alphabets and japanese characters.", 
+                    "* The '-c2' switch is recommended only for ztr files that need to be in a 'compressed' state.",
                     "* Put the '-debug' switch after the filepath for debugging purposes."
                 };
 
