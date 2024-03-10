@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
@@ -24,20 +25,85 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             {
                 switch (CodepageToUse.CodePage)
                 {
-                    // ch
-                    case 950:
-                        KeysDecoderCh.DecodeCh(linesStreamLength, linesReader);
-                        break;
-
                     // latin/jp
                     case 932:
                         KeysDecoderLJ.DecodeLJ(linesStreamLength, linesReader);
+                        break;
+
+                    // ch
+                    case 950:
+                        KeysDecoderCh.DecodeCh(linesStreamLength, linesReader);
                         break;
 
                     // kr
                     case 51949:
                         KeysDecoderKr.DecodeKr(linesStreamLength, linesReader);
                         break;
+                }
+            }
+        }
+
+
+        public static void FinalizeTxtFile(byte[] utfDataArray)
+        {
+            using (var outUTFdataStream = new MemoryStream())
+            {
+                using (var outUTFdataReader = new BinaryReader(outUTFdataStream, Encoding.UTF8))
+                {
+                    outUTFdataStream.Write(utfDataArray, 0, utfDataArray.Length);
+                    outUTFdataStream.Seek(0, SeekOrigin.Begin);
+                    var lineBytesLength = outUTFdataReader.BaseStream.Length;
+
+                    if (File.Exists(ZTRExtract.OutTxtFile))
+                    {
+                        File.Delete(ZTRExtract.OutTxtFile);
+                    }
+
+                    using (var outTxtUTFstream = new FileStream(ZTRExtract.OutTxtFile, FileMode.Append, FileAccess.Write))
+                    {
+                        using (var outTxtUTFwriter = new BinaryWriter(outTxtUTFstream, Encoding.UTF8))
+                        {
+
+                            byte currentByte;
+                            long lastReadPos;
+                            string currentKey;
+                            bool charaKeysCondition;
+                            var isKeyConverted = false;
+
+                            for (int i = 0; i <= lineBytesLength; i++)
+                            {
+                                currentByte = outUTFdataReader.ReadByte();
+                                lastReadPos = outUTFdataReader.BaseStream.Position;
+
+                                if (currentByte == 123 && outUTFdataReader.BaseStream.Position < lineBytesLength)
+                                {
+                                    currentKey = DeriveSymbolString(outUTFdataReader);
+
+                                    charaKeysCondition = !isKeyConverted && DecodedCharaKeys.ContainsKey(currentKey);
+                                    if (charaKeysCondition)
+                                    {
+                                        outTxtUTFwriter.Write(Encoding.UTF8.GetBytes(DecodedCharaKeys[currentKey]));
+                                        isKeyConverted = true;
+                                    }
+
+                                    if (!isKeyConverted)
+                                    {
+                                        outUTFdataReader.BaseStream.Position = lastReadPos;
+                                        outTxtUTFwriter.Write(currentByte);
+                                        isKeyConverted = true;
+                                    }
+
+                                    i = (int)outUTFdataReader.BaseStream.Position;
+                                }
+                                else
+                                {
+                                    outTxtUTFwriter.Write(currentByte);
+                                }
+
+                                isKeyConverted = false;
+                            }
+                        }
+                    }
                 }
             }
         }

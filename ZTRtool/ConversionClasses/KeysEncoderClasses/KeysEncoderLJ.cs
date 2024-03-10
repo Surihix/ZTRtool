@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using ZTRtool.SupportClasses.KeyDictionaries;
 using static ZTRtool.SupportClasses.DictionaryHelpers;
-using static ZTRtool.SupportClasses.KeysDicts;
+using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 {
-    internal class KeysEncoderLatin
+    internal class KeysEncoderLJ
     {
-        public static void EncodeLatin(byte[] unprocessedLinesArray)
+        public static void EncodeLJ(byte[] unprocessedLinesArray)
         {
             // Declare all commonly used
             // variables
@@ -27,26 +28,25 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             switch (EncoderHelper.GameCode)
             {
                 case GameCodeSwitches.ff131:
-                    colorKeysDict = ColorKeysXIII;
-                    iconKeysDict = IconKeysXIII;
-                    btnKeysDict = BtnKeysXIII;
+                    colorKeysDict = KeyDictsXIII.ColorKeys;
+                    iconKeysDict = KeyDictsXIII.IconKeys;
+                    btnKeysDict = KeyDictsXIII.BtnKeys;
                     break;
 
                 case GameCodeSwitches.ff132:
-                    colorKeysDict = ColorKeysXIII2;
-                    iconKeysDict = IconKeysXIII2;
-                    btnKeysDict = BtnKeysXIII2;
+                    colorKeysDict = KeyDictsXIII2.ColorKeys;
+                    iconKeysDict = KeyDictsXIII2.IconKeys;
+                    btnKeysDict = KeyDictsXIII2.BtnKeys;
                     break;
 
                 case GameCodeSwitches.ff133:
-                    colorKeysDict = ColorKeysXIII2;
-                    iconKeysDict = IconKeysXIII3;
-                    btnKeysDict = BtnKeysXIII3;
+                    colorKeysDict = KeyDictsXIII3.ColorKeys;
+                    iconKeysDict = KeyDictsXIII3.IconKeys;
+                    btnKeysDict = KeyDictsXIII3.BtnKeys;
                     break;
             }
 
-            var charaKeysDict = CharaKeysGroupA;
-            var unicodeKeysDict = UniCodeKeysGroupA;
+            var charaKeysDict = BaseCharaKeys;
 
             bool singleKeysCondition;
             bool colorKeysCondition;
@@ -54,20 +54,25 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool btnKeysCondition;
             bool varKeysCondition;
             bool charaKeysCondition;
-            bool unicodeCharaKeysCondition;
-            bool shiftJIScharaKeysCondition;
-            bool shiftJISletterKeysCondition;
             bool big5LetterKeysCondition;
+
+            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray);
+
+            if (Core.IsDebug)
+            {
+                File.WriteAllBytes(Path.Combine(Core.DebugDir, "debug_linechara"), processedBaseCharaKeysArray);
+            }
 
 
             using (var unprocessedLinesStream = new MemoryStream())
             {
-                using (var unprocessedLinesReader = new BinaryReader(unprocessedLinesStream, Encoding.UTF8))
+                using (var unprocessedLinesReader = new BinaryReader(unprocessedLinesStream, EncoderHelper.CodepageToUse))
                 {
-                    unprocessedLinesStream.Write(unprocessedLinesArray, 0, unprocessedLinesArray.Length);
+                    var encodingShiftedArray = Encoding.Convert(Encoding.UTF8, EncoderHelper.CodepageToUse, processedBaseCharaKeysArray);
+
+                    unprocessedLinesStream.Write(encodingShiftedArray, 0, encodingShiftedArray.Length);
                     unprocessedLinesStream.Seek(0, SeekOrigin.Begin);
                     var lineBytesLength = unprocessedLinesReader.BaseStream.Length;
-
 
                     using (var processedLinesStream = new MemoryStream())
                     {
@@ -137,33 +142,6 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    unicodeCharaKeysCondition = !isKeyConverted && unicodeKeysDict.ContainsValue("{" + currentKey + "}");
-                                    if (unicodeCharaKeysCondition)
-                                    {
-                                        twoBytesKey = GetDictByteKey(unicodeKeysDict, "{" + currentKey + "}");
-                                        processedLinesWriter.Write(twoBytesKey.Item1);
-                                        processedLinesWriter.Write(twoBytesKey.Item2);
-                                        isKeyConverted = true;
-                                    }
-
-                                    shiftJIScharaKeysCondition = !isKeyConverted && ShiftJIScharaKeys.ContainsValue("{" + currentKey + "}");
-                                    if (shiftJIScharaKeysCondition)
-                                    {
-                                        twoBytesKey = GetDictByteKey(ShiftJIScharaKeys, "{" + currentKey + "}");
-                                        processedLinesWriter.Write(twoBytesKey.Item1);
-                                        processedLinesWriter.Write(twoBytesKey.Item2);
-                                        isKeyConverted = true;
-                                    }
-
-                                    shiftJISletterKeysCondition = !isKeyConverted && ShiftJISletterKeys.ContainsValue("{" + currentKey + "}");
-                                    if (shiftJISletterKeysCondition)
-                                    {
-                                        twoBytesKey = GetDictByteKey(ShiftJISletterKeys, "{" + currentKey + "}");
-                                        processedLinesWriter.Write(twoBytesKey.Item1);
-                                        processedLinesWriter.Write(twoBytesKey.Item2);
-                                        isKeyConverted = true;
-                                    }
-
                                     big5LetterKeysCondition = !isKeyConverted && Big5LetterKeys.ContainsValue("{" + currentKey + "}");
                                     if (big5LetterKeysCondition)
                                     {
@@ -190,10 +168,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                 }
                                 else
                                 {
-                                    if (currentLineByte != 0x0D || currentLineByte != 0x0A)
-                                    {
-                                        processedLinesWriter.Write(currentLineByte);
-                                    }
+                                    processedLinesWriter.Write(currentLineByte);
                                 }
 
                                 isKeyConverted = false;

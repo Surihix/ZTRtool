@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.KeysDicts;
+using ZTRtool.SupportClasses.KeyDictionaries;
+using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
@@ -21,21 +22,21 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             switch (DecoderHelper.GameCode)
             {
                 case GameCodeSwitches.ff131:
-                    colorKeysDict = KrColorKeysXIII;
-                    iconKeysDict = KrIconKeysXIII;
-                    btnKeysDict = KrBtnKeysXIII;
+                    colorKeysDict = KeyDictsXIII.KrColorKeys;
+                    iconKeysDict = KeyDictsXIII.KrIconKeys;
+                    btnKeysDict = KeyDictsXIII.KrBtnKeys;
                     break;
 
                 case GameCodeSwitches.ff132:
-                    colorKeysDict = KrColorKeysXIII2;
-                    iconKeysDict = KrIconKeysXIII2;
-                    btnKeysDict = KrBtnKeysXIII2;
+                    colorKeysDict = KeyDictsXIII2.KrColorKeys;
+                    iconKeysDict = KeyDictsXIII2.KrIconKeys;
+                    btnKeysDict = KeyDictsXIII2.KrBtnKeys;
                     break;
 
                 case GameCodeSwitches.ff133:
-                    colorKeysDict = KrColorKeysXIII2;
-                    iconKeysDict = KrIconKeysXIII3;
-                    btnKeysDict = KrBtnKeysXIII3;
+                    colorKeysDict = KeyDictsXIII3.KrColorKeys;
+                    iconKeysDict = KeyDictsXIII3.KrIconKeys;
+                    btnKeysDict = KeyDictsXIII3.KrBtnKeys;
                     break;
             }
 
@@ -129,28 +130,11 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && CharaKeysGroupB.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && BaseCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(CharaKeysGroupB[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BaseCharaKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
-                                linesReader.BaseStream.Position += 1;
-                                li++;
-                            }
-
-                            if (!hasWritten && UniCodeKeysGroupB.ContainsKey((currentByte, nextByte)))
-                            {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UniCodeKeysGroupB[(currentByte, nextByte)]));
-                                hasWritten = true;
-                                currentByte = 0;
-                                linesReader.BaseStream.Position += 1;
-                                li++;
-                            }
-
-                            if (!hasWritten && ShiftJIScharaKeys.ContainsKey((currentByte, nextByte)))
-                            {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ShiftJIScharaKeys[(currentByte, nextByte)]));
-                                hasWritten = true;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
@@ -159,6 +143,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             {
                                 linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ShiftJISletterKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
+                                currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
@@ -192,12 +177,9 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         hasWritten = false;
                     }
 
-                    if (File.Exists(ZTRExtract.OutTxtFile))
-                    {
-                        File.Delete(ZTRExtract.OutTxtFile);
-                    }
+                    var utfDataArray = Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
 
-                    File.WriteAllBytes(ZTRExtract.OutTxtFile, Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray()));
+                    DecoderHelper.FinalizeTxtFile(utfDataArray);
                 }
             }
         }
