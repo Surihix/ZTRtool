@@ -4,7 +4,8 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
 {
     internal class KeyDictsXIII
     {
-        // Use only for latin, and shift-jis codepages
+        #region ColorKeys
+        // Use only for shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> ColorKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF9, 0x32), "{Color Ex00}" },
@@ -51,7 +52,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xF9, 0x5E), "{Color Ex27}" },
             { (0xF9, 0x5F), "{Color Ex28}" }
         };
-
 
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChColorKeys = new Dictionary<(byte b1, byte b2), string>
@@ -101,7 +101,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFE, 0x5F), "{Color Ex28}" }
         };
 
-
         // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrColorKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -149,9 +148,11 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xAC, 0xBF), "{Color Ex27}" },
             { (0xAC, 0xC0), "{Color Ex28}" }
         };
+        #endregion
 
 
-        // Use only for latin, and shift-jis codepages
+        #region IconKeys
+        // Use only for shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> IconKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF0, 0x40), "{Icon_F0 40}" },
@@ -210,7 +211,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xF2, 0x6C), "{Icon_F2 6C}" }
         };
 
-
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChIconKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -268,9 +268,7 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFB, 0x6A), "{Icon_FB 6A}" },
             { (0xFB, 0x6B), "{Icon_FB 6B}" },
             { (0xFB, 0x6C), "{Icon_FB 6C}" }
-
         };
-
 
         // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrIconKeys = new Dictionary<(byte b1, byte b2), string>
@@ -330,9 +328,11 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFE, 0xCC), "{Icon_FE CC}" },
             { (0xFE, 0xCD), "{Icon_FE CD}" }
         };
+        #endregion
 
 
-        // Use only for latin, and shift-jis codepages
+        #region BtnKeys
+        // Use only for shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> BtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0xF1, 0x40), "{Btn A}" },
@@ -369,7 +369,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xF1, 0x5F), "{Btn DPadLeftRight}" },
             { (0xF1, 0x60), "{Btn DPad}" }
         };
-
 
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChBtnKeys = new Dictionary<(byte b1, byte b2), string>
@@ -409,7 +408,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFA, 0x69), "{Btn DPad}" }
         };
 
-
         // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrBtnKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -447,5 +445,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xC9, 0xC9), "{Btn DPadLeftRight}" },
             { (0xC9, 0xCA), "{Btn DPad}" }
         };
+        #endregion
     }
 }

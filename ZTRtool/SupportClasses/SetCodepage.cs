@@ -83,6 +83,8 @@ namespace ZTRtool.SupportClasses
                 }
             }
 
+            Console.WriteLine("");
+
             return encodingToUse;
         }
     }

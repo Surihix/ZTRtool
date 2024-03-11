@@ -54,9 +54,10 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool btnKeysCondition;
             bool varKeysCondition;
             bool charaKeysCondition;
-            bool big5LetterKeysCondition;
+            bool var2KeysCondition;
+            bool specialKeysCondition;
 
-            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray);
+            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray, DecodedCharaKeys);
 
             if (Core.IsDebug)
             {
@@ -142,10 +143,19 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    big5LetterKeysCondition = !isKeyConverted && Big5LetterKeys.ContainsValue("{" + currentKey + "}");
-                                    if (big5LetterKeysCondition)
+                                    var2KeysCondition = !isKeyConverted && Var2Keys.ContainsValue("{" + currentKey + "}");
+                                    if (var2KeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(Big5LetterKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(Var2Keys, "{" + currentKey + "}");
+                                        processedLinesWriter.Write(twoBytesKey.Item1);
+                                        processedLinesWriter.Write(twoBytesKey.Item2);
+                                        isKeyConverted = true;
+                                    }
+
+                                    specialKeysCondition = !isKeyConverted && SpecialKeys.ContainsValue("{" + currentKey + "}");
+                                    if (specialKeysCondition)
+                                    {
+                                        twoBytesKey = GetDictByteKey(SpecialKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;

@@ -130,27 +130,27 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && BaseCharaKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KrChBaseCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BaseCharaKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrChBaseCharaKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && ShiftJISletterKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KrSpecialKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ShiftJISletterKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrSpecialKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && Big5LetterKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && Var2Keys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Big5LetterKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Var2Keys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -179,7 +179,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                     var utfDataArray = Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
 
-                    DecoderHelper.FinalizeTxtFile(utfDataArray);
+                    DecoderHelper.FinalizeTxtFile(utfDataArray, KrChDecodedCharaKeys);
                 }
             }
         }
@@ -282,13 +282,14 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                     }
                     break;
 
-                case 0xAB:
-                    if (b2 >= 0xA1 && b2 <= 0xF6 && !isChecked)
-                    {
-                        isChara = true;
-                        isChecked = true;
-                    }
-                    break;
+                //// Commented out cause of Special keys
+                //case 0xAB:
+                //    if (b2 >= 0xA1 && b2 <= 0xF6 && !isChecked)
+                //    {
+                //        isChara = true;
+                //        isChecked = true;
+                //    }
+                //    break;
 
                 case 0xAC:
                     //// Commented out as the value ranges under 

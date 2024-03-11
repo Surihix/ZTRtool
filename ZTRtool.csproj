@@ -100,7 +100,6 @@
     <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII.cs" />
     <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII2.cs" />
     <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII3.cs" />
-    <Compile Include="ZTRtool\SupportClasses\KeysDicts.cs" />
     <Compile Include="ZTRtool\SupportClasses\SetCodepage.cs" />
     <Compile Include="ZTRtool\SupportClasses\ZTREnums.cs" />
     <Compile Include="ZTRtool\ZTRConvert.cs" />

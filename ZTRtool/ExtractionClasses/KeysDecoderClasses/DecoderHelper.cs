@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
@@ -44,7 +43,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
         }
 
 
-        public static void FinalizeTxtFile(byte[] utfDataArray)
+        public static void FinalizeTxtFile(byte[] utfDataArray, Dictionary<string, string> decodedCharaKeysDict)
         {
             using (var outUTFdataStream = new MemoryStream())
             {
@@ -79,10 +78,10 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 {
                                     currentKey = DeriveSymbolString(outUTFdataReader);
 
-                                    charaKeysCondition = !isKeyConverted && DecodedCharaKeys.ContainsKey(currentKey);
+                                    charaKeysCondition = !isKeyConverted && decodedCharaKeysDict.ContainsKey(currentKey);
                                     if (charaKeysCondition)
                                     {
-                                        outTxtUTFwriter.Write(Encoding.UTF8.GetBytes(DecodedCharaKeys[currentKey]));
+                                        outTxtUTFwriter.Write(Encoding.UTF8.GetBytes(decodedCharaKeysDict[currentKey]));
                                         isKeyConverted = true;
                                     }
 

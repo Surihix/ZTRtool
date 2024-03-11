@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using static ZTRtool.SupportClasses.DictionaryHelpers;
-using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
 using static ZTRtool.SupportClasses.ZTREnums;
 
 namespace ZTRtool.ConversionClasses.KeysEncoderClasses
@@ -37,7 +36,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
         }
 
 
-        public static byte[] ProcessBaseCharaKeys(byte[] unprocessedLinesArray)
+        public static byte[] ProcessBaseCharaKeys(byte[] unprocessedLinesArray, Dictionary<string, string> decodedCharaKeysDict)
         {
             byte currentByte;
             long lastReadPos;
@@ -70,10 +69,10 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                 {
                                     currentKey = DeriveSymbolString(unprocessedCharaReader);
 
-                                    unprocessedCharaCondition = !isCharaKeyConverted && DecodedCharaKeys.ContainsValue("{" + currentKey + "}");
+                                    unprocessedCharaCondition = !isCharaKeyConverted && decodedCharaKeysDict.ContainsValue("{" + currentKey + "}");
                                     if (unprocessedCharaCondition)
                                     {
-                                        charaString = GetDictByteKey(DecodedCharaKeys, "{" + currentKey + "}");
+                                        charaString = GetDictByteKey(decodedCharaKeysDict, "{" + currentKey + "}");
                                         processedCharaWriter.Write(Encoding.UTF8.GetBytes("{" + charaString + "}"));
                                         isCharaKeyConverted = true;
                                     }

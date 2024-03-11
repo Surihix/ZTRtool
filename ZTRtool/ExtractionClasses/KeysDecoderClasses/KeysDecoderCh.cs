@@ -130,18 +130,18 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && BaseCharaKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && KrChBaseCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(BaseCharaKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrChBaseCharaKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
                                 li++;
                             }
 
-                            if (!hasWritten && ShiftJISletterKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && ChSpecialKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ShiftJISletterKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ChSpecialKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -170,7 +170,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                     var utfDataArray = Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
 
-                    DecoderHelper.FinalizeTxtFile(utfDataArray);
+                    DecoderHelper.FinalizeTxtFile(utfDataArray, KrChDecodedCharaKeys);
                 }
             }
         }

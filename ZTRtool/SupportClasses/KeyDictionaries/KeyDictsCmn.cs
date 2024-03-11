@@ -9,12 +9,14 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { 0x00, "{End}" },
             { 0x01, "{Escape}" },
             { 0x02, "{Italic}" },
-            { 0x03, "{Many}" },
-            { 0x04, "{Article}" },
+            { 0x03, "{Many}" }, // large line
+            { 0x04, "{Article}" }, // center a text?
             { 0x05, "{ArticleMany}" }
         };
 
 
+        #region BaseCharaKeys
+        // Use only for shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> BaseCharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x40, 0x70), "{0x40_70}" },
@@ -137,11 +139,8 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0x85, 0xDB), "{0x85_DB}" },
             { (0x85, 0xDC), "{0x85_DC}" },
             { (0x85, 0xDD), "{0x85_DD}" },
-            { (0x85, 0xDE), "{0x85_DE}" },
-            { (0xFF, 0xD0), "{0xFF_D0}" }
+            { (0x85, 0xDE), "{0x85_DE}" }
         };
-
-
         public static Dictionary<string, string> DecodedCharaKeys = new Dictionary<string, string>
         {
             { "0x40_70", "{Text NewPage}" },
@@ -264,20 +263,263 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { "0x85_DB", "{ü}" },
             { "0x85_DC", "{ý}" },
             { "0x85_DD", "{þ}" },
-            { "0x85_DE", "{ÿ}" },
-            { "0xFF_D0", "{Large Space}" },
-            // FF A9
-            // FF C9
-            // FF D3
+            { "0x85_DE", "{ÿ}" }
         };
+
+        // Use only for euc-kr and big5 codepages
+        public static Dictionary<(byte b1, byte b2), string> KrChBaseCharaKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x40, 0x70), "{0x40_70}" },
+            { (0x40, 0x72), "{0x40_72}" },
+            { (0x80, 0x40), "{0x80_40}" },
+            { (0x80, 0x42), "{0x80_42}" },
+            { (0x80, 0x44), "{0x80_44}" },
+            { (0x80, 0x45), "{0x80_45}" },
+            { (0x80, 0x46), "{0x80_46}" },
+            { (0x80, 0x47), "{0x80_47}" },
+            { (0x80, 0x49), "{0x80_49}" },
+            { (0x80, 0x4A), "{0x80_4A}" },
+            { (0x80, 0x4B), "{0x80_4B}" },
+            { (0x80, 0x4C), "{0x80_4C}" },
+            { (0x80, 0x4E), "{0x80_4E}" },
+            { (0x80, 0x51), "{0x80_51}" },
+            { (0x80, 0x52), "{0x80_52}" },
+            { (0x80, 0x53), "{0x80_53}" },
+            { (0x80, 0x54), "{0x80_54}" },
+            { (0x80, 0x55), "{0x80_55}" },
+            { (0x80, 0x56), "{0x80_56}" },
+            { (0x80, 0x57), "{0x80_57}" },
+            { (0x80, 0x59), "{0x80_59}" },
+            { (0x80, 0x60), "{0x80_60}" },
+            { (0x80, 0x5A), "{0x80_5A}" },
+            { (0x80, 0x5B), "{0x80_5B}" },
+            { (0x80, 0x5C), "{0x80_5C}" },
+            { (0x80, 0x5E), "{0x80_5E}" },
+            { (0x80, 0x5F), "{0x80_5F}" },
+            { (0x80, 0x61), "{0x80_61}" },
+            { (0x80, 0x62), "{0x80_62}" },
+            { (0x80, 0x63), "{0x80_63}" },
+            { (0x80, 0x64), "{0x80_64}" },
+            { (0x80, 0x65), "{0x80_65}" },
+            { (0x80, 0x66), "{0x80_66}" },
+            { (0x80, 0x67), "{0x80_67}" },
+            { (0x80, 0x68), "{0x80_68}" },
+            { (0x80, 0x69), "{0x80_69}" },
+            { (0x80, 0x6A), "{0x80_6A}" },
+            { (0x80, 0x6B), "{0x80_6B}" },
+            { (0x80, 0x6C), "{0x80_6C}" },
+            { (0x80, 0x6E), "{0x80_6E}" },
+            { (0x80, 0x6F), "{0x80_6F}" },
+            { (0x80, 0x70), "{0x80_70}" },
+            { (0x80, 0x71), "{0x80_71}" },
+            { (0x80, 0x72), "{0x80_72}" },
+            { (0x80, 0x73), "{0x80_73}" },
+            { (0x80, 0x74), "{0x80_74}" },
+            { (0x80, 0x75), "{0x80_75}" },
+            { (0x80, 0x76), "{0x80_76}" },
+            { (0x80, 0x77), "{0x80_77}" },
+            { (0x80, 0x78), "{0x80_78}" },
+            { (0x80, 0x79), "{0x80_79}" },
+            { (0x80, 0x7A), "{0x80_7A}" },
+            { (0x80, 0x7B), "{0x80_7B}" },
+            { (0x80, 0x7C), "{0x80_7C}" },
+            { (0x80, 0x7D), "{0x80_7D}" },
+            { (0x80, 0x7E), "{0x80_7E}" },
+            { (0x80, 0x7F), "{0x80_7F}" },
+            { (0x80, 0x9F), "{0x80_9F}" },
+            { (0x80, 0x81), "{0x80_81}" },
+            { (0x80, 0x82), "{0x80_82}" },
+            { (0x80, 0x83), "{0x80_83}" },
+            { (0x80, 0x84), "{0x80_84}" },
+            { (0x80, 0x85), "{0x80_85}" },
+            { (0x80, 0x86), "{0x80_86}" },
+            { (0x80, 0x87), "{0x80_87}" },
+            { (0x80, 0x88), "{0x80_88}" },
+            { (0x80, 0x89), "{0x80_89}" },
+            { (0x80, 0x8A), "{0x80_8A}" },
+            { (0x80, 0x8B), "{0x80_8B}" },
+            { (0x80, 0x8C), "{0x80_8C}" },
+            { (0x80, 0x8D), "{0x80_8D}" },
+            { (0x80, 0x8E), "{0x80_8E}" },
+            { (0x80, 0x8F), "{0x80_8F}" },
+            { (0x80, 0x90), "{0x80_90}" },
+            { (0x80, 0x91), "{0x80_91}" },
+            { (0x80, 0x92), "{0x80_92}" },
+            { (0x80, 0x93), "{0x80_93}" },
+            { (0x80, 0x94), "{0x80_94}" },
+            { (0x80, 0x95), "{0x80_95}" },
+            { (0x80, 0x96), "{0x80_96}" },
+            { (0x80, 0xB6), "{0x80_B6}" },
+            { (0x80, 0x98), "{0x80_98}" },
+            { (0x80, 0x99), "{0x80_99}" },
+            { (0x80, 0x9A), "{0x80_9A}" },
+            { (0x80, 0x9B), "{0x80_9B}" },
+            { (0x80, 0x9C), "{0x80_9C}" },
+            { (0x80, 0x9D), "{0x80_9D}" },
+            { (0x80, 0xBD), "{0x80_BD}" },
+            { (0x80, 0xBE), "{0x80_BE}" },
+            { (0x80, 0xBF), "{0x80_BF}" },
+            { (0x80, 0xC0), "{0x80_C0}" },
+            { (0x80, 0xC1), "{0x80_C1}" },
+            { (0x80, 0xC2), "{0x80_C2}" },
+            { (0x80, 0xC3), "{0x80_C3}" },
+            { (0x80, 0xC4), "{0x80_C4}" },
+            { (0x80, 0xC5), "{0x80_C5}" },
+            { (0x80, 0xC6), "{0x80_C6}" },
+            { (0x80, 0xC7), "{0x80_C7}" },
+            { (0x80, 0xC8), "{0x80_C8}" },
+            { (0x80, 0xC9), "{0x80_C9}" },
+            { (0x80, 0xCA), "{0x80_CA}" },
+            { (0x80, 0xCB), "{0x80_CB}" },
+            { (0x80, 0xCC), "{0x80_CC}" },
+            { (0x80, 0xCD), "{0x80_CD}" },
+            { (0x80, 0xCE), "{0x80_CE}" },
+            { (0x80, 0xCF), "{0x80_CF}" },
+            { (0x80, 0xD0), "{0x80_D0}" },
+            { (0x80, 0xD1), "{0x80_D1}" },
+            { (0x80, 0xD2), "{0x80_D2}" },
+            { (0x80, 0xD3), "{0x80_D3}" },
+            { (0x80, 0xD4), "{0x80_D4}" },
+            { (0x80, 0xD5), "{0x80_D5}" },
+            { (0x80, 0xD6), "{0x80_D6}" },
+            { (0x80, 0xD7), "{0x80_D7}" },
+            { (0x80, 0xD8), "{0x80_D8}" },
+            { (0x80, 0xD9), "{0x80_D9}" },
+            { (0x80, 0xDA), "{0x80_DA}" },
+            { (0x80, 0xDB), "{0x80_DB}" },
+            { (0x80, 0xDC), "{0x80_DC}" },
+            { (0x80, 0xDD), "{0x80_DD}" },
+            { (0x80, 0xDE), "{0x80_DE}" }
+        };
+        public static Dictionary<string, string> KrChDecodedCharaKeys = new Dictionary<string, string>
+        {
+            { "0x40_70", "{Text NewPage}" },
+            { "0x40_72", "{Text NewLine}" },
+            { "0x80_40", "{€}" },
+            { "0x80_42", "{‚}" },
+            { "0x80_44", "{„}" },
+            { "0x80_45", "{…}" },
+            { "0x80_46", "{†}" },
+            { "0x80_47", "{‡}" },
+            { "0x80_49", "{‰}" },
+            { "0x80_4A", "{Š}" },
+            { "0x80_4B", "{‹}" },
+            { "0x80_4C", "{Œ}" },
+            { "0x80_4E", "{Ž}" },
+            { "0x80_51", "{‘}" },
+            { "0x80_52", "{’}" },
+            { "0x80_53", "{“}" },
+            { "0x80_54", "{”}" },
+            { "0x80_55", "{•}" },
+            { "0x80_56", "{-}" },
+            { "0x80_57", "{—}" },
+            { "0x80_59", "{™}" },
+            { "0x80_5A", "{š}" },
+            { "0x80_5B", "{›}" },
+            { "0x80_5C", "{œ}" },
+            { "0x80_5E", "{ž}" },
+            { "0x80_5F", "{Ÿ}" },
+            { "0x80_60", "{Text Tab}" },
+            { "0x80_61", "{¡}" },
+            { "0x80_62", "{¢}" },
+            { "0x80_63", "{£}" },
+            { "0x80_64", "{¤}" },
+            { "0x80_65", "{¥}" },
+            { "0x80_66", "{¦}" },
+            { "0x80_67", "{§}" },
+            { "0x80_68", "{¨}" },
+            { "0x80_69", "{©}" },
+            { "0x80_6A", "{ª}" },
+            { "0x80_6B", "{«}" },
+            { "0x80_6C", "{¬}" },
+            { "0x80_6E", "{®}" },
+            { "0x80_6F", "{¯}" },
+            { "0x80_70", "{°}" },
+            { "0x80_71", "{±}" },
+            { "0x80_72", "{²}" },
+            { "0x80_73", "{³}" },
+            { "0x80_74", "{´}" },
+            { "0x80_75", "{µ}" },
+            { "0x80_76", "{¶}" },
+            { "0x80_77", "{·}" },
+            { "0x80_78", "{¸}" },
+            { "0x80_79", "{¹}" },
+            { "0x80_7A", "{º}" },
+            { "0x80_7B", "{»}" },
+            { "0x80_7C", "{¼}" },
+            { "0x80_7D", "{½}" },
+            { "0x80_7E", "{¾}" },
+            { "0x80_7F", "{¿}" },
+            { "0x80_9F", "{À}" },
+            { "0x80_81", "{Á}" },
+            { "0x80_82", "{Â}" },
+            { "0x80_83", "{Ã}" },
+            { "0x80_84", "{Ä}" },
+            { "0x80_85", "{Å}" },
+            { "0x80_86", "{Æ}" },
+            { "0x80_87", "{Ç}" },
+            { "0x80_88", "{È}" },
+            { "0x80_89", "{É}" },
+            { "0x80_8A", "{Ê}" },
+            { "0x80_8B", "{Ë}" },
+            { "0x80_8C", "{Ì}" },
+            { "0x80_8D", "{Í}" },
+            { "0x80_8E", "{Î}" },
+            { "0x80_8F", "{Ï}" },
+            { "0x80_90", "{Ð}" },
+            { "0x80_91", "{Ñ}" },
+            { "0x80_92", "{Ò}" },
+            { "0x80_93", "{Ó}" },
+            { "0x80_94", "{Ô}" },
+            { "0x80_95", "{Õ}" },
+            { "0x80_96", "{Ö}" },
+            { "0x80_B6", "{×}" },
+            { "0x80_98", "{Ø}" },
+            { "0x80_99", "{Ù}" },
+            { "0x80_9A", "{Ú}" },
+            { "0x80_9B", "{Û}" },
+            { "0x80_9C", "{Ü}" },
+            { "0x80_9D", "{Ý}" },
+            { "0x80_BD", "{Þ}" },
+            { "0x80_BE", "{ß}" },
+            { "0x80_BF", "{à}" },
+            { "0x80_C0", "{á}" },
+            { "0x80_C1", "{â}" },
+            { "0x80_C2", "{ã}" },
+            { "0x80_C3", "{ä}" },
+            { "0x80_C4", "{å}" },
+            { "0x80_C5", "{æ}" },
+            { "0x80_C6", "{ç}" },
+            { "0x80_C7", "{è}" },
+            { "0x80_C8", "{é}" },
+            { "0x80_C9", "{ê}" },
+            { "0x80_CA", "{ë}" },
+            { "0x80_CB", "{ì}" },
+            { "0x80_CC", "{í}" },
+            { "0x80_CD", "{î}" },
+            { "0x80_CE", "{ï}" },
+            { "0x80_CF", "{ð}" },
+            { "0x80_D0", "{ñ}" },
+            { "0x80_D1", "{ò}" },
+            { "0x80_D2", "{ó}" },
+            { "0x80_D3", "{ô}" },
+            { "0x80_D4", "{õ}" },
+            { "0x80_D5", "{ö}" },
+            { "0x80_D6", "{÷}" },
+            { "0x80_D7", "{ø}" },
+            { "0x80_D8", "{ù}" },
+            { "0x80_D9", "{ú}" },
+            { "0x80_DA", "{û}" },
+            { "0x80_DB", "{ü}" },
+            { "0x80_DC", "{ý}" },
+            { "0x80_DD", "{þ}" },
+            { "0x80_DE", "{ÿ}" }
+        };
+        #endregion
 
 
         public static Dictionary<(byte b1, byte b2), string> VarKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x80, 0x59), "{Var80 59}" },
-            { (0x80, 0x69), "{Var80 69}" },
-            { (0x80, 0x6E), "{Var80 6E}" },
-            { (0x80, 0x77), "{Var80 77}" },
             { (0x81, 0x40), "{Var81 40}" }, // Nothing in EN
             { (0x85, 0xA0), "{Var85 A0}" }, // Á
             { (0x85, 0xA1), "{Var85 A1}" }, // Â
@@ -297,10 +539,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0x85, 0xBB), "{Var85 BB}" },
             { (0x85, 0x80), "{Var85 80}" },
             { (0xFA, 0x20), "{VarFA 20}" },
-            { (0xFC, 0x40), "{VarFC 40}" },
-            { (0xFC, 0x41), "{VarFC 41}" },
-            { (0xFD, 0x40), "{VarFD 40}" },
-            { (0xFD, 0x41), "{VarFD 41}" },
             { (0xFF, 0x86), "{VarFF 86}" }, // Nothing in EN
             { (0xFF, 0x90), "{VarFF 90}" }, // Nothing in EN
             { (0xFF, 0x91), "{VarFF 91}" }, // Nothing in EN
@@ -311,40 +549,66 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFF, 0x9B), "{VarFF 9B}" },
             { (0xFF, 0x9D), "{VarFF 9D}" },
             { (0xFF, 0x9E), "{VarFF 9E}" },
+            { (0xFF, 0xA9), "{VarFF A9}" },
+            { (0xFF, 0xC9), "{VarFF C9}" },
+            { (0xFF, 0xD0), "{VarFF D0}" },
+            { (0xFF, 0xD3), "{VarFF D3}" },
+            { (0xFF, 0xDA), "{VarFF DA}" },
             { (0xFF, 0xE0), "{VarFF E0}" }
         };
 
 
-        // UnkSet01
-        public static Dictionary<(byte b1, byte b2), string> ShiftJISletterKeys = new Dictionary<(byte b1, byte b2), string>
+        #region Special Keys
+        // Use only for shift-jis codepage
+        public static Dictionary<(byte b1, byte b2), string> SpecialKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x80, 0xC8), "{ShJIS_80 C8}" }, // kr = é (found in kr)
-            { (0x80, 0xD2), "{ShJIS_80 D2}" }, // kr = ó (found in kr)
-            { (0xFF, 0xA9), "{ShJIS_FF A9}" }, // (found in fr)
-            { (0xFF, 0xC9), "{ShJIS_FF C9}" }, // kr = large space (found in fr, sp, kr)
-            { (0xFF, 0xD3), "{ShJIS_FF D3}" }, // (found in fr)
-            { (0xFF, 0xDA), "{ShJIS_FF DA}" }, // kr = large Space (found in ch, sp, kr)
-            { (0xFF, 0xD0), "{ShJIS_FF D0}" } // kr = large Space (found in gr, it, kr)
+            { (0xF4, 0x40), "{Entity 1}" },
+            { (0xF4, 0x41), "{Entity 2}" },
+            { (0xF4, 0x42), "{Entity 3}" },
+            { (0xF4, 0x43), "{Entity 4}" },
+
+            { (0xF6, 0x40), "{Key Entity}" },
+
+            { (0xF7, 0x40), "{Counter Type 1}" },
+            { (0xF7, 0x41), "{Counter Type 2}" },
         };
 
-
-        // UnkSet02
-        public static Dictionary<(byte b1, byte b2), string> Big5LetterKeys = new Dictionary<(byte b1, byte b2), string>
+        // Use only for euc-kr codepage
+        public static Dictionary<(byte b1, byte b2), string> KrSpecialKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xF1, 0x78), "{Big5_F1 78}" },
-            { (0xF4, 0x40), "{Big5_F4 40}" },
-            { (0xF4, 0x41), "{Big5_F4 41}" },
-            { (0xF4, 0x42), "{Big5_F4 42}" },
-            { (0xF4, 0x43), "{Big5_F4 43}" },
-            { (0xF4, 0x44), "{Big5_F4 44}" },
-            { (0xF4, 0x46), "{Big5_F4 46}" },
-            { (0xF4, 0x48), "{Big5_F4 48}" },
-            { (0xF4, 0x60), "{Big5_F4 60}" },
-            { (0xF6, 0x40), "{Big5_F6 40}" },
-            { (0xF6, 0x60), "{Big5_F6 60}" },
-            { (0xF7, 0x40), "{Big5_F7 40}" }, // displays Square
-            { (0xF7, 0x41), "{Big5_F7 41}" }, // displays Square
-            { (0xF7, 0x42), "{Big5_F7 42}" }
+            { (0xAA, 0xA1), "{Entity 1}" },
+            { (0xAA, 0xA2), "{Entity 2}" },
+            { (0xAA, 0xA3), "{Entity 3}" },
+            { (0xAA, 0xA4), "{Entity 4}" },
+
+            { (0xAB, 0xA1), "{Counter Type 1}" },
+            { (0xAB, 0xA2), "{Counter Type 2}" },
+        };
+
+        // Use only for big5 codepage
+        public static Dictionary<(byte b1, byte b2), string> ChSpecialKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xFC, 0x40), "{Entity 1}" },
+            { (0xFC, 0x41), "{Entity 2}" },
+            { (0xFC, 0x42), "{Entity 3}" },
+            { (0xFC, 0x43), "{Entity 4}" },
+
+            { (0xFD, 0x40), "{Counter Type 1}" },
+            { (0xFD, 0x41), "{Counter Type 2}" },
+        };
+        #endregion
+
+
+        // Use only for shift-jis and euc-kr codepages
+        public static Dictionary<(byte b1, byte b2), string> Var2Keys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xF1, 0x78), "{Var2_F1 78}" },
+            { (0xF4, 0x44), "{Var2_F4 44}" },
+            { (0xF4, 0x46), "{Var2_F4 46}" },
+            { (0xF4, 0x48), "{Var2_F4 48}" },
+            { (0xF4, 0x60), "{Var2_F4 60}" },
+            { (0xF6, 0x60), "{Var2_F6 60}" },
+            { (0xF7, 0x42), "{Var2_F7 42}" }
         };
     }
 }

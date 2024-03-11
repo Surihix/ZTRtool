@@ -139,9 +139,18 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && Big5LetterKeys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && Var2Keys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Big5LetterKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Var2Keys[(currentByte, nextByte)]));
+                                hasWritten = true;
+                                currentByte = 0;
+                                linesReader.BaseStream.Position += 1;
+                                li++;
+                            }
+
+                            if (!hasWritten && SpecialKeys.ContainsKey((currentByte, nextByte)))
+                            {
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SpecialKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -170,7 +179,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                     var utfDataArray = Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
 
-                    DecoderHelper.FinalizeTxtFile(utfDataArray);
+                    DecoderHelper.FinalizeTxtFile(utfDataArray, DecodedCharaKeys);
                 }
             }
         }

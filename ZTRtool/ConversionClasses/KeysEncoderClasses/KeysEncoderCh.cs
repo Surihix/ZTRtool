@@ -46,7 +46,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                     break;
             }
 
-            var charaKeysDict = BaseCharaKeys;
+            var charaKeysDict = KrChBaseCharaKeys;
 
             bool singleKeysCondition;
             bool colorKeysCondition;
@@ -54,9 +54,9 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool btnKeysCondition;
             bool varKeysCondition;
             bool charaKeysCondition;
-            bool shiftJISletterKeysCondition;
+            bool specialKeysCondition;
 
-            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray);
+            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray, KrChDecodedCharaKeys);
 
             if (Core.IsDebug)
             {
@@ -142,10 +142,10 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    shiftJISletterKeysCondition = !isKeyConverted && ShiftJISletterKeys.ContainsValue("{" + currentKey + "}");
-                                    if (shiftJISletterKeysCondition)
+                                    specialKeysCondition = !isKeyConverted && ChSpecialKeys.ContainsValue("{" + currentKey + "}");
+                                    if (specialKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(ShiftJISletterKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(ChSpecialKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
