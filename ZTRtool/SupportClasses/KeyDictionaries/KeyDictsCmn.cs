@@ -19,8 +19,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         // Use only for shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> BaseCharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x40, 0x70), "{0x40_70}" },
-            { (0x40, 0x72), "{0x40_72}" },
             { (0x85, 0x40), "{0x85_40}" },
             { (0x85, 0x42), "{0x85_42}" },
             { (0x85, 0x44), "{0x85_44}" },
@@ -40,7 +38,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0x85, 0x56), "{0x85_56}" },
             { (0x85, 0x57), "{0x85_57}" },
             { (0x85, 0x59), "{0x85_59}" },
-            { (0x85, 0x60), "{0x85_60}" },
             { (0x85, 0x5A), "{0x85_5A}" },
             { (0x85, 0x5B), "{0x85_5B}" },
             { (0x85, 0x5C), "{0x85_5C}" },
@@ -143,8 +140,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         };
         public static Dictionary<string, string> DecodedCharaKeys = new Dictionary<string, string>
         {
-            { "0x40_70", "{Text NewPage}" },
-            { "0x40_72", "{Text NewLine}" },
             { "0x85_40", "{€}" },
             { "0x85_42", "{‚}" },
             { "0x85_44", "{„}" },
@@ -169,7 +164,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { "0x85_5C", "{œ}" },
             { "0x85_5E", "{ž}" },
             { "0x85_5F", "{Ÿ}" },
-            { "0x85_60", "{Text Tab}" },
             { "0x85_61", "{¡}" },
             { "0x85_62", "{¢}" },
             { "0x85_63", "{£}" },
@@ -269,8 +263,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         // Use only for euc-kr and big5 codepages
         public static Dictionary<(byte b1, byte b2), string> KrChBaseCharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x40, 0x70), "{0x40_70}" },
-            { (0x40, 0x72), "{0x40_72}" },
             { (0x80, 0x40), "{0x80_40}" },
             { (0x80, 0x42), "{0x80_42}" },
             { (0x80, 0x44), "{0x80_44}" },
@@ -290,7 +282,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0x80, 0x56), "{0x80_56}" },
             { (0x80, 0x57), "{0x80_57}" },
             { (0x80, 0x59), "{0x80_59}" },
-            { (0x80, 0x60), "{0x80_60}" },
             { (0x80, 0x5A), "{0x80_5A}" },
             { (0x80, 0x5B), "{0x80_5B}" },
             { (0x80, 0x5C), "{0x80_5C}" },
@@ -393,8 +384,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         };
         public static Dictionary<string, string> KrChDecodedCharaKeys = new Dictionary<string, string>
         {
-            { "0x40_70", "{Text NewPage}" },
-            { "0x40_72", "{Text NewLine}" },
             { "0x80_40", "{€}" },
             { "0x80_42", "{‚}" },
             { "0x80_44", "{„}" },
@@ -419,7 +408,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { "0x80_5C", "{œ}" },
             { "0x80_5E", "{ž}" },
             { "0x80_5F", "{Ÿ}" },
-            { "0x80_60", "{Text Tab}" },
             { "0x80_61", "{¡}" },
             { "0x80_62", "{¢}" },
             { "0x80_63", "{£}" },
@@ -562,6 +550,10 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         // Use only for shift-jis codepage
         public static Dictionary<(byte b1, byte b2), string> SpecialKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0x40, 0x70), "{Text NewPage}" },
+            { (0x40, 0x72), "{Text NewLine}" },
+            { (0x85, 0x60), "{Text Tab}" },
+
             { (0xF4, 0x40), "{Entity 1}" },
             { (0xF4, 0x41), "{Entity 2}" },
             { (0xF4, 0x42), "{Entity 3}" },
@@ -576,6 +568,10 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         // Use only for euc-kr codepage
         public static Dictionary<(byte b1, byte b2), string> KrSpecialKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0x40, 0x70), "{Text NewPage}" },
+            { (0x40, 0x72), "{Text NewLine}" },
+            { (0x85, 0x60), "{Text Tab}" },
+
             { (0xAA, 0xA1), "{Entity 1}" },
             { (0xAA, 0xA2), "{Entity 2}" },
             { (0xAA, 0xA3), "{Entity 3}" },
@@ -588,6 +584,10 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChSpecialKeys = new Dictionary<(byte b1, byte b2), string>
         {
+            { (0x40, 0x70), "{Text NewPage}" },
+            { (0x40, 0x72), "{Text NewLine}" },
+            { (0x85, 0x60), "{Text Tab}" },
+
             { (0xFC, 0x40), "{Entity 1}" },
             { (0xFC, 0x41), "{Entity 2}" },
             { (0xFC, 0x42), "{Entity 3}" },
