@@ -121,15 +121,6 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && VarKeys.ContainsKey((currentByte, nextByte)))
-                            {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(VarKeys[(currentByte, nextByte)]));
-                                hasWritten = true;
-                                currentByte = 0;
-                                linesReader.BaseStream.Position += 1;
-                                li++;
-                            }
-
                             if (!hasWritten && KrChBaseCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
                                 linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrChBaseCharaKeys[(currentByte, nextByte)]));
@@ -148,9 +139,27 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                                 li++;
                             }
 
-                            if (!hasWritten && Var2Keys.ContainsKey((currentByte, nextByte)))
+                            if (!hasWritten && SimCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Var2Keys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SimCharaKeys[(currentByte, nextByte)]));
+                                hasWritten = true;
+                                currentByte = 0;
+                                linesReader.BaseStream.Position += 1;
+                                li++;
+                            }
+
+                            if (!hasWritten && UnkKeys.ContainsKey((currentByte, nextByte)))
+                            {
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UnkKeys[(currentByte, nextByte)]));
+                                hasWritten = true;
+                                currentByte = 0;
+                                linesReader.BaseStream.Position += 1;
+                                li++;
+                            }
+
+                            if (!hasWritten && Unk2Keys.ContainsKey((currentByte, nextByte)))
+                            {
+                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(Unk2Keys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;

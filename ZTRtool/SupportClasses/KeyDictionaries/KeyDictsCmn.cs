@@ -9,8 +9,8 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { 0x00, "{End}" },
             { 0x01, "{Escape}" },
             { 0x02, "{Italic}" },
-            { 0x03, "{Many}" }, // large line
-            { 0x04, "{Article}" }, // center a text?
+            { 0x03, "{StraightLine}" },
+            { 0x04, "{Article}" },
             { 0x05, "{ArticleMany}" }
         };
 
@@ -506,43 +506,37 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         #endregion
 
 
-        public static Dictionary<(byte b1, byte b2), string> VarKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> SimCharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x81, 0x40), "{Var81 40}" }, // Nothing in EN
-            { (0x85, 0xA0), "{Var85 A0}" }, // Á
-            { (0x85, 0xA1), "{Var85 A1}" }, // Â
-            { (0x85, 0xA3), "{Var85 A3}" },
-            { (0x85, 0xA5), "{Var85 A5}" },
-            { (0x85, 0xA6), "{Var85 A6}" },
-            { (0x85, 0xA7), "{Var85 A7}" },
-            { (0x85, 0xA8), "{Var85 A8}" },
-            { (0x85, 0xA9), "{Var85 A9}" },
-            { (0x85, 0xAC), "{Var85 AC}" },
-            { (0x85, 0xAD), "{Var85 AD}" },
-            { (0x85, 0xB2), "{Var85 B2}" }, // Ó
-            { (0x85, 0xB3), "{Var85 B3}" },
-            { (0x85, 0xB5), "{Var85 B5}" },
-            { (0x85, 0xB9), "{Var85 B9}" },
-            { (0x85, 0xBA), "{Var85 BA}" },
-            { (0x85, 0xBB), "{Var85 BB}" },
-            { (0x85, 0x80), "{Var85 80}" },
-            { (0xFA, 0x20), "{VarFA 20}" },
-            { (0xFF, 0x86), "{VarFF 86}" }, // Nothing in EN
-            { (0xFF, 0x90), "{VarFF 90}" }, // Nothing in EN
-            { (0xFF, 0x91), "{VarFF 91}" }, // Nothing in EN
-            { (0xFF, 0x93), "{VarFF 93}" },
-            { (0xFF, 0x94), "{VarFF 94}" },
-            { (0xFF, 0x99), "{VarFF 99}" },
-            { (0xFF, 0x9A), "{VarFF 9A}" },
-            { (0xFF, 0x9B), "{VarFF 9B}" },
-            { (0xFF, 0x9D), "{VarFF 9D}" },
-            { (0xFF, 0x9E), "{VarFF 9E}" },
-            { (0xFF, 0xA9), "{VarFF A9}" },
-            { (0xFF, 0xC9), "{VarFF C9}" },
-            { (0xFF, 0xD0), "{VarFF D0}" },
-            { (0xFF, 0xD3), "{VarFF D3}" },
-            { (0xFF, 0xDA), "{VarFF DA}" },
-            { (0xFF, 0xE0), "{VarFF E0}" }
+            { (0x85, 0x80), "{SimChara85 80}" }, // ¿
+            { (0x85, 0xA0), "{SimChara85 A0}" }, // Á
+            { (0x85, 0xA1), "{SimChara85 A1}" }, // Â
+            { (0x85, 0xA2), "{SimChara85 A2}" }, // Ã
+            { (0x85, 0xA3), "{SimChara85 A3}" }, // Ä
+            { (0x85, 0xA4), "{SimChara85 A4}" }, // Å
+            { (0x85, 0xA5), "{SimChara85 A5}" }, // Æ
+            { (0x85, 0xA6), "{SimChara85 A6}" }, // Ç
+            { (0x85, 0xA7), "{SimChara85 A7}" }, // È
+            { (0x85, 0xA8), "{SimChara85 A8}" }, // É
+            { (0x85, 0xA9), "{SimChara85 A9}" }, // Ê
+            { (0x85, 0xAA), "{SimChara85 AA}" }, // Ë
+            { (0x85, 0xAB), "{SimChara85 AB}" }, // Ì
+            { (0x85, 0xAC), "{SimChara85 AC}" }, // Í
+            { (0x85, 0xAD), "{SimChara85 AD}" }, // Î
+            { (0x85, 0xAE), "{SimChara85 AE}" }, // Ï
+            { (0x85, 0xAF), "{SimChara85 AF}" }, // Ð
+            { (0x85, 0xB0), "{SimChara85 B0}" }, // Ñ
+            { (0x85, 0xB1), "{SimChara85 B1}" }, // Ò
+            { (0x85, 0xB2), "{SimChara85 B2}" }, // Ó
+            { (0x85, 0xB3), "{SimChara85 B3}" }, // Ô
+            { (0x85, 0xB4), "{SimChara85 B4}" }, // Õ
+            { (0x85, 0xB5), "{SimChara85 B5}" }, // Ö
+            { (0x85, 0xB7), "{SimChara85 B7}" }, // Ø
+            { (0x85, 0xB8), "{SimChara85 B8}" }, // Ù
+            { (0x85, 0xB9), "{SimChara85 B9}" }, // Ú
+            { (0x85, 0xBA), "{SimChara85 BA}" }, // Û
+            { (0x85, 0xBB), "{SimChara85 BB}" }, // Ü
+            { (0x85, 0xBC), "{SimChara85 BC}" }  // Ý
         };
 
 
@@ -599,16 +593,39 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         #endregion
 
 
-        // Use only for shift-jis and euc-kr codepages
-        public static Dictionary<(byte b1, byte b2), string> Var2Keys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> UnkKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0xF1, 0x78), "{Var2_F1 78}" },
-            { (0xF4, 0x44), "{Var2_F4 44}" },
-            { (0xF4, 0x46), "{Var2_F4 46}" },
-            { (0xF4, 0x48), "{Var2_F4 48}" },
-            { (0xF4, 0x60), "{Var2_F4 60}" },
-            { (0xF6, 0x60), "{Var2_F6 60}" },
-            { (0xF7, 0x42), "{Var2_F7 42}" }
+            { (0x81, 0x40), "{Unk81 40}" },
+            { (0xFA, 0x20), "{UnkFA 20}" },
+            { (0xFF, 0x86), "{UnkFF 86}" },
+            { (0xFF, 0x90), "{UnkFF 90}" },
+            { (0xFF, 0x91), "{UnkFF 91}" },
+            { (0xFF, 0x93), "{UnkFF 93}" },
+            { (0xFF, 0x94), "{UnkFF 94}" },
+            { (0xFF, 0x99), "{UnkFF 99}" },
+            { (0xFF, 0x9A), "{UnkFF 9A}" },
+            { (0xFF, 0x9B), "{UnkFF 9B}" },
+            { (0xFF, 0x9D), "{UnkFF 9D}" },
+            { (0xFF, 0x9E), "{UnkFF 9E}" },
+            { (0xFF, 0xA9), "{UnkFF A9}" },
+            { (0xFF, 0xC9), "{UnkFF C9}" },
+            { (0xFF, 0xD0), "{UnkFF D0}" }, // SlightCenter??
+            { (0xFF, 0xD3), "{UnkFF D3}" },
+            { (0xFF, 0xDA), "{UnkFF DA}" },
+            { (0xFF, 0xE0), "{UnkFF E0}" }
+        };
+
+
+        // Use only for shift-jis and euc-kr codepages
+        public static Dictionary<(byte b1, byte b2), string> Unk2Keys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0xF1, 0x78), "{Unk2_F1 78}" },
+            { (0xF4, 0x44), "{Unk2_F4 44}" },
+            { (0xF4, 0x46), "{Unk2_F4 46}" },
+            { (0xF4, 0x48), "{Unk2_F4 48}" },
+            { (0xF4, 0x60), "{Unk2_F4 60}" },
+            { (0xF6, 0x60), "{Unk2_F6 60}" },
+            { (0xF7, 0x42), "{Unk2_F7 42}" }
         };
     }
 }
