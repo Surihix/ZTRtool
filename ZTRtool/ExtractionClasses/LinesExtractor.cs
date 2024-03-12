@@ -71,7 +71,7 @@ namespace ZTRtool.ExtractionClasses
                         linesWriter.Write((byte)32);
 
                         // Write Lines
-                        if (lineInfo.DictChunkID > prevDictChunkId)
+                        if (lineInfo.DictChunkID != prevDictChunkId)
                         {
                             changeChunk = true;
                         }
