@@ -559,22 +559,6 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xF7, 0x41), "{Counter Type 2}" },
         };
 
-        // Use only for euc-kr codepage
-        public static Dictionary<(byte b1, byte b2), string> KrSpecialKeys = new Dictionary<(byte b1, byte b2), string>
-        {
-            { (0x40, 0x70), "{Text NewPage}" },
-            { (0x40, 0x72), "{Text NewLine}" },
-            { (0x85, 0x60), "{Text Tab}" },
-
-            { (0xAA, 0xA1), "{Entity 1}" },
-            { (0xAA, 0xA2), "{Entity 2}" },
-            { (0xAA, 0xA3), "{Entity 3}" },
-            { (0xAA, 0xA4), "{Entity 4}" },
-
-            { (0xAB, 0xA1), "{Counter Type 1}" },
-            { (0xAB, 0xA2), "{Counter Type 2}" },
-        };
-
         // Use only for big5 codepage
         public static Dictionary<(byte b1, byte b2), string> ChSpecialKeys = new Dictionary<(byte b1, byte b2), string>
         {
@@ -589,6 +573,22 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
 
             { (0xFD, 0x40), "{Counter Type 1}" },
             { (0xFD, 0x41), "{Counter Type 2}" },
+        };
+
+        // Use only for euc-kr codepage
+        public static Dictionary<(byte b1, byte b2), string> KrSpecialKeys = new Dictionary<(byte b1, byte b2), string>
+        {
+            { (0x40, 0x70), "{Text NewPage}" },
+            { (0x40, 0x72), "{Text NewLine}" },
+            { (0x85, 0x60), "{Text Tab}" },
+
+            { (0xAA, 0xA1), "{Entity 1}" },
+            { (0xAA, 0xA2), "{Entity 2}" },
+            { (0xAA, 0xA3), "{Entity 3}" },
+            { (0xAA, 0xA4), "{Entity 4}" },
+
+            { (0xAB, 0xA1), "{Counter Type 1}" },
+            { (0xAB, 0xA2), "{Counter Type 2}" },
         };
         #endregion
 
