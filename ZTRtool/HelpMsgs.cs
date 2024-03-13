@@ -4,7 +4,7 @@
     {
         public static string[] ActionSwitchesArray = new string[]
         {
-            "Action Switches:", "-x = To Extract", "-c = To Convert (Uncompressed)", "-c0 = To Convert (Compressed)"
+            "Action Switches:", "-x = To Extract", "-c = To Convert (Uncompressed)", "-c2 = To Convert (Compressed)"
         };
 
 
