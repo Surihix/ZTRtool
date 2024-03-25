@@ -506,37 +506,37 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         #endregion
 
 
-        public static Dictionary<(byte b1, byte b2), string> SimCharaKeys = new Dictionary<(byte b1, byte b2), string>
+        public static Dictionary<(byte b1, byte b2), string> ExCharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
-            { (0x85, 0x80), "{SimChara85 80}" }, // ¿
-            { (0x85, 0xA0), "{SimChara85 A0}" }, // Á
-            { (0x85, 0xA1), "{SimChara85 A1}" }, // Â
-            { (0x85, 0xA2), "{SimChara85 A2}" }, // Ã
-            { (0x85, 0xA3), "{SimChara85 A3}" }, // Ä
-            { (0x85, 0xA4), "{SimChara85 A4}" }, // Å
-            { (0x85, 0xA5), "{SimChara85 A5}" }, // Æ
-            { (0x85, 0xA6), "{SimChara85 A6}" }, // Ç
-            { (0x85, 0xA7), "{SimChara85 A7}" }, // È
-            { (0x85, 0xA8), "{SimChara85 A8}" }, // É
-            { (0x85, 0xA9), "{SimChara85 A9}" }, // Ê
-            { (0x85, 0xAA), "{SimChara85 AA}" }, // Ë
-            { (0x85, 0xAB), "{SimChara85 AB}" }, // Ì
-            { (0x85, 0xAC), "{SimChara85 AC}" }, // Í
-            { (0x85, 0xAD), "{SimChara85 AD}" }, // Î
-            { (0x85, 0xAE), "{SimChara85 AE}" }, // Ï
-            { (0x85, 0xAF), "{SimChara85 AF}" }, // Ð
-            { (0x85, 0xB0), "{SimChara85 B0}" }, // Ñ
-            { (0x85, 0xB1), "{SimChara85 B1}" }, // Ò
-            { (0x85, 0xB2), "{SimChara85 B2}" }, // Ó
-            { (0x85, 0xB3), "{SimChara85 B3}" }, // Ô
-            { (0x85, 0xB4), "{SimChara85 B4}" }, // Õ
-            { (0x85, 0xB5), "{SimChara85 B5}" }, // Ö
-            { (0x85, 0xB7), "{SimChara85 B7}" }, // Ø
-            { (0x85, 0xB8), "{SimChara85 B8}" }, // Ù
-            { (0x85, 0xB9), "{SimChara85 B9}" }, // Ú
-            { (0x85, 0xBA), "{SimChara85 BA}" }, // Û
-            { (0x85, 0xBB), "{SimChara85 BB}" }, // Ü
-            { (0x85, 0xBC), "{SimChara85 BC}" }  // Ý
+            { (0x85, 0x80), "{ExChara85 80}" }, // ¿
+            { (0x85, 0xA0), "{ExChara85 A0}" }, // Á
+            { (0x85, 0xA1), "{ExChara85 A1}" }, // Â
+            { (0x85, 0xA2), "{ExChara85 A2}" }, // Ã
+            { (0x85, 0xA3), "{ExChara85 A3}" }, // Ä
+            { (0x85, 0xA4), "{ExChara85 A4}" }, // Å
+            { (0x85, 0xA5), "{ExChara85 A5}" }, // Æ
+            { (0x85, 0xA6), "{ExChara85 A6}" }, // Ç
+            { (0x85, 0xA7), "{ExChara85 A7}" }, // È
+            { (0x85, 0xA8), "{ExChara85 A8}" }, // É
+            { (0x85, 0xA9), "{ExChara85 A9}" }, // Ê
+            { (0x85, 0xAA), "{ExChara85 AA}" }, // Ë
+            { (0x85, 0xAB), "{ExChara85 AB}" }, // Ì
+            { (0x85, 0xAC), "{ExChara85 AC}" }, // Í
+            { (0x85, 0xAD), "{ExChara85 AD}" }, // Î
+            { (0x85, 0xAE), "{ExChara85 AE}" }, // Ï
+            { (0x85, 0xAF), "{ExChara85 AF}" }, // Ð
+            { (0x85, 0xB0), "{ExChara85 B0}" }, // Ñ
+            { (0x85, 0xB1), "{ExChara85 B1}" }, // Ò
+            { (0x85, 0xB2), "{ExChara85 B2}" }, // Ó
+            { (0x85, 0xB3), "{ExChara85 B3}" }, // Ô
+            { (0x85, 0xB4), "{ExChara85 B4}" }, // Õ
+            { (0x85, 0xB5), "{ExChara85 B5}" }, // Ö
+            { (0x85, 0xB7), "{ExChara85 B7}" }, // Ø
+            { (0x85, 0xB8), "{ExChara85 B8}" }, // Ù
+            { (0x85, 0xB9), "{ExChara85 B9}" }, // Ú
+            { (0x85, 0xBA), "{ExChara85 BA}" }, // Û
+            { (0x85, 0xBB), "{ExChara85 BB}" }, // Ü
+            { (0x85, 0xBC), "{ExChara85 BC}" }  // Ý
         };
 
 

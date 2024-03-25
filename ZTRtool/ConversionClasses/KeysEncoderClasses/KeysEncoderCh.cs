@@ -134,10 +134,10 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    simCharaKeysCondition = !isKeyConverted && SimCharaKeys.ContainsValue("{" + currentKey + "}");
+                                    simCharaKeysCondition = !isKeyConverted && ExCharaKeys.ContainsValue("{" + currentKey + "}");
                                     if (simCharaKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(SimCharaKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(ExCharaKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
