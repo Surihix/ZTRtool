@@ -11,8 +11,9 @@ namespace ZTRtool.ConversionClasses
             var pageIndicesList = GetPageNumbers(dataArray);
 
             bool toCompress = true;
-            (byte, byte) largestOccuringBytes;
-            int repeatingBytesCount = 0;
+
+            (byte, byte, int) largestOccuringBytes;
+            int repeatingBytesCount;
             byte largestOccuringByte1;
             byte largestOccuringByte2;
             byte pageIndex;
@@ -25,7 +26,9 @@ namespace ZTRtool.ConversionClasses
             while (toCompress)
             {
                 byteList.AddRange(dataArray);
-                largestOccuringBytes = GetLargestOccuringBytes(dataArray, ref repeatingBytesCount);
+
+                largestOccuringBytes = GetLargestOccuringBytes(dataArray);
+                repeatingBytesCount = largestOccuringBytes.Item3;
 
                 if (repeatingBytesCount < 4)
                 {
@@ -41,9 +44,6 @@ namespace ZTRtool.ConversionClasses
                 }
 
                 pageIndex = pageIndicesList[pageIndicesListPos];
-
-
-                repeatingBytesCount = 0;
 
                 dictList.Add(pageIndex);
                 dictList.Add(largestOccuringByte1);
@@ -101,72 +101,49 @@ namespace ZTRtool.ConversionClasses
         }
 
 
-        static (byte, byte) GetLargestOccuringBytes(byte[] dataArray, ref int repeatingBytesCount)
+        static (byte, byte, int) GetLargestOccuringBytes(byte[] dataArray)
         {
-            (byte, byte) largestOccuringBytes = (0, 0);
+            (byte, byte, int) largestOccuringBytes = (byte.MinValue, byte.MinValue, 0);
 
-            byte mainByte1;
-            byte mainByte2;
+            byte b1 = byte.MinValue;
+            byte b2 = byte.MinValue;
 
-            byte finderByte1;
-            byte finderByte2;
-
-            int foundAmount = 1;
-            var foundBytesDict = new Dictionary<(byte, byte), int>();
+            var checkedBytesDict = new Dictionary<(byte, byte), int>();
+            var repeatingBytesCount = 1;
+            var lastRepeatingCount = 0;
 
             for (int i = 0; i < dataArray.Length - 1; i++)
             {
-                mainByte1 = dataArray[i];
-                mainByte2 = dataArray[i + 1];
+                b1 = dataArray[i];
+                b2 = dataArray[i + 1];
 
-                if (!foundBytesDict.ContainsKey((mainByte1, mainByte2)))
+                if (!checkedBytesDict.ContainsKey((b1, b2)))
                 {
+                    checkedBytesDict.Add((b1, b2), i);
+
                     for (int j = i + 2; j < dataArray.Length; j++)
                     {
-                        finderByte1 = dataArray[j];
-
                         if (j != dataArray.Length - 1)
                         {
-                            finderByte2 = dataArray[j + 1];
-
-                            if (finderByte1 == mainByte1 && finderByte2 == mainByte2)
+                            if (b1 == dataArray[j] && b2 == dataArray[j + 1])
                             {
-                                if (foundAmount == 1)
-                                {
-                                    foundAmount++;
-                                    foundBytesDict.Add((mainByte1, mainByte2), foundAmount);
-                                    j++;
-                                }
-                                else
-                                {
-                                    foundAmount++;
-                                    foundBytesDict[(mainByte1, mainByte2)] = foundAmount;
-                                    j++;
-                                }
+                                repeatingBytesCount++;
+                                j++;
                             }
                         }
                     }
-
-                    foundAmount = 1;
                 }
-            }
 
-            int currentVal;
-            var computedVal = 0;
-            var lastComputedVal = 0;
-
-            foreach (var b in foundBytesDict)
-            {
-                currentVal = b.Value;
-                computedVal = Math.Max(computedVal, currentVal);
-
-                if (computedVal > lastComputedVal)
+                if (repeatingBytesCount > lastRepeatingCount)
                 {
-                    largestOccuringBytes = b.Key;
-                    repeatingBytesCount = b.Value;
+                    largestOccuringBytes.Item1 = b1;
+                    largestOccuringBytes.Item2 = b2;
+                    largestOccuringBytes.Item3 = repeatingBytesCount;
+
+                    lastRepeatingCount = repeatingBytesCount;
                 }
 
-                lastComputedVal = computedVal;
+                repeatingBytesCount = 1;
             }
 
             return largestOccuringBytes;
