@@ -609,7 +609,7 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFF, 0x9E), "{UnkFF 9E}" },
             { (0xFF, 0xA9), "{UnkFF A9}" },
             { (0xFF, 0xC9), "{UnkFF C9}" },
-            { (0xFF, 0xD0), "{UnkFF D0}" }, // SlightCenter??
+            { (0xFF, 0xD0), "{UnkFF D0}" },
             { (0xFF, 0xD3), "{UnkFF D3}" },
             { (0xFF, 0xDA), "{UnkFF DA}" },
             { (0xFF, 0xE0), "{UnkFF E0}" }
