@@ -17,8 +17,10 @@
 
         public static string[] EncodingSwitchesArray = new string[]
         {
-            "Encoding Switches:", "-auto = Auto determine the encoding",
-            "-ch = Chinese encoding", "-kr = Korean encoding",
+            "Encoding Switches:", 
+            "-auto = Auto determine the encoding",
+            "-ch = Chinese encoding", 
+            "-kr = Korean encoding",
             "-lj = Latin/ Japanese encoding (use for english, french, german, italian, japanese and spanish ztr files)"
         };
 
