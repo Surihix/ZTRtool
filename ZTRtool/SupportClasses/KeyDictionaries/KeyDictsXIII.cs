@@ -174,15 +174,15 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xF2, 0x47), "{Icon Water_Drop}" },
             { (0xF2, 0x48), "{Icon Datalog}" }, // KeyItems menu
             { (0xF2, 0x49), "{Icon Eidolith_Crystal}" }, // KeyItems menu
-            { (0xF2, 0x4A), "{Icon Omni-Kit}" }, // KeyItems menu
+            { (0xF2, 0x4A), "{Icon Omni_Kit}" }, // KeyItems menu
             { (0xF2, 0x4B), "{Icon Shop_Pass}" }, // KeyItems menu
             { (0xF2, 0x4C), "{Icon Synthetic_Component}" },
             { (0xF2, 0x4D), "{Icon Organic_Component}" },
             { (0xF2, 0x4E), "{Icon Catalyst_Component}" },
-            { (0xF2, 0x4F), "{Icon Bracelet}" },
-            { (0xF2, 0x50), "{Icon Ring}" },
-            { (0xF2, 0x51), "{Icon Brooch}" },
-            { (0xF2, 0x52), "{Icon Belt}" },
+            { (0xF2, 0x4F), "{Icon Accessory_Type1}" },
+            { (0xF2, 0x50), "{Icon Accessory_Type2}" },
+            { (0xF2, 0x51), "{Icon Accessory_Type3}" },
+            { (0xF2, 0x52), "{Icon Accessory_Type4}" },
             { (0xF2, 0x53), "{Icon Potion}" },
             { (0xF2, 0x54), "{Icon Container_Type1}" },
             { (0xF2, 0x55), "{Icon Container_Type2}" },
@@ -233,15 +233,15 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFB, 0x47), "{Icon Water_Drop}" },
             { (0xFB, 0x48), "{Icon Datalog}" }, // KeyItems menu
             { (0xFB, 0x49), "{Icon Eidolith_Crystal}" }, // KeyItems menu
-            { (0xFB, 0x4A), "{Icon Omni-Kit}" }, // KeyItems menu
+            { (0xFB, 0x4A), "{Icon Omni_Kit}" }, // KeyItems menu
             { (0xFB, 0x4B), "{Icon Shop_Pass}" }, // KeyItems menu
             { (0xFB, 0x4C), "{Icon Synthetic_Component}" },
             { (0xFB, 0x4D), "{Icon Organic_Component}" },
             { (0xFB, 0x4E), "{Icon Catalyst_Component}" },
-            { (0xFB, 0x4F), "{Icon Bracelet}" },
-            { (0xFB, 0x50), "{Icon Ring}" },
-            { (0xFB, 0x51), "{Icon Brooch}" },
-            { (0xFB, 0x52), "{Icon Belt}" },
+            { (0xFB, 0x4F), "{Icon Accessory_Type1}" },
+            { (0xFB, 0x50), "{Icon Accessory_Type2}" },
+            { (0xFB, 0x51), "{Icon Accessory_Type3}" },
+            { (0xFB, 0x52), "{Icon Accessory_Type4}" },
             { (0xFB, 0x53), "{Icon Potion}" },
             { (0xFB, 0x54), "{Icon Container_Type1}" },
             { (0xFB, 0x55), "{Icon Container_Type2}" },
@@ -292,15 +292,15 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFE, 0xA8), "{Icon Water_Drop}" },
             { (0xFE, 0xA9), "{Icon Datalog}" }, // KeyItems menu
             { (0xFE, 0xAA), "{Icon Eidolith_Crystal}" }, // KeyItems menu
-            { (0xFE, 0xAB), "{Icon Omni-Kit}" }, // KeyItems menu
+            { (0xFE, 0xAB), "{Icon Omni_Kit}" }, // KeyItems menu
             { (0xFE, 0xAC), "{Icon Shop_Pass}" }, // KeyItems menu
             { (0xFE, 0xAD), "{Icon Synthetic_Component}" },
             { (0xFE, 0xAE), "{Icon Organic_Component}" },
             { (0xFE, 0xAF), "{Icon Catalyst_Component}" },
-            { (0xFE, 0xB0), "{Icon Bracelet}" },
-            { (0xFE, 0xB1), "{Icon Ring}" },
-            { (0xFE, 0xB2), "{Icon Brooch}" },
-            { (0xFE, 0xB3), "{Icon Belt}" },
+            { (0xFE, 0xB0), "{Icon Accessory_Type1}" },
+            { (0xFE, 0xB1), "{Icon Accessory_Type2}" },
+            { (0xFE, 0xB2), "{Icon Accessory_Type3}" },
+            { (0xFE, 0xB3), "{Icon Accessory_Type4}" },
             { (0xFE, 0xB4), "{Icon Potion}" },
             { (0xFE, 0xB5), "{Icon Container_Type1}" },
             { (0xFE, 0xB6), "{Icon Container_Type2}" },
