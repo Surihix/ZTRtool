@@ -62,6 +62,11 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
                             for (int i = 0; i <= lineBytesLength; i++)
                             {
+                                if (unprocessedCharaReader.BaseStream.Position == lineBytesLength)
+                                {
+                                    break;
+                                }
+
                                 currentByte = unprocessedCharaReader.ReadByte();
                                 lastReadPos = unprocessedCharaReader.BaseStream.Position;
 

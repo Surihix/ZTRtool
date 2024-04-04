@@ -53,7 +53,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool iconKeysCondition;
             bool btnKeysCondition;
             bool charaKeysCondition;
-            bool simCharaKeysCondition;
+            bool exCharaKeysCondition;
             bool specialKeysCondition;
             bool unkKeysCondition;
             bool unk2KeysCondition;
@@ -83,6 +83,11 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
                             for (int i = 0; i <= lineBytesLength; i++)
                             {
+                                if (unprocessedLinesReader.BaseStream.Position == lineBytesLength)
+                                {
+                                    break;
+                                }
+
                                 currentLineByte = unprocessedLinesReader.ReadByte();
 
                                 lastReadPos = unprocessedLinesReader.BaseStream.Position;
@@ -135,8 +140,8 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    simCharaKeysCondition = !isKeyConverted && ExCharaKeys.ContainsValue("{" + currentKey + "}");
-                                    if (simCharaKeysCondition)
+                                    exCharaKeysCondition = !isKeyConverted && ExCharaKeys.ContainsValue("{" + currentKey + "}");
+                                    if (exCharaKeysCondition)
                                     {
                                         twoBytesKey = GetDictByteKey(ExCharaKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);

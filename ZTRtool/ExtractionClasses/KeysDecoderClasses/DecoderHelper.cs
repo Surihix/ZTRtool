@@ -69,8 +69,13 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                             bool charaKeysCondition;
                             var isKeyConverted = false;
 
-                            for (int i = 0; i < lineBytesLength; i++)
+                            for (int i = 0; i <= lineBytesLength; i++)
                             {
+                                if (outUTFdataReader.BaseStream.Position == lineBytesLength)
+                                {
+                                    break;
+                                }
+
                                 currentByte = outUTFdataReader.ReadByte();
                                 lastReadPos = outUTFdataReader.BaseStream.Position;
 
