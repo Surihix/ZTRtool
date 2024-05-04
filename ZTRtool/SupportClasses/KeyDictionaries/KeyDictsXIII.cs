@@ -170,12 +170,12 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xF2, 0x43), "{Icon Boomerang}" },
             { (0xF2, 0x44), "{Icon Staff}" },
             { (0xF2, 0x45), "{Icon Spear}" },
-            { (0xF2, 0x46), "{Icon Knife}" }, // KeyItems menu
+            { (0xF2, 0x46), "{Icon Knife}" }, 
             { (0xF2, 0x47), "{Icon Water_Drop}" },
-            { (0xF2, 0x48), "{Icon Datalog}" }, // KeyItems menu
-            { (0xF2, 0x49), "{Icon Eidolith_Crystal}" }, // KeyItems menu
-            { (0xF2, 0x4A), "{Icon Omni_Kit}" }, // KeyItems menu
-            { (0xF2, 0x4B), "{Icon Shop_Pass}" }, // KeyItems menu
+            { (0xF2, 0x48), "{Icon Datalog}" }, 
+            { (0xF2, 0x49), "{Icon Eidolith_Crystal}" }, 
+            { (0xF2, 0x4A), "{Icon Omni_Kit}" }, 
+            { (0xF2, 0x4B), "{Icon Shop_Pass}" }, 
             { (0xF2, 0x4C), "{Icon Synthetic_Component}" },
             { (0xF2, 0x4D), "{Icon Organic_Component}" },
             { (0xF2, 0x4E), "{Icon Catalyst_Component}" },
@@ -229,12 +229,12 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFB, 0x43), "{Icon Boomerang}" },
             { (0xFB, 0x44), "{Icon Staff}" },
             { (0xFB, 0x45), "{Icon Spear}" },
-            { (0xFB, 0x46), "{Icon Knife}" }, // KeyItems menu
+            { (0xFB, 0x46), "{Icon Knife}" }, 
             { (0xFB, 0x47), "{Icon Water_Drop}" },
-            { (0xFB, 0x48), "{Icon Datalog}" }, // KeyItems menu
-            { (0xFB, 0x49), "{Icon Eidolith_Crystal}" }, // KeyItems menu
-            { (0xFB, 0x4A), "{Icon Omni_Kit}" }, // KeyItems menu
-            { (0xFB, 0x4B), "{Icon Shop_Pass}" }, // KeyItems menu
+            { (0xFB, 0x48), "{Icon Datalog}" }, 
+            { (0xFB, 0x49), "{Icon Eidolith_Crystal}" }, 
+            { (0xFB, 0x4A), "{Icon Omni_Kit}" }, 
+            { (0xFB, 0x4B), "{Icon Shop_Pass}" }, 
             { (0xFB, 0x4C), "{Icon Synthetic_Component}" },
             { (0xFB, 0x4D), "{Icon Organic_Component}" },
             { (0xFB, 0x4E), "{Icon Catalyst_Component}" },
@@ -288,12 +288,12 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
             { (0xFE, 0xA4), "{Icon Boomerang}" },
             { (0xFE, 0xA5), "{Icon Staff}" },
             { (0xFE, 0xA6), "{Icon Spear}" },
-            { (0xFE, 0xA7), "{Icon Knife}" }, // KeyItems menu
+            { (0xFE, 0xA7), "{Icon Knife}" }, 
             { (0xFE, 0xA8), "{Icon Water_Drop}" },
-            { (0xFE, 0xA9), "{Icon Datalog}" }, // KeyItems menu
-            { (0xFE, 0xAA), "{Icon Eidolith_Crystal}" }, // KeyItems menu
-            { (0xFE, 0xAB), "{Icon Omni_Kit}" }, // KeyItems menu
-            { (0xFE, 0xAC), "{Icon Shop_Pass}" }, // KeyItems menu
+            { (0xFE, 0xA9), "{Icon Datalog}" }, 
+            { (0xFE, 0xAA), "{Icon Eidolith_Crystal}" }, 
+            { (0xFE, 0xAB), "{Icon Omni_Kit}" }, 
+            { (0xFE, 0xAC), "{Icon Shop_Pass}" }, 
             { (0xFE, 0xAD), "{Icon Synthetic_Component}" },
             { (0xFE, 0xAE), "{Icon Organic_Component}" },
             { (0xFE, 0xAF), "{Icon Catalyst_Component}" },
