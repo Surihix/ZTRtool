@@ -32,3 +32,5 @@ GameCode switches:
 
 - Special latin characters like ``À`` would also have to be put inside a `{ }` just like the encoding keys.
 - ZTR files that are named ``txtres_ck.ztr`` are all unused by the games and this tool will not extract or convert them properly.
+- For developers only. put the `-debug` switch after the ztr filename for dumping raw data of the files during the various extraction / conversion stages. for example, the following mentioned below would launch the tool in this debug state.
+<br>``ZTRtool.exe -x -ff131 -auto "txtres_us.ztr" -debug``
