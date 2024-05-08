@@ -130,7 +130,7 @@ namespace ZTRtool
                 Console.WriteLine("An exception has occured.");
                 Console.WriteLine(ex.ToString());
                 Console.ReadLine();
-                Environment.Exit(0);
+                Environment.Exit(1);
             }
         }
     }
