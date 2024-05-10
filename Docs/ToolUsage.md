@@ -32,6 +32,8 @@ GameCode switches:
 
 - Special latin characters like ``À`` would also have to be put inside a `{ }` just like the encoding keys.
 - ZTR files that are named ``txtres_ck.ztr`` are all unused by the games and this tool will not extract or convert them properly.
+- Make sure not to leave a line empty in between two lines. leaving empty lines in between would cause an exception to be thrown.
+- If you are adding new line ids for new lines in the extracted text file, then ensure that the id is added according to the alphabetical order by which the other ids appear in the text file. for instance after the id ``$auto_refa``, if your new id is ``$auto_refab_test`` then this id has to be added right after ``$auto_refa``.
 - For developers only. put the `-debug` switch after the ztr filename for dumping raw data of the files during the various extraction/conversion stages.
 <br>The following example mentioned below, would launch the tool in a debug state:
 <br>``ZTRtool.exe -x -ff131 -auto "txtres_us.ztr" -debug``
