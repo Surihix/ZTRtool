@@ -13,7 +13,7 @@ GameCode switches:
 <br>``-ff133`` Use this switch when working with 'LIGHTNING RETURNS FINAL FANATAST XIII' ztr files 
 
 <br>Encoding switches
-<br>``-auto`` Automaticall determine the encoding to use depending on the ztr/ text filename 
+<br>``-auto`` Automatically determine the encoding to use depending on the ztr/ text filename 
 <br>``-ch`` Chinese encoding. use this for chinese language ztr files. ex: txtres_ch.ztr file.
 <br>``-kr`` Korean encoding. use this for korean language ztr files. ex: txtres_kr.ztr file.
 <br>``-lj`` Latin/ Japanese encoding. use this for english, french, german, italian, japanese and spanish ztr files."
