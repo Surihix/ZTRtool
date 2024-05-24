@@ -509,6 +509,7 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         public static Dictionary<(byte b1, byte b2), string> ExCharaKeys = new Dictionary<(byte b1, byte b2), string>
         {
             { (0x85, 0x80), "{ExChara85 80}" }, // ¿
+            { (0x85, 0x97), "{ExChara85 97}" }, // ×
             { (0x85, 0xA0), "{ExChara85 A0}" }, // Á
             { (0x85, 0xA1), "{ExChara85 A1}" }, // Â
             { (0x85, 0xA2), "{ExChara85 A2}" }, // Ã
