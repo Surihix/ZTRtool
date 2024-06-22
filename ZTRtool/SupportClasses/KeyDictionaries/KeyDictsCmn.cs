@@ -558,6 +558,7 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
 
             { (0xF7, 0x40), "{Counter Type 1}" },
             { (0xF7, 0x41), "{Counter Type 2}" },
+            { (0xF7, 0x42), "{Counter Type 3}" }
         };
 
         // Use only for big5 codepage
@@ -574,6 +575,7 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
 
             { (0xFD, 0x40), "{Counter Type 1}" },
             { (0xFD, 0x41), "{Counter Type 2}" },
+            { (0xFD, 0x42), "{Counter Type 3}" }
         };
 
         // Use only for euc-kr codepage
@@ -590,6 +592,7 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
 
             { (0xAB, 0xA1), "{Counter Type 1}" },
             { (0xAB, 0xA2), "{Counter Type 2}" },
+            { (0xAB, 0xA3), "{Counter Type 3}" }
         };
         #endregion
 
@@ -598,22 +601,34 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         {
             { (0x81, 0x40), "{Unk81 40}" },
             { (0xFA, 0x20), "{UnkFA 20}" },
+            { (0xFF, 0x82), "{UnkFF 82}" },
+            { (0xFF, 0x83), "{UnkFF 83}" },
             { (0xFF, 0x86), "{UnkFF 86}" },
+            { (0xFF, 0x8F), "{UnkFF 8F}" },
             { (0xFF, 0x90), "{UnkFF 90}" },
             { (0xFF, 0x91), "{UnkFF 91}" },
             { (0xFF, 0x93), "{UnkFF 93}" },
             { (0xFF, 0x94), "{UnkFF 94}" },
+            { (0xFF, 0x96), "{UnkFF 96}" },
             { (0xFF, 0x99), "{UnkFF 99}" },
             { (0xFF, 0x9A), "{UnkFF 9A}" },
             { (0xFF, 0x9B), "{UnkFF 9B}" },
             { (0xFF, 0x9D), "{UnkFF 9D}" },
             { (0xFF, 0x9E), "{UnkFF 9E}" },
             { (0xFF, 0xA9), "{UnkFF A9}" },
+            { (0xFF, 0xB8), "{UnkFF B8}" },
             { (0xFF, 0xC9), "{UnkFF C9}" },
+            { (0xFF, 0xCC), "{UnkFF CC}" },
+            { (0xFF, 0xCE), "{UnkFF CE}" },
             { (0xFF, 0xD0), "{UnkFF D0}" },
             { (0xFF, 0xD3), "{UnkFF D3}" },
             { (0xFF, 0xDA), "{UnkFF DA}" },
-            { (0xFF, 0xE0), "{UnkFF E0}" }
+            { (0xFF, 0xDD), "{UnkFF DD}" },
+            { (0xFF, 0xE0), "{UnkFF E0}" },
+            { (0xFF, 0xE3), "{UnkFF E3}" },
+            { (0xFF, 0xE4), "{UnkFF E4}" },
+            { (0xFF, 0xE6), "{UnkFF E6}" },
+            { (0xFF, 0xF1), "{UnkFF F1}" }
         };
 
 
@@ -622,11 +637,14 @@ namespace ZTRtool.SupportClasses.KeyDictionaries
         {
             { (0xF1, 0x78), "{Unk2_F1 78}" },
             { (0xF4, 0x44), "{Unk2_F4 44}" },
+            { (0xF4, 0x45), "{Unk2_F4 45}" },
             { (0xF4, 0x46), "{Unk2_F4 46}" },
+            { (0xF4, 0x47), "{Unk2_F4 47}" },
             { (0xF4, 0x48), "{Unk2_F4 48}" },
+            { (0xF4, 0x49), "{Unk2_F4 49}" },
             { (0xF4, 0x60), "{Unk2_F4 60}" },
-            { (0xF6, 0x60), "{Unk2_F6 60}" },
-            { (0xF7, 0x42), "{Unk2_F7 42}" }
+            { (0xF5, 0x40), "{Unk2_F5 40}" },
+            { (0xF6, 0x60), "{Unk2_F6 60}" }
         };
     }
 }
