@@ -24,9 +24,10 @@ GameCode switches:
 <br>``ZTRtool.exe -c2 -ff131 -auto "txtres_us.ztr" ``
 
 ## Important Notes
+- Using notepad++ to view and edit the text is highly recommended. do ensure that you save the file in utf-8 encoding, without BOM or Byte Order Mark.
 - Use the appropriate game code and encoding switches when using this tool. this is very important and using a wrong switch can result in incorrect extraction or conversion of the text data.
 - Use the ``-lj`` encoding switch when dealing with ZTR files that use latin alphabets and japanese characters.
-- The ``-c2`` action switch is recommended only for ZTR files that need to be in a 'compressed' state. for instance the ZTR files packed inside the .bin files that being with the name `auto_`, located in the folder ``weiss_data\db\ai\npc\pack`` in LIGHTNING RETURNS FINAL FANTASY, all require the ZTR files to be in a compressed format.
+- The ``-c2`` action switch is recommended only for ZTR files that need to be in a 'compressed' state. for instance the ZTR files packed inside the .bin files that begin with the name `auto_`, located in the folder ``LIGHTNING RETURNS FINAL FANTASY\weiss_data\db\ai\npc\pack``, all require the ZTR files to be in a compressed format.
 - The extracted text file would contain special keys along with the text data. a comprehensive list of valid keys can be found in this page linked below:
 <br>https://github.com/LR-Research-Team/Datalog/wiki/Encoding-Keys-Info
 
