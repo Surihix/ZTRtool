@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using ZTRtool.ConversionClasses;
-using ZTRtool.ConversionClasses.KeysEncoderClasses;
-using static ZTRtool.SupportClasses.ZTREnums;
-using static ZTRtool.SupportClasses.ZTRFileVariables;
+using ZTRtool.Conversion;
+using ZTRtool.Conversion.EncoderHelpers;
+using static ZTRtool.Support.ZTREnums;
+using static ZTRtool.Support.ZTRFileVariables;
 
 namespace ZTRtool
 {
@@ -14,8 +14,8 @@ namespace ZTRtool
 
         public static void ConvertProcess(string inTxtFile, GameCodeSwitches gameCodeSwitch, Encoding codepageToUse, ActionSwitches actionSwitch)
         {
-            EncoderHelper.GameCode = gameCodeSwitch;
-            EncoderHelper.CodepageToUse = codepageToUse;
+            EncoderBase.GameCode = gameCodeSwitch;
+            EncoderBase.CodepageToUse = codepageToUse;
 
             var fileHeader = new FileHeader
             {
@@ -99,7 +99,7 @@ namespace ZTRtool
                 Console.WriteLine("Converting keys in lines....");
                 Console.WriteLine("");
 
-                var processedLinesArray = EncoderHelper.ConvertLines(unprocessedLinesArray);
+                var processedLinesArray = EncoderBase.ConvertLines(unprocessedLinesArray);
 
                 // Dump the lines data from
                 // the array if in debug 

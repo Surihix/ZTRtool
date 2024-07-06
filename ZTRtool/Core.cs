@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using ZTRtool.SupportClasses;
+using ZTRtool.Support;
 using ZTRtool.ZTRtool;
-using static ZTRtool.SupportClasses.ZTREnums;
+using static ZTRtool.Support.ZTREnums;
 
 namespace ZTRtool
 {
@@ -106,7 +106,7 @@ namespace ZTRtool
                 Console.WriteLine("");
                 Console.WriteLine($"Game Code set to: {gameCodeSwitch}");
 
-                Encoding codepageToUse = SetCodepage.DetermineCodepage(encodingSwitch, Path.GetFileNameWithoutExtension(inFile));
+                Encoding codepageToUse = CodepageHelper.DetermineCodepage(encodingSwitch, Path.GetFileNameWithoutExtension(inFile));
 
                 switch (actionSwitch)
                 {

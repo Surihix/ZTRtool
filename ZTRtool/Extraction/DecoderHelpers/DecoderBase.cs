@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.ZTREnums;
+using static ZTRtool.Support.ZTREnums;
 
-namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
+namespace ZTRtool.Extraction.DecoderHelpers
 {
-    internal class DecoderHelper
+    internal class DecoderBase
     {
         public static GameCodeSwitches GameCode { get; set; }
         public static Encoding CodepageToUse { get; set; }

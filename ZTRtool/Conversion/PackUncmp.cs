@@ -1,8 +1,7 @@
-﻿using BinaryWriterEx;
-using System.IO;
-using static ZTRtool.SupportClasses.ZTRFileVariables;
+﻿using System.IO;
+using static ZTRtool.Support.ZTRFileVariables;
 
-namespace ZTRtool.ConversionClasses
+namespace ZTRtool.Conversion
 {
     internal class PackUncmp
     {

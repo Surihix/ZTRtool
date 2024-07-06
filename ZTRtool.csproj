@@ -83,33 +83,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ZTRtool\ConversionClasses\CompressionHelpers.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderLJ.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderCh.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\KeysEncoderKr.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\PackCmp.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\PackIDs.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\PackUncmp.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderCh.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderKr.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\KeysDecoderLJ.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\KeysDecoderClasses\DecoderHelper.cs" />
-    <Compile Include="ZTRtool\ConversionClasses\KeysEncoderClasses\EncoderHelper.cs" />
+    <Compile Include="ZTRtool\Conversion\CompressionHelpers.cs" />
+    <Compile Include="ZTRtool\Conversion\EncoderHelpers\KeysEncoderLJ.cs" />
+    <Compile Include="ZTRtool\Conversion\EncoderHelpers\KeysEncoderCh.cs" />
+    <Compile Include="ZTRtool\Conversion\EncoderHelpers\KeysEncoderKr.cs" />
+    <Compile Include="ZTRtool\Conversion\PackCmp.cs" />
+    <Compile Include="ZTRtool\Conversion\PackIDs.cs" />
+    <Compile Include="ZTRtool\Conversion\PackUncmp.cs" />
+    <Compile Include="ZTRtool\Extraction\DecoderHelpers\KeysDecoderCh.cs" />
+    <Compile Include="ZTRtool\Extraction\DecoderHelpers\KeysDecoderKr.cs" />
+    <Compile Include="ZTRtool\Extraction\DecoderHelpers\KeysDecoderLJ.cs" />
+    <Compile Include="ZTRtool\Extraction\DecoderHelpers\DecoderBase.cs" />
+    <Compile Include="ZTRtool\Conversion\EncoderHelpers\EncoderBase.cs" />
     <Compile Include="ZTRtool\HelpMsgs.cs" />
-    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsCmn.cs" />
-    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII.cs" />
-    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII2.cs" />
-    <Compile Include="ZTRtool\SupportClasses\KeyDictionaries\KeyDictsXIII3.cs" />
-    <Compile Include="ZTRtool\SupportClasses\SetCodepage.cs" />
-    <Compile Include="ZTRtool\SupportClasses\ZTREnums.cs" />
+    <Compile Include="ZTRtool\Support\KeyDictionaries\KeyDictsCmn.cs" />
+    <Compile Include="ZTRtool\Support\KeyDictionaries\KeyDictsXIII.cs" />
+    <Compile Include="ZTRtool\Support\KeyDictionaries\KeyDictsXIII2.cs" />
+    <Compile Include="ZTRtool\Support\KeyDictionaries\KeyDictsXIII3.cs" />
+    <Compile Include="ZTRtool\Support\CodepageHelper.cs" />
+    <Compile Include="ZTRtool\Support\ZTREnums.cs" />
     <Compile Include="ZTRtool\ZTRConvert.cs" />
-    <Compile Include="ZTRtool\SupportClasses\DictionaryHelpers.cs" />
-    <Compile Include="ZTRtool\ExtractionClasses\LinesExtractor.cs" />
-    <Compile Include="ZTRtool\SupportClasses\ZTRFileVariables.cs" />
+    <Compile Include="ZTRtool\Support\DictionaryHelpers.cs" />
+    <Compile Include="ZTRtool\Extraction\LinesExtractor.cs" />
+    <Compile Include="ZTRtool\Support\ZTRFileVariables.cs" />
     <Compile Include="ZTRtool\ZTRExtract.cs" />
     <Compile Include="ZTRtool\Core.cs" />
-    <Compile Include="ZTRtool\SupportClasses\ReaderHelpers.cs" />
-    <Compile Include="ZTRtool\SupportClasses\WriterHelpers.cs" />
+    <Compile Include="ZTRtool\Support\Extensions\ReaderHelpers.cs" />
+    <Compile Include="ZTRtool\Support\Extensions\WriterHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

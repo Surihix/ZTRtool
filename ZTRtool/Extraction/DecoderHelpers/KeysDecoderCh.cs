@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using ZTRtool.SupportClasses.KeyDictionaries;
-using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
-using static ZTRtool.SupportClasses.ZTREnums;
+using ZTRtool.Support.KeyDictionaries;
+using static ZTRtool.Support.KeyDictionaries.KeyDictsCmn;
+using static ZTRtool.Support.ZTREnums;
 
-namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
+namespace ZTRtool.Extraction.DecoderHelpers
 {
     internal class KeysDecoderCh
     {
@@ -19,7 +19,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
             var iconKeysDict = new Dictionary<(byte, byte), string>();
             var btnKeysDict = new Dictionary<(byte, byte), string>();
 
-            switch (DecoderHelper.GameCode)
+            switch (DecoderBase.GameCode)
             {
                 case GameCodeSwitches.ff131:
                     colorKeysDict = KeyDictsXIII.ChColorKeys;
@@ -46,7 +46,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
             using (var linesOutMem = new MemoryStream())
             {
-                using (var linesWriterBinary = new BinaryWriter(linesOutMem, DecoderHelper.CodepageToUse))
+                using (var linesWriterBinary = new BinaryWriter(linesOutMem, DecoderBase.CodepageToUse))
                 {
                     bool isBig5Chara;
                     for (int li = 0; li < linesStreamLength; li++)
@@ -82,7 +82,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten)
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(SingleKeys[currentByte]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(SingleKeys[currentByte]));
                                 hasWritten = true;
                                 currentByte = 0;
                             }
@@ -96,7 +96,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && colorKeysDict.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(colorKeysDict[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(colorKeysDict[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -105,7 +105,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && iconKeysDict.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(iconKeysDict[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(iconKeysDict[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -114,7 +114,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && btnKeysDict.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(btnKeysDict[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(btnKeysDict[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -123,7 +123,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && KrChBaseCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(KrChBaseCharaKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(KrChBaseCharaKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -132,7 +132,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && ChSpecialKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ChSpecialKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(ChSpecialKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -141,7 +141,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && ExCharaKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(ExCharaKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(ExCharaKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -150,7 +150,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
 
                             if (!hasWritten && UnkKeys.ContainsKey((currentByte, nextByte)))
                             {
-                                linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes(UnkKeys[(currentByte, nextByte)]));
+                                linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes(UnkKeys[(currentByte, nextByte)]));
                                 hasWritten = true;
                                 currentByte = 0;
                                 linesReader.BaseStream.Position += 1;
@@ -161,7 +161,7 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         if (!hasWritten && currentByte == 255)
                         {
                             linesWriterBinary.Write((byte)123);
-                            linesWriterBinary.Write(DecoderHelper.CodepageToUse.GetBytes("FF"));
+                            linesWriterBinary.Write(DecoderBase.CodepageToUse.GetBytes("FF"));
                             linesWriterBinary.Write((byte)125);
                             hasWritten = true;
                         }
@@ -177,9 +177,9 @@ namespace ZTRtool.ExtractionClasses.KeysDecoderClasses
                         hasWritten = false;
                     }
 
-                    var utfDataArray = Encoding.Convert(DecoderHelper.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
+                    var utfDataArray = Encoding.Convert(DecoderBase.CodepageToUse, Encoding.UTF8, linesOutMem.ToArray());
 
-                    DecoderHelper.FinalizeTxtFile(utfDataArray, KrChDecodedCharaKeys);
+                    DecoderBase.FinalizeTxtFile(utfDataArray, KrChDecodedCharaKeys);
                 }
             }
         }

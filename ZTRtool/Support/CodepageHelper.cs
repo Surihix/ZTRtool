@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text;
-using static ZTRtool.SupportClasses.ZTREnums;
+using static ZTRtool.Support.ZTREnums;
 
-namespace ZTRtool.SupportClasses
+namespace ZTRtool.Support
 {
-    internal class SetCodepage
+    internal class CodepageHelper
     {
         public static Encoding DetermineCodepage(EncodingSwitches encodingSwitch, string fileNameNoExt)
         {

@@ -1,12 +1,10 @@
-﻿using BinaryReaderEx;
-using BinaryWriterEx;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ZTRtool.SupportClasses;
-using static ZTRtool.SupportClasses.ZTRFileVariables;
+using ZTRtool.Support;
+using static ZTRtool.Support.ZTRFileVariables;
 
-namespace ZTRtool.ConversionClasses
+namespace ZTRtool.Conversion
 {
     internal class PackCmp
     {

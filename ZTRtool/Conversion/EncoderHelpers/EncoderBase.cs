@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static ZTRtool.SupportClasses.DictionaryHelpers;
-using static ZTRtool.SupportClasses.ZTREnums;
+using static ZTRtool.Support.DictionaryHelpers;
+using static ZTRtool.Support.ZTREnums;
 
-namespace ZTRtool.ConversionClasses.KeysEncoderClasses
+namespace ZTRtool.Conversion.EncoderHelpers
 {
-    internal class EncoderHelper
+    internal class EncoderBase
     {
         public static GameCodeSwitches GameCode { get; set; }
         public static Encoding CodepageToUse { get; set; }

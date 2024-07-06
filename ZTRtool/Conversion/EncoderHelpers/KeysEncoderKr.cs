@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using ZTRtool.SupportClasses.KeyDictionaries;
-using static ZTRtool.SupportClasses.DictionaryHelpers;
-using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
-using static ZTRtool.SupportClasses.ZTREnums;
+using ZTRtool.Support.KeyDictionaries;
+using static ZTRtool.Support.DictionaryHelpers;
+using static ZTRtool.Support.KeyDictionaries.KeyDictsCmn;
+using static ZTRtool.Support.ZTREnums;
 
-namespace ZTRtool.ConversionClasses.KeysEncoderClasses
+namespace ZTRtool.Conversion.EncoderHelpers
 {
-    internal class KeysEncoderLJ
+    internal class KeysEncoderKr
     {
-        public static void EncodeLJ(byte[] unprocessedLinesArray)
+        public static void EncodeKr(byte[] unprocessedLinesArray)
         {
             // Declare all commonly used
             // variables
@@ -25,40 +25,40 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             var iconKeysDict = new Dictionary<(byte, byte), string>();
             var btnKeysDict = new Dictionary<(byte, byte), string>();
 
-            switch (EncoderHelper.GameCode)
+            switch (EncoderBase.GameCode)
             {
                 case GameCodeSwitches.ff131:
-                    colorKeysDict = KeyDictsXIII.ColorKeys;
-                    iconKeysDict = KeyDictsXIII.IconKeys;
-                    btnKeysDict = KeyDictsXIII.BtnKeys;
+                    colorKeysDict = KeyDictsXIII.KrColorKeys;
+                    iconKeysDict = KeyDictsXIII.KrIconKeys;
+                    btnKeysDict = KeyDictsXIII.KrBtnKeys;
                     break;
 
                 case GameCodeSwitches.ff132:
-                    colorKeysDict = KeyDictsXIII2.ColorKeys;
-                    iconKeysDict = KeyDictsXIII2.IconKeys;
-                    btnKeysDict = KeyDictsXIII2.BtnKeys;
+                    colorKeysDict = KeyDictsXIII2.KrColorKeys;
+                    iconKeysDict = KeyDictsXIII2.KrIconKeys;
+                    btnKeysDict = KeyDictsXIII2.KrBtnKeys;
                     break;
 
                 case GameCodeSwitches.ff133:
-                    colorKeysDict = KeyDictsXIII3.ColorKeys;
-                    iconKeysDict = KeyDictsXIII3.IconKeys;
-                    btnKeysDict = KeyDictsXIII3.BtnKeys;
+                    colorKeysDict = KeyDictsXIII3.KrColorKeys;
+                    iconKeysDict = KeyDictsXIII3.KrIconKeys;
+                    btnKeysDict = KeyDictsXIII3.KrBtnKeys;
                     break;
             }
 
-            var charaKeysDict = BaseCharaKeys;
+            var charaKeysDict = KrChBaseCharaKeys;
 
             bool singleKeysCondition;
             bool colorKeysCondition;
             bool iconKeysCondition;
             bool btnKeysCondition;
             bool charaKeysCondition;
-            bool exCharaKeysCondition;
+            bool simCharaKeysCondition;
             bool specialKeysCondition;
             bool unkKeysCondition;
             bool unk2KeysCondition;
 
-            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray, DecodedCharaKeys);
+            var processedBaseCharaKeysArray = EncoderBase.ProcessBaseCharaKeys(unprocessedLinesArray, KrChDecodedCharaKeys);
 
             if (Core.IsDebug)
             {
@@ -68,9 +68,9 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
             using (var unprocessedLinesStream = new MemoryStream())
             {
-                using (var unprocessedLinesReader = new BinaryReader(unprocessedLinesStream, EncoderHelper.CodepageToUse))
+                using (var unprocessedLinesReader = new BinaryReader(unprocessedLinesStream, EncoderBase.CodepageToUse))
                 {
-                    var encodingShiftedArray = Encoding.Convert(Encoding.UTF8, EncoderHelper.CodepageToUse, processedBaseCharaKeysArray);
+                    var encodingShiftedArray = Encoding.Convert(Encoding.UTF8, EncoderBase.CodepageToUse, processedBaseCharaKeysArray);
 
                     unprocessedLinesStream.Write(encodingShiftedArray, 0, encodingShiftedArray.Length);
                     unprocessedLinesStream.Seek(0, SeekOrigin.Begin);
@@ -94,7 +94,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
                                 if (currentLineByte == 123 && unprocessedLinesReader.BaseStream.Position < lineBytesLength)
                                 {
-                                    currentKey = EncoderHelper.DeriveSymbolString(unprocessedLinesReader);
+                                    currentKey = EncoderBase.DeriveSymbolString(unprocessedLinesReader);
 
                                     singleKeysCondition = !isKeyConverted && SingleKeys.ContainsValue("{" + currentKey + "}");
                                     if (singleKeysCondition)
@@ -140,8 +140,8 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    exCharaKeysCondition = !isKeyConverted && ExCharaKeys.ContainsValue("{" + currentKey + "}");
-                                    if (exCharaKeysCondition)
+                                    simCharaKeysCondition = !isKeyConverted && ExCharaKeys.ContainsValue("{" + currentKey + "}");
+                                    if (simCharaKeysCondition)
                                     {
                                         twoBytesKey = GetDictByteKey(ExCharaKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
@@ -149,10 +149,10 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                         isKeyConverted = true;
                                     }
 
-                                    specialKeysCondition = !isKeyConverted && SpecialKeys.ContainsValue("{" + currentKey + "}");
+                                    specialKeysCondition = !isKeyConverted && KrSpecialKeys.ContainsValue("{" + currentKey + "}");
                                     if (specialKeysCondition)
                                     {
-                                        twoBytesKey = GetDictByteKey(SpecialKeys, "{" + currentKey + "}");
+                                        twoBytesKey = GetDictByteKey(KrSpecialKeys, "{" + currentKey + "}");
                                         processedLinesWriter.Write(twoBytesKey.Item1);
                                         processedLinesWriter.Write(twoBytesKey.Item2);
                                         isKeyConverted = true;
@@ -199,7 +199,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                 isKeyConverted = false;
                             }
 
-                            EncoderHelper.ProcessedLinesArray = processedLinesStream.ToArray();
+                            EncoderBase.ProcessedLinesArray = processedLinesStream.ToArray();
                         }
                     }
                 }

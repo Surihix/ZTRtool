@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using ZTRtool.SupportClasses.KeyDictionaries;
-using static ZTRtool.SupportClasses.DictionaryHelpers;
-using static ZTRtool.SupportClasses.KeyDictionaries.KeyDictsCmn;
-using static ZTRtool.SupportClasses.ZTREnums;
+using ZTRtool.Support.KeyDictionaries;
+using static ZTRtool.Support.DictionaryHelpers;
+using static ZTRtool.Support.KeyDictionaries.KeyDictsCmn;
+using static ZTRtool.Support.ZTREnums;
 
-namespace ZTRtool.ConversionClasses.KeysEncoderClasses
+namespace ZTRtool.Conversion.EncoderHelpers
 {
     internal class KeysEncoderCh
     {
@@ -25,7 +25,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             var iconKeysDict = new Dictionary<(byte, byte), string>();
             var btnKeysDict = new Dictionary<(byte, byte), string>();
 
-            switch (EncoderHelper.GameCode)
+            switch (EncoderBase.GameCode)
             {
                 case GameCodeSwitches.ff131:
                     colorKeysDict = KeyDictsXIII.ChColorKeys;
@@ -57,7 +57,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
             bool specialKeysCondition;
             bool unkKeysCondition;
 
-            var processedBaseCharaKeysArray = EncoderHelper.ProcessBaseCharaKeys(unprocessedLinesArray, KrChDecodedCharaKeys);
+            var processedBaseCharaKeysArray = EncoderBase.ProcessBaseCharaKeys(unprocessedLinesArray, KrChDecodedCharaKeys);
 
             if (Core.IsDebug)
             {
@@ -67,9 +67,9 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
             using (var unprocessedLinesStream = new MemoryStream())
             {
-                using (var unprocessedLinesReader = new BinaryReader(unprocessedLinesStream, EncoderHelper.CodepageToUse))
+                using (var unprocessedLinesReader = new BinaryReader(unprocessedLinesStream, EncoderBase.CodepageToUse))
                 {
-                    var encodingShiftedArray = Encoding.Convert(Encoding.UTF8, EncoderHelper.CodepageToUse, processedBaseCharaKeysArray);
+                    var encodingShiftedArray = Encoding.Convert(Encoding.UTF8, EncoderBase.CodepageToUse, processedBaseCharaKeysArray);
 
                     unprocessedLinesStream.Write(encodingShiftedArray, 0, encodingShiftedArray.Length);
                     unprocessedLinesStream.Seek(0, SeekOrigin.Begin);
@@ -93,7 +93,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
 
                                 if (currentLineByte == 123 && unprocessedLinesReader.BaseStream.Position < lineBytesLength)
                                 {
-                                    currentKey = EncoderHelper.DeriveSymbolString(unprocessedLinesReader);
+                                    currentKey = EncoderBase.DeriveSymbolString(unprocessedLinesReader);
 
                                     singleKeysCondition = !isKeyConverted && SingleKeys.ContainsValue("{" + currentKey + "}");
                                     if (singleKeysCondition)
@@ -189,7 +189,7 @@ namespace ZTRtool.ConversionClasses.KeysEncoderClasses
                                 isKeyConverted = false;
                             }
 
-                            EncoderHelper.ProcessedLinesArray = processedLinesStream.ToArray();
+                            EncoderBase.ProcessedLinesArray = processedLinesStream.ToArray();
                         }
                     }
                 }

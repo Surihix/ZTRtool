@@ -1,12 +1,11 @@
-﻿using BinaryReaderEx;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ZTRtool.ExtractionClasses.KeysDecoderClasses;
-using ZTRtool.SupportClasses;
-using static ZTRtool.SupportClasses.ZTRFileVariables;
+using ZTRtool.Extraction.DecoderHelpers;
+using ZTRtool.Support;
+using static ZTRtool.Support.ZTRFileVariables;
 
-namespace ZTRtool.ExtractionClasses
+namespace ZTRtool.Extraction
 {
     internal class LinesExtractor
     {
@@ -174,7 +173,7 @@ namespace ZTRtool.ExtractionClasses
                         File.WriteAllBytes(rawBinFile, linesStream.ToArray());
                     }
 
-                    DecoderHelper.DecodingProcess(linesStream);
+                    DecoderBase.DecodingProcess(linesStream);
                 }
             }
         }

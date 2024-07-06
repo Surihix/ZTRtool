@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace ZTRtool.SupportClasses
+namespace ZTRtool.Support
 {
     internal class DictionaryHelpers
     {

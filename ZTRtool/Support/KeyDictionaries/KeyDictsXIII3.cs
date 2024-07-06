@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ZTRtool.SupportClasses.KeyDictionaries
+namespace ZTRtool.Support.KeyDictionaries
 {
     internal class KeyDictsXIII3
     {

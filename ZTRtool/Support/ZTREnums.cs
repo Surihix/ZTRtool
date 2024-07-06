@@ -1,4 +1,4 @@
-﻿namespace ZTRtool.SupportClasses
+﻿namespace ZTRtool.Support
 {
     internal class ZTREnums
     {

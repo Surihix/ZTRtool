@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ZTRtool.ConversionClasses
+namespace ZTRtool.Conversion
 {
     internal class CompressionHelpers
     {
