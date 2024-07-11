@@ -15,8 +15,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Convert_TestArea)|Any CPU.ActiveCfg = Debug (Convert_TestArea)|Any CPU
 		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Convert_TestArea)|Any CPU.Build.0 = Debug (Convert_TestArea)|Any CPU
-		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract_TestArea)|Any CPU.ActiveCfg = Debug (Extract)|Any CPU
-		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract_TestArea)|Any CPU.Build.0 = Debug (Extract)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract_TestArea)|Any CPU.ActiveCfg = Debug (Extract_TestArea)|Any CPU
+		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug (Extract_TestArea)|Any CPU.Build.0 = Debug (Extract_TestArea)|Any CPU
 		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5543911D-69EB-431C-939E-4D8C9F4E1BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
