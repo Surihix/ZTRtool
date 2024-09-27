@@ -20,8 +20,8 @@ GameCode switches:
 
 <br>Commandline usage examples:
 <br>``ZTRtool.exe -x -ff131 -auto "txtres_us.ztr" ``
-<br>``ZTRtool.exe -c -ff131 -auto "txtres_us.ztr" ``
-<br>``ZTRtool.exe -c2 -ff131 -auto "txtres_us.ztr" ``
+<br>``ZTRtool.exe -c -ff131 -auto "txtres_us.txt" ``
+<br>``ZTRtool.exe -c2 -ff131 -auto "txtres_us.txt" ``
 
 ## Important Notes
 - Using notepad++ to view and edit the text is highly recommended. do ensure that you save the file in utf-8 encoding, without BOM or Byte Order Mark.
